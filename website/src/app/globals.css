@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #e0ecef;
+  --color-primary-100: #b3cdd6;
+  --color-primary-200: #80abb9;
+  --color-primary-300: #4d899b;
+  --color-primary-400: #0c3c4c;
+  --color-primary-500: #0a3240;
+  --color-primary-600: #082833;
+  --color-primary-700: #061e26;
+  --color-primary-800: #04141a;
+  --color-primary-900: #020a0d;
+
+  --color-gold-50: #fdfaf7;
+  --color-gold-100: #f8f1e6;
+  --color-gold-200: #eedbcc;
+  --color-gold-300: #c0a483;
+  --color-gold-400: #ae906c;
+  --color-gold-500: #8f7253;
+  --color-gold-600: #6f543a;
+
+  --color-cream-50: #fefcf9;
+  --color-cream-100: #fdf9f2;
+  --color-cream-200: #faf3e5;
+  --color-cream-300: #f5e9d4;
+  --color-cream-400: #e8d5b5;
+
+  --color-dark-700: #2c3e42;
+  --color-dark-800: #1e2d31;
+  --color-dark-900: #152024;
+
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
+  --font-accent: "Allura", cursive;
+
+  --tracking-luxury: 0.15em;
+
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-fade-up: fadeUp 0.8s ease-out forwards;
+  --animate-fade-left: fadeLeft 0.8s ease-out forwards;
+  --animate-fade-right: fadeRight 0.8s ease-out forwards;
+  --animate-scale-in: scaleIn 0.6s ease-out forwards;
+  --animate-slide-down: slideDown 0.5s ease-out forwards;
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes fadeRight {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes scaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #4f4b46;
+  background-color: #fffdfa;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #f1be7e;
+  color: #1a2a30;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfaf7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7398a4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5f8794;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.section-padding {
+  @apply px-4 sm:px-6 lg:px-8 xl:px-16;
+}
+
+.container-custom {
+  @apply mx-auto max-w-7xl;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 60, 76, 0.7) 0%,
+    rgba(12, 60, 76, 0.3) 40%,
+    rgba(12, 60, 76, 0.5) 100%
+  );
+}
+
+.gold-line {
+  width: 60px;
+  height: 1px;
+  background: #c0a483;
+}
+
+.gold-line-center {
+  width: 60px;
+  height: 1px;
+  background: #c0a483;
+  margin: 0 auto;
+}
+
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+.card-lift {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(12, 60, 76, 0.15);
+}
+
+.parallax-slow {
+  will-change: transform;
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c0a483;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-[8px] border border-primary-400 bg-primary-400 px-8 py-[10px] text-[13px] font-medium uppercase tracking-wider text-white transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-transparent text-primary-400;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-[8px] border border-gold-300 px-8 py-[10px] text-[13px] font-medium uppercase tracking-wider text-gold-300 transition-all duration-300;
+}
+
+.btn-outline:hover {
+  @apply bg-gold-300 text-white;
+}
+
+.section-label {
+  @apply text-sm uppercase text-gold-400;
+  font-family: var(--font-accent);
+  letter-spacing: 0.08em;
+}
+
+.section-title {
+  @apply text-3xl font-medium text-dark-800 md:text-4xl lg:text-5xl;
+  font-family: var(--font-heading);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.ph-container {
+  @apply mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8;
+}
+
+.ph-eyebrow {
+  color: #e2bc7a;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.ph-title {
+  font-family: var(--font-heading);
+  color: #6b95a2;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+  font-weight: 600;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.ph-script {
+  font-family: var(--font-accent);
+  color: #e2bc7a;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  line-height: 1;
+}
+
+.ph-button {
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5dac7;
+  border-radius: 8px;
+  background: #fffdfa;
+  color: #6d6861;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  min-height: 42px;
+  padding: 0 24px;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ph-button:hover {
+  background: #7398a4;
+  border-color: #7398a4;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.ph-marquee {
+  animation: ph-marquee 28s linear infinite;
+}
+
+@keyframes ph-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
