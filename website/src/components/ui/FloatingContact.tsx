@@ -14,11 +14,7 @@ export default function FloatingContact() {
         className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_10px_25px_rgba(0,0,0,0.18)]"
         aria-label="Zalo"
       >
-        <img
-          src="https://phogiadecor.vn/wp-content/themes/phogiav3/images/icon-zalo.svg"
-          alt="Zalo"
-          className="h-7 w-7"
-        />
+        <img src={PHO_GIA_COMPANY.zaloIcon} alt="Zalo" className="h-7 w-7" />
       </a>
       <a
         href="#consultation"

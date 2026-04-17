@@ -112,12 +112,6 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -269,58 +263,301 @@ body {
   font-family: var(--font-heading);
 }
 
+.ph-section {
+  padding-block: 72px;
+}
+
+.ph-section-tight {
+  padding-block: 56px;
+}
+
+.ph-section-band {
+  background: #fffdfa;
+}
+
 .ph-container {
-  @apply mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8;
+  width: min(calc(100% - 32px), 1180px);
+  margin-inline: auto;
+}
+
+.ph-container-wide {
+  width: min(calc(100% - 32px), 1360px);
+  margin-inline: auto;
+}
+
+.ph-section-header {
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .ph-eyebrow {
   color: #e2bc7a;
   font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
 }
 
 .ph-title {
   font-family: var(--font-heading);
   color: #6b95a2;
-  font-size: clamp(2rem, 4vw, 3.7rem);
+  font-size: 2.4rem;
   font-weight: 600;
-  line-height: 0.95;
+  line-height: 0.98;
   text-transform: uppercase;
 }
 
 .ph-script {
   font-family: var(--font-accent);
   color: #e2bc7a;
-  font-size: clamp(2rem, 3vw, 3.1rem);
+  font-size: 2.35rem;
   line-height: 1;
 }
 
-.ph-button {
+.ph-button,
+.ph-about-button {
   align-items: center;
-  justify-content: center;
-  border: 1px solid #e5dac7;
-  border-radius: 8px;
+  min-height: 56px;
+  min-width: 190px;
+  gap: 18px;
+  border: 1px solid #e5e1dc;
+  border-radius: 999px;
   background: #fffdfa;
-  color: #6d6861;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  min-height: 42px;
-  padding: 0 24px;
+  color: #312c28;
+  font-size: 13px;
+  font-weight: 600;
+  justify-content: center;
+  padding: 0 26px 0 20px;
+  text-decoration: none;
   text-transform: uppercase;
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
     border-color 0.25s ease,
+    box-shadow 0.25s ease,
     transform 0.25s ease;
 }
 
-.ph-button:hover {
-  background: #7398a4;
-  border-color: #7398a4;
-  color: white;
+.ph-button::before {
+  background: url("/phogia/brand/logo_symbol_gold.svg") no-repeat center center;
+  background-size: contain;
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  height: 28px;
+  width: 28px;
+}
+
+.ph-button:hover,
+.ph-about-button:hover {
+  border-color: #dfc8a8;
+  box-shadow: 0 10px 22px rgb(115 93 63 / 0.1);
   transform: translateY(-1px);
+}
+
+.ph-about-button img {
+  flex: 0 0 auto;
+}
+
+.ph-process-section {
+  overflow: hidden;
+  padding: 80px 0 40px;
+}
+
+.ph-process-header {
+  margin-inline: auto;
+  max-width: 980px;
+  text-align: center;
+}
+
+.ph-process-title {
+  color: #6b95a2;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.ph-process-flow {
+  padding-top: 15px;
+}
+
+.ph-process-flow-desktop,
+.ph-process-flow-mobile {
+  display: block;
+  height: auto;
+}
+
+.ph-process-flow-desktop {
+  margin-inline: auto;
+  max-width: 1920px;
+  width: 100%;
+}
+
+.ph-process-flow-mobile {
+  margin-left: -15%;
+  max-width: none;
+  width: calc(100% + 15%);
+}
+
+.ph-process-button {
+  position: relative;
+}
+
+.ph-process-button-inner {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.ph-process-button-thumb {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ph-process-consultation-thumb {
+  display: block;
+  width: min(72vw, 440px);
+}
+
+.ph-process-button-cta {
+  margin-top: 24px;
+}
+
+.ph-trust-section {
+  padding-block: 72px 82px;
+}
+
+.ph-trust-heading {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.ph-trust-grid {
+  display: grid;
+  gap: 56px;
+  margin-top: 54px;
+}
+
+.ph-trust-item {
+  min-height: 128px;
+  position: relative;
+}
+
+.ph-trust-title {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.12;
+  padding: 0 62px 24px 0;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.ph-trust-title::before {
+  background: rgb(255 255 255 / 0.35);
+  bottom: -0.5px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: calc(100% - 45px);
+}
+
+.ph-trust-title::after {
+  background: url("/phogia/icons/arrow_right_trust.svg") no-repeat center center;
+  background-size: contain;
+  bottom: -38px;
+  content: "";
+  height: 76px;
+  position: absolute;
+  right: 0;
+  width: 54px;
+}
+
+.ph-trust-description {
+  color: rgb(255 255 255 / 0.9);
+  font-size: 15px;
+  line-height: 1.85;
+  margin-top: 20px;
+  max-width: 560px;
+}
+
+.ph-scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255 255 255 / 0.72);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.ph-scroll-indicator:hover {
+  color: rgb(255 255 255 / 0.95);
+}
+
+.ph-scroll-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.ph-scroll-chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 32px;
+  margin-top: 12px;
+}
+
+.ph-scroll-chevrons span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  opacity: 0;
+  transform: translateY(-6px) rotate(45deg);
+  animation: ph-scroll-chevron 1.7s ease-in-out infinite;
+}
+
+.ph-scroll-chevrons span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.ph-scroll-chevrons span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes ph-scroll-chevron {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) rotate(45deg);
+  }
+  35% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px) rotate(45deg);
+  }
 }
 
 .ph-marquee {
@@ -333,5 +570,118 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 640px) {
+  .ph-container,
+  .ph-container-wide {
+    width: min(calc(100% - 48px), 1180px);
+  }
+
+  .ph-container-wide {
+    width: min(calc(100% - 48px), 1360px);
+  }
+
+  .ph-title {
+    font-size: 3.25rem;
+  }
+
+  .ph-script {
+    font-size: 2.75rem;
+  }
+
+  .ph-process-title {
+    font-size: 3.2rem;
+  }
+
+  .ph-trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 78px;
+    row-gap: 64px;
+  }
+
+  .ph-trust-heading {
+    font-size: 2.65rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ph-section {
+    padding-block: 104px;
+  }
+
+  .ph-section-tight {
+    padding-block: 72px;
+  }
+
+  .ph-container,
+  .ph-container-wide {
+    width: min(calc(100% - 72px), 1180px);
+  }
+
+  .ph-container-wide {
+    width: min(calc(100% - 72px), 1360px);
+  }
+
+  .ph-title {
+    font-size: 4rem;
+  }
+
+  .ph-script {
+    font-size: 3rem;
+  }
+
+  .ph-process-section {
+    padding: 80px 0 0;
+  }
+
+  .ph-process-title {
+    font-size: 4rem;
+  }
+
+  .ph-process-button-inner {
+    margin-top: -140px;
+    padding-left: 46.5%;
+  }
+
+  .ph-process-button-thumb {
+    transform: translateX(-100%);
+  }
+
+  .ph-process-consultation-thumb {
+    max-width: none;
+    width: min(40vw, 440px);
+  }
+
+  .ph-process-button-cta {
+    bottom: 20%;
+    left: calc(100% + 95px);
+    margin-top: 0;
+    position: absolute;
+  }
+
+  .ph-trust-section {
+    padding-block: 84px 104px;
+  }
+
+  .ph-trust-heading {
+    font-size: 3.15rem;
+  }
+
+  .ph-trust-title {
+    font-size: 2.05rem;
+  }
+
+  .ph-scroll-indicator {
+    bottom: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ph-scroll-chevrons span {
+    animation: none;
+    opacity: 0.75;
+    transform: rotate(45deg);
   }
 }
