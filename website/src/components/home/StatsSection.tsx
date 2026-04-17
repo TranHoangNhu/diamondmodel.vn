@@ -9,7 +9,8 @@ import { SectionHeading } from "./SharedComponents";
 type ValueItem = (typeof PHO_GIA_VALUES)[number];
 
 const VALUE_LAYOUT: Array<
-  ValueItem & {
+  Omit<ValueItem, "label"> & {
+    label: string;
     className: string;
     sizeClass: string;
   }
