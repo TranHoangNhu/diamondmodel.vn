@@ -5,21 +5,18 @@ export const PHO_GIA_COMPANY = {
   phoneHref: "0909490585",
   email: "info@phogiadecor.vn",
   zalo: "https://zalo.me/0909490585",
-  logo: "https://phogiadecor.vn/wp-content/themes/phogiav3/images/logo.svg",
-  heroVideo:
-    "https://phogiadecor.vn/wp-content/uploads/2023/02/PHO-GIA-DECOR-2023.mp4?t=1776353633",
-  heroPoster: "https://phogiadecor.vn/wp-content/uploads/2022/04/banner-lf.jpg",
-  yearsBadge: "https://phogiadecor.vn/wp-content/uploads/2021/05/9_Years.svg",
-  missionImage: "https://phogiadecor.vn/wp-content/uploads/2025/03/9-years-img-1.webp",
-  trustImage: "https://phogiadecor.vn/wp-content/uploads/2025/03/trust-img.webp",
-  processDesktop:
-    "https://phogiadecor.vn/wp-content/uploads/2022/03/process_phogia_home_pc.svg",
-  processMobile:
-    "https://phogiadecor.vn/wp-content/uploads/2022/03/process_phogia_home_mob.svg",
-  processThumb: "https://phogiadecor.vn/wp-content/uploads/2025/03/procedure-home.webp",
-  statsBackground:
-    "https://phogiadecor.vn/wp-content/uploads/2022/04/value-customer-01.webp",
-  footerBadge: "https://tinnhiemmang.vn/handle_cert?id=phogiadecor.vn",
+  logo: "/phogia/brand/logo.svg",
+  zaloIcon: "/phogia/brand/icon-zalo.svg",
+  heroVideo: "/phogia/home/PHO-GIA-DECOR-2023.mp4",
+  heroPoster: "/phogia/home/banner-lf.jpg",
+  yearsBadge: "/phogia/home/9_Years.svg",
+  missionImage: "/phogia/home/9-years-img-1.webp",
+  trustImage: "/phogia/home/trust-img.webp",
+  processDesktop: "/phogia/home/process_phogia_home_pc.svg",
+  processMobile: "/phogia/home/process_phogia_home_mob.svg",
+  processThumb: "/phogia/home/procedure-home.webp",
+  statsBackground: "/phogia/home/value-customer-01.webp",
+  footerBadge: "/phogia/brand/tinnhiemmang-cert.png",
   facebook: "https://www.facebook.com/phogiadecor.vn",
   youtube: "https://www.youtube.com/channel/UCWjXVgC9Khzcp4JMxE0eUsA",
   addresses: [
@@ -47,9 +44,12 @@ export const PHO_GIA_COMPANY = {
     },
   ],
   policies: [
-    { label: "Chính sách bảo hành, bảo trì", href: "#" },
-    { label: "Chính sách bảo mật", href: "#" },
-    { label: "Phố Gia trên Google News", href: "#" },
+    { label: "Chính sách bảo hành, bảo trì", href: "https://phogiadecor.vn/chinh-sach-bao-hanh-bao-tri" },
+    { label: "Chính sách bảo mật", href: "https://phogiadecor.vn/chinh-sach-bao-mat" },
+    {
+      label: "Phố Gia trên Google News",
+      href: "https://news.google.com/publications/CAAqBwgKMPfWtwswhPLOAw?hl=vi&gl=VN&ceid=VN:vi",
+    },
   ],
 } as const;
 
@@ -99,10 +99,10 @@ type ProjectGroup = {
   eyebrow: string;
   title: string;
   cta: string;
-  items: ProjectItem[];
+  items: readonly ProjectItem[];
 };
 
-export const PHO_GIA_PROJECTS: ProjectGroup[] = [
+export const PHO_GIA_PROJECTS = [
   {
     id: "design-apartment",
     eyebrow: "Công trình thiết kế",
@@ -111,48 +111,42 @@ export const PHO_GIA_PROJECTS: ProjectGroup[] = [
     items: [
       {
         title: "Nội thất Căn hộ Sunrise Riverside 2PN - Không gian tổ ấm tươi mát",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/06/thiet-ke-noi-that-Sunrise-Riverside-2pn-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-Sunrise-Riverside-2pn-thumb-458x250.jpg",
         meta1: "Diện tích: 70M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Nội thất Căn hộ Eco Green 2PN - Japandi mộc mạc, thư thái",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thiet-ke-noi-that-ch-eco-green-72m2-japandi-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-ch-eco-green-72m2-japandi-thumb-458x250.jpg",
         meta1: "Diện tích: 72M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Nội thất Căn hộ Richmond City 2PN - Japandi thư thái, bình yên",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thiet-ke-noi-that-Richmond-City-73M2-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-Richmond-City-73M2-thumb-458x250.jpg",
         meta1: "Diện tích: 73M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Thiết kế nội thất Căn hộ Cosmo City Q.7 72m2",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thiet-ke-noi-that-Cosmo-City-Q7-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-Cosmo-City-Q7-thumb-458x250.jpg",
         meta1: "Diện tích: 72M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Thiết kế nội thất Căn hộ Palm Heights 2PN Japandi thư giãn, ấm áp",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thiet-ke-noi-that-can-ho-palm-heights-2pn-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-can-ho-palm-heights-2pn-thumb-458x250.jpg",
         meta1: "Diện tích: 80M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Thiết kế nội thất Căn hộ Eco Green Q.7 2PN",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thiet-ke-noi-that-ch-Eco-Green-q7-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-ch-Eco-Green-q7-thumb-458x250.jpg",
         meta1: "Diện tích: 66M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
@@ -167,48 +161,42 @@ export const PHO_GIA_PROJECTS: ProjectGroup[] = [
     items: [
       {
         title: "Thiết kế nội thất villa Vạn Phúc City Gỗ Tự Nhiên Sang Trọng",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2020/09/thiet-ke-noi-that-village-van-phuc-city-tan-co-dien-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-village-van-phuc-city-tan-co-dien-thumb-458x250.jpg",
         meta1: "Diện tích: 220M2",
         meta2: "Quy mô: 1 Trệt, 1 Lầu",
         meta2Type: "scale",
       },
       {
         title: "THIẾT KẾ NỘI THẤT BIỆT THỰ THẢO ĐIỀN QUẬN 2",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2019/09/thiet-ke-villa-nha-pho-thao-dien-quan-2-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-villa-nha-pho-thao-dien-quan-2-thumb-458x250.jpg",
         meta1: "Diện tích: 200M2",
         meta2: "Quy mô: 1 Trệt, 2 Lầu",
         meta2Type: "scale",
       },
       {
         title: "THIẾT KẾ NỘI THẤT VILLA LIỀN KỀ BÌNH DƯƠNG",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2021/05/thiet-ke-noi-that-villa-lien-ke-binh-duong-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-villa-lien-ke-binh-duong-thumb-458x250.jpg",
         meta1: "Diện tích: 320M2",
         meta2: "Quy mô: 1 Trệt, 2 Lầu",
         meta2Type: "scale",
       },
       {
         title: "Thiết kế nội thất phòng ngủ Villa Vạn Phúc City sang trọng",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2020/09/thiet-ke-noi-that-phong-ngu-village-van-phuc-city-sang-trong-thumb-2-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-phong-ngu-village-van-phuc-city-sang-trong-thumb-2-458x250.jpg",
         meta1: "Diện tích: 90M2",
         meta2: "Quy mô: 2 Lầu",
         meta2Type: "scale",
       },
       {
         title: "Thiết kế nội thất nhà phố Vạn Phúc City sang trọng",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2020/08/thiet-ke-noi-that-nha-pho-van-phuc-city-sang-trong-7-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-nha-pho-van-phuc-city-sang-trong-7-458x250.jpg",
         meta1: "Diện tích: M2",
         meta2: "Quy mô:",
         meta2Type: "scale",
       },
       {
         title: "THIẾT KẾ NỘI THẤT LAKEVIEW CITY QUẬN 2",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2020/05/thiet-ke-noi-that-lakeview-city-quan-2-thumb-458x250.jpg",
+        image: "/phogia/projects/thiet-ke-noi-that-lakeview-city-quan-2-thumb-458x250.jpg",
         meta1: "Diện tích: 94M2",
         meta2: "Quy mô:",
         meta2Type: "scale",
@@ -223,96 +211,103 @@ export const PHO_GIA_PROJECTS: ProjectGroup[] = [
     items: [
       {
         title: "Thi Công Nội Thất Sunwah Pearl 2 Phòng Ngủ",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/Thi-cong-noi-that-SUNWAH-PEARL-2pn-thumb-458x250.jpg",
+        image: "/phogia/projects/Thi-cong-noi-that-SUNWAH-PEARL-2pn-thumb-458x250.jpg",
         meta1: "Diện tích: 76M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Thi Công Nội Thất Căn hộ New City Q.2",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thi-cong-noi-that-can-ho-New-City-thu-thiem-thumb-458x250.jpg",
+        image: "/phogia/projects/thi-cong-noi-that-can-ho-New-City-thu-thiem-thumb-458x250.jpg",
         meta1: "Diện tích: 62M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Thi Công Nội Thất căn hộ Safira Khang Điền 3 Phòng Ngủ",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/thi-cong-Safira-Khang-Dien-3pn-thumb-458x250.jpg",
+        image: "/phogia/projects/thi-cong-Safira-Khang-Dien-3pn-thumb-458x250.jpg",
         meta1: "Diện tích: 90M2",
         meta2: "Phòng ngủ: 3",
         meta2Type: "bedroom",
       },
       {
         title: "Thi Công Nội Thất căn hộ Vinhomes Grand Park 2 Phòng Ngủ",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2025/05/Thi-cong-noi-that-Vinhomes-Grand-Park-q9-2pn-thumb-458x250.jpg",
+        image: "/phogia/projects/Thi-cong-noi-that-Vinhomes-Grand-Park-q9-2pn-thumb-458x250.jpg",
         meta1: "Diện tích: 76M2",
         meta2: "Phòng ngủ: 2",
         meta2Type: "bedroom",
       },
       {
         title: "Thi Công Nội Thất Nhà Phố Bình Dương Phong cách Tối Giản, Mộc Mạc",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2023/08/thi-cong-nha-pho-binh-duong-toi-gian-moc-mac-thumb-458x250.jpg",
+        image: "/phogia/projects/thi-cong-nha-pho-binh-duong-toi-gian-moc-mac-thumb-458x250.jpg",
         meta1: "Diện tích: 220M2",
         meta2: "Quy mô: 1 Trệt, 1 Lầu",
         meta2Type: "scale",
       },
       {
         title: "Thi Công Nội Thất Penthouse Phú Mỹ Hưng hiện đại, sang trọng",
-        image:
-          "https://phogiadecor.vn/wp-content/uploads/2022/09/thi-cong-noi-that-penthouse-phu-my-hung-phogia-thumb-458x250.jpg",
+        image: "/phogia/projects/thi-cong-noi-that-penthouse-phu-my-hung-phogia-thumb-458x250.jpg",
         meta1: "Diện tích: 228M2",
         meta2: "Phòng ngủ: 3",
         meta2Type: "bedroom",
       },
     ],
   },
-] as const;
+] as const satisfies readonly ProjectGroup[];
 
 export const PHO_GIA_VALUES = [
-  { label: "Khách hàng", value: "350+", tone: "gold" },
-  { label: "Dự án thiết kế", value: "400+", tone: "light" },
-  { label: "Dự án thi công", value: "380+", tone: "light" },
-  { label: "Công trình tiêu biểu", value: "18", tone: "light" },
+  { label: "Khách hàng", value: "350+", image: "/phogia/home/value-customer-01.webp" },
+  { label: "Dự án thiết kế", value: "400+", image: "/phogia/home/value-design-02.webp" },
+  { label: "Dự án thi công", value: "380+", image: "/phogia/home/value-build-03.webp" },
+  { label: "Công trình tiêu biểu", value: "18", image: "/phogia/home/value-special-04.webp" },
 ] as const;
 
 export const PHO_GIA_VIDEOS = [
   {
     title: "QUY TRÌNH SẢN XUẤT TẠI XƯỞNG PHỐ GIA DECOR",
-    image: "https://phogiadecor.vn/wp-content/uploads/2019/04/BANNER-CHINH.jpg",
+    image: "/phogia/videos/BANNER-CHINH.jpg",
+    href: "https://youtu.be/87aKui2Cl-g",
   },
   {
     title: "QUÁ TRÌNH THI CÔNG TẠI CÔNG TRÌNH",
-    image: "https://img.youtube.com/vi/izPEwzhK04g/hqdefault.jpg",
+    image: "/phogia/videos/izPEwzhK04g-hqdefault.jpg",
+    href: "https://youtu.be/izPEwzhK04g",
   },
   {
     title: "TRẢI NGHIỆM KHÁCH HÀNG PHỐ GIA",
-    image: "https://phogiadecor.vn/wp-content/uploads/2023/03/trai-nghiem-kh-video-thumb.jpg",
+    image: "/phogia/videos/trai-nghiem-kh-video-thumb.jpg",
+    href: "https://vimeo.com/803366386",
   },
 ] as const;
 
 export const PHO_GIA_PRESS_LOGOS = [
-  "https://phogiadecor.vn/wp-content/uploads/2022/05/logo-bao-tien-phong.jpg",
-  "https://phogiadecor.vn/wp-content/uploads/2022/08/bao-24h-com-vn.jpg",
-  "https://phogiadecor.vn/wp-content/uploads/2022/08/nguoi-dua-tin.jpg",
-  "https://phogiadecor.vn/wp-content/uploads/2022/08/bao-xay-dung-1.jpg",
-  "https://phogiadecor.vn/wp-content/uploads/2022/05/ha-noi-moi.png",
-  "https://phogiadecor.vn/wp-content/uploads/2022/08/logo-tri-thuc-moi_2021_05_12.png",
+  "/phogia/press/logo-bao-tien-phong.jpg",
+  "/phogia/press/bao-24h-com-vn.jpg",
+  "/phogia/press/nguoi-dua-tin.jpg",
+  "/phogia/press/bao-xay-dung-1.jpg",
+  "/phogia/press/ha-noi-moi.png",
+  "/phogia/press/logo-tri-thuc-moi_2021_05_12.png",
 ] as const;
 
 export const PHO_GIA_COMPLETED_LOGOS = [
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-20.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-1.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-2.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-3.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-4.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-5.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-6.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-7.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-8.png",
-  "https://phogiadecor.vn/wp-content/uploads/2021/06/logo-9.png",
+  "/phogia/completed/logo-20.png",
+  "/phogia/completed/logo-1.png",
+  "/phogia/completed/logo-2.png",
+  "/phogia/completed/logo-3.png",
+  "/phogia/completed/logo-4.png",
+  "/phogia/completed/logo-5.png",
+  "/phogia/completed/logo-6.png",
+  "/phogia/completed/logo-7.png",
+  "/phogia/completed/logo-8.png",
+  "/phogia/completed/logo-9.png",
+  "/phogia/completed/logo-10.png",
+  "/phogia/completed/logo-11.png",
+  "/phogia/completed/logo-12.png",
+  "/phogia/completed/logo-13.png",
+  "/phogia/completed/logo-14.png",
+  "/phogia/completed/logo-15.png",
+  "/phogia/completed/logo-16.png",
+  "/phogia/completed/logo-17.png",
+  "/phogia/completed/logo-18.png",
+  "/phogia/completed/logo-19.png",
 ] as const;

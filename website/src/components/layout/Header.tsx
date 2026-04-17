@@ -6,81 +6,202 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PHO_GIA_COMPANY, PHO_GIA_NAV } from "@/lib/phogia";
 
+const COMPACT_SCROLL_Y = 120;
+const SCROLL_DIRECTION_DELTA = 4;
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+      <path
+        d="M6.6 4.7c.6-.6 1.5-.6 2.1 0l1.8 1.8c.5.5.6 1.2.3 1.8l-.8 1.5c1 1.9 2.5 3.4 4.4 4.4l1.5-.8c.6-.3 1.3-.2 1.8.3l1.8 1.8c.6.6.6 1.5 0 2.1l-1 1c-.9.9-2.2 1.2-3.4.8-5.1-1.6-8.9-5.4-10.5-10.5-.4-1.2-.1-2.5.8-3.4l1.2-.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+      <path
+        d="m20 20-4.6-4.6m2.1-5.2a7.3 7.3 0 1 1-14.6 0 7.3 7.3 0 0 1 14.6 0Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
+function MenuLines() {
+  return (
+    <span className="flex w-16 flex-col gap-2" aria-hidden="true">
+      <span className="block h-px w-full bg-current" />
+      <span className="block h-px w-full bg-current" />
+      <span className="block h-px w-full bg-current" />
+    </span>
+  );
+}
+
 export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
-    if (mobileOpen || searchOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menuOpen || searchOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileOpen, searchOpen]);
+  }, [menuOpen, searchOpen]);
+
+  useEffect(() => {
+    let frame = 0;
+    let lastScrollY = window.scrollY;
+    let initialized = false;
+
+    const updateCompactState = () => {
+      frame = 0;
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+
+      if (!initialized) {
+        initialized = true;
+        setCompact(currentScrollY > COMPACT_SCROLL_Y);
+      } else if (currentScrollY <= COMPACT_SCROLL_Y || delta < -SCROLL_DIRECTION_DELTA) {
+        setCompact(false);
+      } else if (delta > SCROLL_DIRECTION_DELTA) {
+        setCompact(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateCompactState);
+    };
+
+    frame = window.requestAnimationFrame(updateCompactState);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#7398a4] shadow-[0_6px_24px_rgba(0,0,0,0.14)]">
-        <div className="mx-auto flex h-[54px] max-w-[1180px] items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="shrink-0">
-            <img src={PHO_GIA_COMPANY.logo} alt="Phố Gia" className="h-7 w-auto md:h-8" />
-          </Link>
+      <header
+        className={`fixed right-0 top-0 z-50 h-16 overflow-hidden border-b border-white/10 bg-[#7398a4]/95 shadow-[0_6px_24px_rgba(0,0,0,0.14)] backdrop-blur-sm transition-[width,box-shadow,background-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-16 lg:h-[76px] ${
+          compact ? "w-[224px] sm:w-[284px] lg:w-[306px]" : "w-full"
+        }`}
+      >
+        <div className="relative h-full w-full">
+          <div
+            className={`absolute inset-0 transition-all duration-300 ease-out ${
+              compact
+                ? "invisible pointer-events-none -translate-y-2 opacity-0"
+                : "visible translate-y-0 opacity-100 delay-100"
+            }`}
+            aria-hidden={compact}
+          >
+            <div className="ph-container flex h-full items-center justify-between">
+              <Link href="/" className="shrink-0" aria-label="Trang chủ Phố Gia" tabIndex={compact ? -1 : 0}>
+                <img src={PHO_GIA_COMPANY.logo} alt="Phố Gia" className="h-9 w-auto lg:h-10" />
+              </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
-            {PHO_GIA_NAV.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white transition hover:text-[#f1cd8a]"
+              <nav className="hidden items-center gap-7 lg:flex" aria-label="Menu chính">
+                {PHO_GIA_NAV.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    tabIndex={compact ? -1 : 0}
+                    className="text-[12px] font-semibold uppercase text-white transition hover:text-[#f1cd8a]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+
+              <div className="hidden items-center gap-3 lg:flex">
+                <a
+                  href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
+                  tabIndex={compact ? -1 : 0}
+                  className="flex h-14 w-14 items-center justify-center rounded-full bg-[#efbf73] text-[#5b746f] transition hover:scale-105"
+                  aria-label="Gọi Phố Gia"
+                >
+                  <PhoneIcon />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setSearchOpen(true)}
+                  tabIndex={compact ? -1 : 0}
+                  className="flex h-14 w-14 items-center justify-center text-white/90 transition hover:text-[#f1cd8a]"
+                  aria-label="Mở tìm kiếm"
+                >
+                  <SearchIcon />
+                </button>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setMenuOpen((value) => !value)}
+                tabIndex={compact ? -1 : 0}
+                className="flex h-10 w-10 items-center justify-center text-white lg:hidden"
+                aria-label="Mở menu"
+                aria-expanded={menuOpen}
               >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+                <span className="flex w-5 flex-col gap-1.5" aria-hidden="true">
+                  <span className="block h-0.5 w-full bg-current" />
+                  <span className="block h-0.5 w-full bg-current" />
+                  <span className="block h-0.5 w-full bg-current" />
+                </span>
+              </button>
+            </div>
+          </div>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div
+            className={`absolute inset-0 flex items-center justify-end pr-5 transition-all duration-300 ease-out ${
+              compact
+                ? "visible translate-x-0 opacity-100 delay-150"
+                : "invisible pointer-events-none translate-x-6 opacity-0"
+            }`}
+            aria-hidden={!compact}
+          >
             <a
               href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#efbf73] text-lg text-white transition hover:scale-105"
-              aria-label="Gọi điện"
+              className="mr-7 flex h-12 w-12 items-center justify-center rounded-full bg-[#efbf73] text-[#5b746f] transition hover:scale-105 lg:h-14 lg:w-14"
+              aria-label="Gọi Phố Gia"
+              tabIndex={compact ? 0 : -1}
             >
-              ☎
+              <PhoneIcon />
             </a>
             <button
               type="button"
-              onClick={() => setSearchOpen(true)}
-              className="text-xl text-white transition hover:text-[#f1cd8a]"
-              aria-label="Mở tìm kiếm"
+              onClick={() => setMenuOpen(true)}
+              className="flex h-12 w-20 items-center justify-center text-white/90 transition hover:text-[#f1cd8a] lg:h-14 lg:w-24"
+              aria-label="Mở menu"
+              aria-expanded={menuOpen}
+              tabIndex={compact ? 0 : -1}
             >
-              ⌕
+              <MenuLines />
             </button>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen((value) => !value)}
-            className="flex h-10 w-10 items-center justify-center text-white lg:hidden"
-            aria-label="Mở menu"
-          >
-            <span className="space-y-1.5">
-              <span className="block h-0.5 w-5 bg-current" />
-              <span className="block h-0.5 w-5 bg-current" />
-              <span className="block h-0.5 w-5 bg-current" />
-            </span>
-          </button>
         </div>
       </header>
 
       <div
         className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm transition ${
-          searchOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          searchOpen ? "visible pointer-events-auto opacity-100" : "invisible pointer-events-none opacity-0"
         }`}
       >
-        <div className="mx-auto mt-24 max-w-[760px] px-4">
+        <div className="ph-container mt-24 max-w-[760px]">
           <div className="rounded-[8px] bg-white p-6 shadow-2xl">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="font-heading text-3xl uppercase text-[#4f4b46]">Tìm kiếm</h2>
@@ -88,7 +209,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setSearchOpen(false)}
                 className="text-2xl text-[#6b95a2]"
-                aria-label="Đóng"
+                aria-label="Đóng tìm kiếm"
               >
                 ×
               </button>
@@ -103,25 +224,25 @@ export default function Header() {
       </div>
 
       <div
-        className={`fixed inset-0 z-[55] bg-[rgba(76,105,114,0.96)] px-6 pb-10 pt-20 text-white transition lg:hidden ${
-          mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        className={`fixed inset-0 z-[55] bg-[rgba(76,105,114,0.96)] px-6 pb-10 pt-20 text-white transition ${
+          menuOpen ? "visible pointer-events-auto opacity-100" : "invisible pointer-events-none opacity-0"
         }`}
       >
         <button
           type="button"
-          onClick={() => setMobileOpen(false)}
+          onClick={() => setMenuOpen(false)}
           className="absolute right-5 top-4 text-3xl"
           aria-label="Đóng menu"
         >
           ×
         </button>
-        <div className="flex flex-col gap-5">
+        <div className="mx-auto flex max-w-[1180px] flex-col gap-5">
           {PHO_GIA_NAV.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="font-heading text-3xl uppercase leading-none"
+              onClick={() => setMenuOpen(false)}
+              className="font-heading text-3xl uppercase leading-none md:text-5xl"
             >
               {item.label}
             </a>

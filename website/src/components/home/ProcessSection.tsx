@@ -1,40 +1,46 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
-import { SectionHeading } from "./SharedComponents";
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="scroll-mt-24 bg-[#fffdfa] py-16 md:py-24">
-      <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Quy trình chuyên nghiệp"
-          title="QUY TRÌNH CHUYÊN NGHIỆP & RÕ RÀNG"
+    <section id="process" className="ph-process-section ph-section-band scroll-mt-24">
+      <div className="ph-container">
+        <div className="ph-process-header">
+          <p className="ph-eyebrow">Quy trình thiết kế & thi công nội thất</p>
+          <h2 className="ph-process-title mt-3">QUY TRÌNH CHUYÊN NGHIỆP & RÕ RÀNG</h2>
+        </div>
+      </div>
+
+      <div className="ph-process-flow">
+        <img
+          src={PHO_GIA_COMPANY.processDesktop}
+          alt="Quy trình thiết kế và thi công nội thất"
+          className="ph-process-flow-desktop hidden lg:block"
         />
-        <div className="mt-10">
-          <img
-            src={PHO_GIA_COMPANY.processDesktop}
-            alt="Quy trình thiết kế và thi công nội thất"
-            className="hidden w-full lg:block"
-          />
+        <div className="ph-container lg:hidden">
           <img
             src={PHO_GIA_COMPANY.processMobile}
             alt="Quy trình thiết kế và thi công nội thất"
-            className="mx-auto block max-w-[420px] lg:hidden"
+            className="ph-process-flow-mobile mx-auto block w-full max-w-[440px]"
           />
         </div>
-        <div
-          id="consultation"
-          className="mx-auto mt-12 grid max-w-[760px] items-center gap-8 md:grid-cols-[240px_1fr]"
-        >
-          <img
-            src={PHO_GIA_COMPANY.processThumb}
-            alt="Đặt lịch tư vấn"
-            className="w-full rounded-[6px]"
-            loading="lazy"
-          />
-          <div className="text-center md:text-left">
-            <a href="#footer" className="ph-button inline-flex">
-              Đặt lịch tư vấn
-            </a>
+      </div>
+
+      <div className="ph-container">
+        <div id="consultation" className="ph-process-button">
+          <div className="ph-process-button-inner">
+            <div className="ph-process-button-thumb">
+              <img
+                src={PHO_GIA_COMPANY.processThumb}
+                alt="Đặt lịch kiến trúc sư tư vấn"
+                className="ph-process-consultation-thumb"
+                loading="lazy"
+              />
+              <a href="#footer" className="ph-button ph-process-button-cta inline-flex">
+              Đặt lịch KTS tư vấn
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -22,6 +22,7 @@ const accentFont = Allura({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://phogiadecor.vn"),
   title: "Phố Gia | Thiết kế và thi công nội thất",
   description:
     "Thiết kế và thi công nội thất Phố Gia mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
@@ -38,6 +39,14 @@ export const metadata: Metadata = {
       "Thiết kế và thi công nội thất Phố Gia mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
     url: "https://phogiadecor.vn",
     siteName: "Phố Gia",
+    images: [
+      {
+        url: "/phogia/home/banner-lf.jpg",
+        width: 1920,
+        height: 1358,
+        alt: "Phố Gia Decor",
+      },
+    ],
     locale: "vi_VN",
     type: "website",
   },
@@ -50,9 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body
-        className={`${headingFont.variable} ${bodyFont.variable} ${accentFont.variable} antialiased`}
-      >
+      <body className={`${headingFont.variable} ${bodyFont.variable} ${accentFont.variable} antialiased`}>
         <AppShell>{children}</AppShell>
       </body>
     </html>

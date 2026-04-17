@@ -1,10 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
+
+const HERO_CAPTIONS = [
+  { time: 0, title: "Khởi nguồn cảm hứng" },
+  { time: 6, title: "Thiết kế độc bản" },
+  { time: 14, title: "Kết tinh giá trị" },
+] as const;
 
 export default function HeroSection() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [caption, setCaption] = useState<string>(HERO_CAPTIONS[0].title);
 
   useEffect(() => {
     const video = heroVideoRef.current;
@@ -12,19 +19,28 @@ export default function HeroSection() {
 
     const seekToReferenceFrame = () => {
       try {
-        video.currentTime = 8.5;
+        video.currentTime = 0;
       } catch {
         // Ignore timing issues while metadata is still loading.
       }
     };
 
+    const syncCaption = () => {
+      const activeCaption = [...HERO_CAPTIONS].reverse().find((item) => video.currentTime >= item.time);
+      setCaption(activeCaption?.title ?? HERO_CAPTIONS[0].title);
+    };
+
     if (video.readyState >= 1) {
       seekToReferenceFrame();
-      return;
+    } else {
+      video.addEventListener("loadedmetadata", seekToReferenceFrame, { once: true });
     }
 
-    video.addEventListener("loadedmetadata", seekToReferenceFrame, { once: true });
-    return () => video.removeEventListener("loadedmetadata", seekToReferenceFrame);
+    video.addEventListener("timeupdate", syncCaption);
+    return () => {
+      video.removeEventListener("loadedmetadata", seekToReferenceFrame);
+      video.removeEventListener("timeupdate", syncCaption);
+    };
   }, []);
 
   return (
@@ -40,15 +56,23 @@ export default function HeroSection() {
       >
         <source src={PHO_GIA_COMPANY.heroVideo} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/[0.45]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-5 z-10 flex flex-col items-center gap-2 text-[9px] uppercase tracking-[0.25em] text-white/[0.65]">
-        <span>Scroll down</span>
-        <div className="flex flex-col items-center gap-1 text-white/60">
-          <span>⌄</span>
-          <span>⌄</span>
-          <span>⌄</span>
-        </div>
+      <div className="absolute inset-0 bg-black/45" />
+      <div className="ph-container absolute inset-x-0 top-1/2 z-10 -translate-y-1/2 text-center">
+        <p className="font-heading text-[38px] font-semibold uppercase leading-[1.05] text-white drop-shadow md:text-[68px]">
+          {caption}
+        </p>
       </div>
+      <a href="#mission" className="ph-scroll-indicator">
+        <span className="ph-scroll-copy">
+          <span>SCROLL</span>
+          <span>DOWN</span>
+        </span>
+        <span className="ph-scroll-chevrons" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </span>
+      </a>
     </section>
   );
 }
