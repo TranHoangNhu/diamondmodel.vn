@@ -40,6 +40,7 @@
   --animate-fade-up: fadeUp 0.8s ease-out forwards;
   --animate-fade-left: fadeLeft 0.8s ease-out forwards;
   --animate-fade-right: fadeRight 0.8s ease-out forwards;
+  --animate-fade-top: fadeTop 0.8s ease-out forwards;
   --animate-scale-in: scaleIn 0.6s ease-out forwards;
   --animate-slide-down: slideDown 0.5s ease-out forwards;
   --animate-marquee: marquee 30s linear infinite;
@@ -96,6 +97,16 @@
     0% {
       opacity: 0;
       transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-24px);
     }
     100% {
       opacity: 1;
@@ -264,11 +275,11 @@ body {
 }
 
 .ph-section {
-  padding-block: 72px;
+  padding-block: 88px;
 }
 
 .ph-section-tight {
-  padding-block: 56px;
+  padding-block: 68px;
 }
 
 .ph-section-band {
@@ -359,7 +370,7 @@ body {
 
 .ph-process-section {
   overflow: hidden;
-  padding: 80px 0 40px;
+  padding: 104px 0 72px;
 }
 
 .ph-process-header {
@@ -608,11 +619,11 @@ body {
 
 @media (min-width: 1024px) {
   .ph-section {
-    padding-block: 104px;
+    padding-block: 132px;
   }
 
   .ph-section-tight {
-    padding-block: 72px;
+    padding-block: 92px;
   }
 
   .ph-container,
@@ -633,7 +644,7 @@ body {
   }
 
   .ph-process-section {
-    padding: 80px 0 0;
+    padding: 128px 0 88px;
   }
 
   .ph-process-title {
@@ -679,6 +690,24 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in,
+  .animate-fade-up,
+  .animate-fade-left,
+  .animate-fade-right,
+  .animate-fade-top,
+  .animate-scale-in,
+  .animate-slide-down,
+  .animate-marquee,
+  .ph-marquee {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .ph-scroll-chevrons span {
     animation: none;
     opacity: 0.75;

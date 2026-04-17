@@ -1,45 +1,45 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
-const HERO_CAPTIONS = [
-  { time: 0, title: "Khởi nguồn cảm hứng" },
-  { time: 6, title: "Thiết kế độc bản" },
-  { time: 14, title: "Kết tinh giá trị" },
-] as const;
+const HERO_FRAME_TIME = 15;
 
 export default function HeroSection() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const [caption, setCaption] = useState<string>(HERO_CAPTIONS[0].title);
 
   useEffect(() => {
     const video = heroVideoRef.current;
     if (!video) return;
 
-    const seekToReferenceFrame = () => {
+    const lockHeroFrame = () => {
+      const targetTime = Math.min(HERO_FRAME_TIME, Math.max(0, (video.duration || HERO_FRAME_TIME) - 0.1));
+
       try {
-        video.currentTime = 0;
+        video.currentTime = targetTime;
       } catch {
         // Ignore timing issues while metadata is still loading.
       }
-    };
 
-    const syncCaption = () => {
-      const activeCaption = [...HERO_CAPTIONS].reverse().find((item) => video.currentTime >= item.time);
-      setCaption(activeCaption?.title ?? HERO_CAPTIONS[0].title);
+      const pauseFrame = () => {
+        video.pause();
+      };
+
+      if (video.readyState >= 2) {
+        pauseFrame();
+      } else {
+        video.addEventListener("seeked", pauseFrame, { once: true });
+      }
     };
 
     if (video.readyState >= 1) {
-      seekToReferenceFrame();
+      lockHeroFrame();
     } else {
-      video.addEventListener("loadedmetadata", seekToReferenceFrame, { once: true });
+      video.addEventListener("loadedmetadata", lockHeroFrame, { once: true });
     }
 
-    video.addEventListener("timeupdate", syncCaption);
     return () => {
-      video.removeEventListener("loadedmetadata", seekToReferenceFrame);
-      video.removeEventListener("timeupdate", syncCaption);
+      video.removeEventListener("loadedmetadata", lockHeroFrame);
     };
   }, []);
 
@@ -52,16 +52,12 @@ export default function HeroSection() {
         muted
         loop
         playsInline
+        preload="auto"
         poster={PHO_GIA_COMPANY.heroPoster}
       >
         <source src={PHO_GIA_COMPANY.heroVideo} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/45" />
-      <div className="ph-container absolute inset-x-0 top-1/2 z-10 -translate-y-1/2 text-center">
-        <p className="font-heading text-[38px] font-semibold uppercase leading-[1.05] text-white drop-shadow md:text-[68px]">
-          {caption}
-        </p>
-      </div>
       <a href="#mission" className="ph-scroll-indicator">
         <span className="ph-scroll-copy">
           <span>SCROLL</span>

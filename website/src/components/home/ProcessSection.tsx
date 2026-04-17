@@ -4,7 +4,7 @@ import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="ph-process-section ph-section-band scroll-mt-24">
+    <section id="process" className="ph-process-section scroll-mt-24">
       <div className="ph-container">
         <div className="ph-process-header">
           <p className="ph-eyebrow">Quy trình thiết kế & thi công nội thất</p>

@@ -4,7 +4,7 @@ import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
 export default function MissionSection() {
   return (
-    <section id="mission" className="ph-section ph-section-band scroll-mt-24">
+    <section id="mission" className="ph-section scroll-mt-24">
       <div className="ph-container">
         <div className="ph-section-header">
           <img src={PHO_GIA_COMPANY.yearsBadge} alt="9 năm" className="mx-auto w-[112px] md:w-[142px]" />

@@ -10,7 +10,7 @@ export default function AnimatedSection({
 }: {
   children: React.ReactNode;
   className?: string;
-  animation?: "fade-up" | "fade-left" | "fade-right" | "fade-in" | "scale-in";
+  animation?: "fade-up" | "fade-left" | "fade-right" | "fade-in" | "fade-top" | "scale-in";
   delay?: number;
 }) {
   const { ref, isInView } = useInView(0.1);
@@ -20,6 +20,7 @@ export default function AnimatedSection({
     "fade-left": "animate-fade-left",
     "fade-right": "animate-fade-right",
     "fade-in": "animate-fade-in",
+    "fade-top": "animate-fade-top",
     "scale-in": "animate-scale-in",
   }[animation];
 

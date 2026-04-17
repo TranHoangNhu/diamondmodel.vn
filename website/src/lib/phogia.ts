@@ -53,6 +53,34 @@ export const PHO_GIA_COMPANY = {
   ],
 } as const;
 
+export const PHO_GIA_CONTACT = {
+  introLabel: "liên hệ",
+  introTitle: "PHỐ GIA – KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG",
+  companyTitle: PHO_GIA_COMPANY.fullName,
+  downloadUrl: "https://drive.google.com/file/d/1rTxiVb_7WqyLkfr1vvDWasnrhOVPmixb/view",
+  socialTitle: "PHỐ GIA social chanel",
+  hotlineLabel: "HOLINE",
+  serviceLabel: "PHẢN ÁNH DỊCH VỤ",
+  registerLabel: "ĐẶT LỊCH",
+  registerTitle: "KIẾN TRÚC SƯ TƯ VẤN",
+  formLabel: "form liên hệ",
+  formLead:
+    "Bạn vui lòng điền thông tin cần giải đáp / tư vấn vào form liên hệ bên dưới.\nĐội ngũ hỗ trợ của chúng tôi sẽ phản hồi cho bạn nhanh nhất có thể.",
+  formNote: "Chúng tôi cam kết bảo mật tuyệt đối thông tin của Bạn.",
+  commitmentsLabel: "6 điều",
+  commitmentsTitle: "PHỐ GIA CAM KẾT",
+  commitmentImage: "/phogia/contact/cam-ket-01.svg",
+  commitments: [
+    "thiết kế độc bản",
+    "Thi công tỉ mỉ",
+    "quy trình chuyên nghiệp",
+    "Dịch vụ trọn đời",
+    "Giá thành tốt nhất",
+    "nguyên vật liệu an toàn",
+  ],
+  serviceHotline: "093 8425800",
+} as const;
+
 export const PHO_GIA_NAV = [
   { label: "Giới thiệu", href: "#mission" },
   { label: "Thiết kế", href: "#design-apartment" },
@@ -60,7 +88,7 @@ export const PHO_GIA_NAV = [
   { label: "Báo giá", href: "#consultation" },
   { label: "Quy trình", href: "#process" },
   { label: "Blog nhà đẹp", href: "#press" },
-  { label: "Liên hệ", href: "#footer" },
+  { label: "Liên hệ", href: "/lien-he" },
 ] as const;
 
 export const PHO_GIA_BENEFITS = [

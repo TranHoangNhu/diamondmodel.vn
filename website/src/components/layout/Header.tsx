@@ -44,6 +44,34 @@ function MenuLines() {
   );
 }
 
+function NavItem({
+  item,
+  className,
+  tabIndex,
+  onClick,
+}: {
+  item: (typeof PHO_GIA_NAV)[number];
+  className: string;
+  tabIndex: number;
+  onClick?: () => void;
+}) {
+  const sharedProps = { className, tabIndex, onClick };
+
+  if (item.href.startsWith("/")) {
+    return (
+      <Link href={item.href} {...sharedProps}>
+        {item.label}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={item.href} {...sharedProps}>
+      {item.label}
+    </a>
+  );
+}
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -118,14 +146,12 @@ export default function Header() {
 
               <nav className="hidden items-center gap-7 lg:flex" aria-label="Menu chính">
                 {PHO_GIA_NAV.map((item) => (
-                  <a
+                  <NavItem
                     key={item.label}
-                    href={item.href}
+                    item={item}
                     tabIndex={compact ? -1 : 0}
                     className="text-[12px] font-semibold uppercase text-white transition hover:text-[#f1cd8a]"
-                  >
-                    {item.label}
-                  </a>
+                  />
                 ))}
               </nav>
 
@@ -238,14 +264,13 @@ export default function Header() {
         </button>
         <div className="mx-auto flex max-w-[1180px] flex-col gap-5">
           {PHO_GIA_NAV.map((item) => (
-            <a
+            <NavItem
               key={item.label}
-              href={item.href}
+              item={item}
               onClick={() => setMenuOpen(false)}
               className="font-heading text-3xl uppercase leading-none md:text-5xl"
-            >
-              {item.label}
-            </a>
+              tabIndex={0}
+            />
           ))}
           <a href={`tel:${PHO_GIA_COMPANY.phoneHref}`} className="mt-4 text-lg font-semibold text-[#f1cd8a]">
             {PHO_GIA_COMPANY.phone}

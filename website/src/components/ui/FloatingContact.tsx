@@ -1,29 +1,227 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
+import { CalendarDaysIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useEffect, useId, useRef, useState } from "react";
 
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+const RING_TEXT = "ĐẶT LỊCH KTS TƯ VẤN • ĐẶT LỊCH KTS TƯ VẤN • ";
+
+function ScheduleRing() {
+  return (
+    <svg
+      viewBox="0 0 120 120"
+      className="pointer-events-none absolute inset-0 h-full w-full animate-[spin_18s_linear_infinite]"
+      aria-hidden="true"
+    >
+      <defs>
+        <path id="schedule-ring-path" d="M 60 60 m -42 0 a 42 42 0 1 1 84 0 a 42 42 0 1 1 -84 0" />
+      </defs>
+      <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(220,220,220,0)" strokeWidth="1.5" />
+      <text
+        className="fill-[#8b8b8b]"
+        fontSize="9"
+        fontFamily="var(--font-body)"
+        letterSpacing="1.4"
+      >
+        <textPath href="#schedule-ring-path" startOffset="0%">
+          {RING_TEXT}
+        </textPath>
+      </text>
+    </svg>
+  );
+}
+
+function FloatingScheduleButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Đặt lịch tư vấn"
+      className="fixed bottom-5 right-4 z-[60] h-[108px] w-[108px] md:bottom-6 md:right-6 md:h-[120px] md:w-[120px]"
+    >
+      <span className="relative block h-full w-full transition duration-300 ease-out hover:scale-[1.03]">
+        <ScheduleRing />
+        <span className="absolute inset-0 flex items-center justify-center">
+          <span className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-[#6c96a2] shadow-[0_10px_22px_rgba(0,0,0,0.14)]">
+            <CalendarDaysIcon className="h-8 w-8 text-[#efbe73]" />
+          </span>
+        </span>
+      </span>
+    </button>
+  );
+}
+
+function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dateInputRef = useRef<HTMLInputElement>(null);
+  const titleId = useId();
+  const descId = useId();
+
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onClose();
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[80] flex items-start justify-center overflow-y-auto bg-black/35 px-4 py-6 backdrop-blur-[2px] md:px-6 md:py-10"
+      onClick={onClose}
+      role="presentation"
+    >
+      <div
+        className="relative mx-auto w-full max-w-[920px] overflow-hidden bg-white shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
+        onClick={(event) => event.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        aria-describedby={descId}
+      >
+        <div className="relative flex items-center justify-center bg-[#6d97a5] px-12 py-4 text-center">
+          <h2
+            id={titleId}
+            className="font-heading text-[18px] font-semibold uppercase tracking-[0.04em] text-[#efbe73] sm:text-[24px]"
+          >
+            CÙNG TRÒ CHUYỆN VỚI CHUYÊN GIA KIẾN TRÚC SƯ
+          </h2>
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            aria-label="Đóng"
+            className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center text-white/35 transition hover:text-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+          >
+            <XMarkIcon className="h-9 w-9" />
+          </button>
+        </div>
+
+        <div className="px-4 pb-6 pt-6 sm:px-8 sm:pb-8 sm:pt-10 md:px-14 md:pb-12">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <input
+                id="fullname"
+                name="fullname"
+                type="text"
+                required
+                placeholder="Tên của Bạn (*)"
+                className="w-full border-0 border-b border-[#1f1f1f] bg-transparent px-0 pb-2 pt-1 text-[15px] text-[#4f4b46] placeholder:text-[#4f4b46]/80 focus:border-[#6d97a5] focus:outline-none"
+              />
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
+              <div className="space-y-2">
+                <input
+                  id="mobile"
+                  name="mobile"
+                  type="tel"
+                  required
+                  placeholder="Điện Thoại (*)"
+                  className="w-full border-0 border-b border-[#1f1f1f] bg-transparent px-0 pb-2 pt-1 text-[15px] text-[#4f4b46] placeholder:text-[#4f4b46]/80 focus:border-[#6d97a5] focus:outline-none"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  className="w-full border-0 border-b border-[#1f1f1f] bg-transparent px-0 pb-2 pt-1 text-[15px] text-[#4f4b46] placeholder:text-[#4f4b46]/80 focus:border-[#6d97a5] focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="relative">
+              <input
+                ref={dateInputRef}
+                id="date_advise"
+                name="date_advise"
+                type="date"
+                placeholder="Chọn Ngày Tư Vấn"
+                className="w-full appearance-none border-0 border-b border-[#1f1f1f] bg-transparent px-0 pb-2 pt-1 pr-10 text-[15px] text-[#4f4b46] placeholder:text-[#4f4b46]/80 focus:border-[#6d97a5] focus:outline-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:pointer-events-none [&::-webkit-inner-spin-button]:hidden [&::-webkit-clear-button]:hidden"
+              />
+              <button
+                type="button"
+                aria-label="Chọn ngày tư vấn"
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => {
+                  const input = dateInputRef.current;
+                  if (!input) return;
+
+                  const pickerInput = input as HTMLInputElement & { showPicker?: () => void };
+                  if (typeof pickerInput.showPicker === "function") {
+                    pickerInput.showPicker();
+                    return;
+                  }
+
+                  input.focus();
+                  input.click();
+                }}
+                className="absolute right-0 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center text-[#6d97a5]"
+              >
+                <CalendarDaysIcon className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="space-y-2">
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                placeholder="Nội dung"
+                className="w-full resize-none border-0 border-b border-[#1f1f1f] bg-transparent px-0 pb-2 pt-1 text-[15px] text-[#4f4b46] placeholder:text-[#4f4b46]/80 focus:border-[#6d97a5] focus:outline-none"
+              />
+            </div>
+
+            <p id={descId} className="max-w-[680px] text-[13px] leading-6 text-[#4f4b46]/80">
+              Chúng ta sẽ cùng nhau trò chuyện để hiểu hơn về phong cách sống của bạn.
+              <br />
+              Hãy chọn một thời điểm mà bạn thoải mái và hứng khởi nhất nhé.
+            </p>
+
+            <div className="pt-6">
+              <button
+                type="submit"
+                className="w-full bg-[#efbe73] px-6 py-4 text-[15px] font-medium uppercase tracking-[0.02em] text-[#2f2f2f] transition hover:bg-[#eab661] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d97a5]/40"
+              >
+                ĐẶT LỊCH KIẾN TRÚC SƯ TƯ VẤN NGAY
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function FloatingContact() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="fixed bottom-6 right-4 z-40 flex flex-col items-end gap-3 md:right-6">
-      <a
-        href={PHO_GIA_COMPANY.zalo}
-        target="_blank"
-        rel="noreferrer"
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_10px_25px_rgba(0,0,0,0.18)]"
-        aria-label="Zalo"
-      >
-        <img src={PHO_GIA_COMPANY.zaloIcon} alt="Zalo" className="h-7 w-7" />
-      </a>
-      <a
-        href="#consultation"
-        className="flex h-16 w-16 items-center justify-center rounded-full border border-[#d9c9a5] bg-[#fffaf0] text-center text-[9px] font-semibold uppercase leading-tight text-[#6b95a2] shadow-[0_10px_25px_rgba(0,0,0,0.16)]"
-      >
-        KTS
-        <br />
-        tư vấn
-      </a>
-    </div>
+    <>
+      <FloatingScheduleButton onClick={() => setIsOpen(true)} />
+      <FloatingAdviseModal open={isOpen} onClose={() => setIsOpen(false)} />
+    </>
   );
 }
