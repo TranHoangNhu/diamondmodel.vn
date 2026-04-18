@@ -1,7 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { useState } from "react";
 import { PHO_GIA_VALUES } from "@/lib/phogia";
 import { SectionHeading } from "./SharedComponents";
@@ -87,7 +86,7 @@ export default function StatsSection() {
   const [activeImage, setActiveImage] = useState<string | null>(null);
 
   return (
-    <section id="stats" className="ph-section bg-[#fffdfa]">
+    <section id="stats" className="ph-section-surface">
       <div className="ph-container">
         <SectionHeading eyebrow="Phố Gia đã thực hiện" title="GIÁ TRỊ CHÚNG TÔI ĐÃ TRAO ĐI" />
 
@@ -97,12 +96,16 @@ export default function StatsSection() {
         >
           <div className="absolute left-1/2 top-1/2 h-[264px] w-[264px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-[#f1ebe2] sm:h-[378px] sm:w-[378px] lg:h-[480px] lg:w-[480px]">
             {activeImage ? (
-              <img
+              <Image
                 key={activeImage}
                 src={activeImage}
                 alt=""
-                className="h-full w-full object-cover animate-fade-in"
+                fill
+                sizes="(max-width: 1024px) 264px, 480px"
+                className="object-cover animate-fade-in"
                 loading="eager"
+                aria-hidden="true"
+                quality={90}
               />
             ) : null}
           </div>

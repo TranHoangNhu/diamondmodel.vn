@@ -11,22 +11,31 @@ type Crumb = {
   href: string;
 };
 
-function Breadcrumbs({ items }: { items: Crumb[] }) {
+function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: "light" | "dark" }) {
+  const rootClass =
+    tone === "dark"
+      ? "flex flex-wrap items-center gap-2 text-[12px] uppercase tracking-[0.12em] text-white/55"
+      : "flex flex-wrap items-center gap-2 text-[12px] uppercase tracking-[0.12em] text-[#8a8277]";
+  const separatorClass = tone === "dark" ? "text-white/20" : "text-[#c9bfaf]";
+  const currentClass = tone === "dark" ? "text-white" : "text-[#6b95a2]";
+  const linkClass =
+    tone === "dark" ? "transition hover:text-white" : "transition hover:text-[#6b95a2]";
+
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[12px] uppercase tracking-[0.12em] text-[#8a8277]">
+    <nav aria-label="Breadcrumb" className={rootClass}>
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
 
         return (
           <span key={`${item.href}-${item.label}`} className="inline-flex items-center gap-2">
             {isLast ? (
-              <span className="text-[#6b95a2]">{item.label}</span>
+              <span className={currentClass}>{item.label}</span>
             ) : (
-              <Link href={item.href} className="transition hover:text-[#6b95a2]">
+              <Link href={item.href} className={linkClass}>
                 {item.label}
               </Link>
             )}
-            {isLast ? null : <span className="text-[#c9bfaf]">/</span>}
+            {isLast ? null : <span className={separatorClass}>/</span>}
           </span>
         );
       })}
@@ -58,7 +67,14 @@ function SectionImage({
   return (
     <figure className="mt-5 overflow-hidden rounded-[18px] border border-[#ede2d3] bg-[#f8f2e8]">
       <div className="relative aspect-[16/10]">
-        <Image src={image.src} alt={image.alt} fill sizes="(max-width: 1024px) 100vw, 860px" className="object-cover" />
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 860px"
+          className="object-cover"
+          quality={90}
+        />
       </div>
       {image.caption ? <figcaption className="px-4 py-3 text-[13px] leading-6 text-[#6f675d]">{image.caption}</figcaption> : null}
     </figure>
@@ -117,34 +133,61 @@ function Toc({ sections }: { sections: ArticleSection[] }) {
   );
 }
 
-function ArticleLinkCard({ item }: { item: ArticleItem }) {
+function ArticleLinkCard({ item, tone = "light" }: { item: ArticleItem; tone?: "light" | "dark" }) {
+  const rootClass =
+    tone === "dark"
+      ? "group flex h-full flex-col overflow-hidden rounded-[18px] border border-white/10 bg-white/5 shadow-[0_18px_36px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-1 hover:bg-white/[0.07]"
+      : "group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#e7ddd0] bg-white shadow-[0_12px_30px_rgba(25,35,38,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(25,35,38,0.1)]";
+  const categoryClass =
+    tone === "dark"
+      ? "inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/80"
+      : "inline-flex rounded-full bg-[#f4eee4] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6b95a2]";
+  const metaClass = tone === "dark" ? "inline-flex items-center gap-1 text-[12px] text-white/60" : "inline-flex items-center gap-1 text-[12px] text-[#8a8277]";
+  const titleClass =
+    tone === "dark"
+      ? "ph-clamp-2 mt-4 min-h-[4.6rem] font-heading text-[22px] font-semibold uppercase leading-[1.12] text-white transition group-hover:text-[#f1be7e] md:text-[24px]"
+      : "ph-clamp-2 mt-4 min-h-[4.6rem] font-heading text-[22px] font-semibold uppercase leading-[1.12] text-[#4f4b46] transition group-hover:text-[#6b95a2] md:text-[24px]";
+  const summaryClass =
+    tone === "dark"
+      ? "ph-clamp-2 mt-3 min-h-[3.9rem] text-[14px] leading-7 text-white/70"
+      : "ph-clamp-2 mt-3 min-h-[3.9rem] text-[14px] leading-7 text-[#5d5751]";
+  const linkClass =
+    tone === "dark"
+      ? "mt-auto inline-flex items-center gap-2 pt-5 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#f1be7e] transition group-hover:text-white"
+      : "mt-auto inline-flex items-center gap-2 pt-5 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#6b95a2] transition group-hover:text-[#4f4b46]";
+
   return (
     <Link
       href={`${item.categoryHref}/${item.slug}`.replace(/\/+/g, "/")}
-      className="group block overflow-hidden rounded-[18px] border border-[#e7ddd0] bg-white shadow-[0_12px_30px_rgba(25,35,38,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(25,35,38,0.1)]"
+      className={rootClass}
     >
       <div className="relative aspect-[16/10] bg-[#f4eee4]">
-        <Image src={item.heroImage} alt={item.heroAlt} fill sizes="(max-width: 1024px) 100vw, 420px" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+        <Image
+          src={item.heroImage}
+          alt={item.heroAlt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 420px"
+          className="object-cover transition duration-500 group-hover:scale-[1.03]"
+          quality={90}
+        />
       </div>
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex rounded-full bg-[#f4eee4] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6b95a2]">
-            {item.categoryLabel}
-          </span>
-          <span className="inline-flex items-center gap-1 text-[12px] text-[#8a8277]">
+          <span className={categoryClass}>{item.categoryLabel}</span>
+          <span className={metaClass}>
             <CalendarDaysIcon className="h-4 w-4" />
             {item.dateLabel}
           </span>
-          <span className="inline-flex items-center gap-1 text-[12px] text-[#8a8277]">
+          <span className={metaClass}>
             <ClockIcon className="h-4 w-4" />
             {item.readTime}
           </span>
         </div>
-        <h3 className="mt-4 font-heading text-[22px] font-semibold uppercase leading-[1.15] text-[#4f4b46] transition group-hover:text-[#6b95a2]">
+        <h3 className={titleClass}>
           {item.title}
         </h3>
-        <p className="mt-3 text-[14px] leading-7 text-[#5d5751]">{item.summary}</p>
-        <span className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#6b95a2]">
+        <p className={summaryClass}>{item.summary}</p>
+        <span className={linkClass}>
           Xem chi tiết
           <ArrowLongRightIcon className="h-4 w-4" />
         </span>
@@ -157,18 +200,18 @@ function RelatedArticles({ items }: { items: ArticleItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-[#fffdfa] pb-24">
+    <section className="ph-section-surface pb-24">
       <div className="ph-container">
         <div className="mx-auto max-w-[980px]">
           <p className="ph-eyebrow text-center">Bài viết liên quan</p>
           <div className="mt-3 text-center">
-            <h2 className="ph-title">Khám phá thêm</h2>
+            <h2 className="ph-title">Xem thêm</h2>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-3">
           {items.map((item) => (
-            <ArticleLinkCard key={item.slug} item={item} />
+            <ArticleLinkCard key={item.slug} item={item} tone="light" />
           ))}
         </div>
       </div>
@@ -190,10 +233,10 @@ export function ArticleLayout({
   shareUrl: string;
   ctaHref?: string;
   ctaLabel?: string;
-}) {
+  }) {
   return (
     <>
-      <section className="bg-[#fffdfa] pt-24 md:pt-28">
+      <section className="bg-white pt-24 md:pt-28">
         <div className="ph-container">
           <Breadcrumbs items={breadcrumbs} />
 
@@ -210,20 +253,21 @@ export function ArticleLayout({
         </div>
       </section>
 
-      <section className="bg-[#fffdfa] pb-20 pt-12 md:pt-14">
+      <section className="ph-section-surface pb-20 pt-12 md:pt-14">
         <div className="ph-container">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start">
             <article className="space-y-10">
               <figure className="overflow-hidden rounded-[18px] border border-[#ede2d3] bg-white shadow-[0_16px_40px_rgba(25,35,38,0.06)]">
                 <div className="relative aspect-[16/9]">
-                  <Image
-                    src={article.heroImage}
-                    alt={article.heroAlt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 860px"
-                    className="object-cover"
-                  />
+                <Image
+                  src={article.heroImage}
+                  alt={article.heroAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 860px"
+                  className="object-cover"
+                  quality={90}
+                />
                 </div>
               </figure>
 
@@ -285,63 +329,27 @@ export function ArchiveLayout({
 }) {
   return (
     <>
-      <section className="bg-[#fffdfa] pt-24 md:pt-28">
-        <div className="ph-container">
+      <section className="bg-white pt-24 md:pt-28">
+        <div className="ph-container-wide">
           <Breadcrumbs items={breadcrumbs} />
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
-            <div className="max-w-[760px]">
-              <p className="ph-eyebrow">{collection.eyebrow}</p>
-              <h1 className="mt-3 font-heading text-[36px] font-semibold uppercase leading-[1.04] text-[#6b95a2] md:text-[52px] lg:text-[60px]">
-                {collection.title}
-              </h1>
-              <p className="mt-4 max-w-[680px] text-[16px] leading-8 text-[#5d5751] md:text-[18px]">
-                {collection.description}
-              </p>
+          <header className="mx-auto mt-10 max-w-[900px] text-center">
+            <h1 className="font-heading text-[38px] font-semibold uppercase leading-[1.04] text-[#45413d] md:text-[54px] lg:text-[62px]">
+              {collection.label}
+            </h1>
+            <p className="ph-clamp-2 mx-auto mt-4 max-w-[760px] text-[16px] leading-8 text-[#5d5751] md:text-[18px]">
+              {collection.description}
+            </p>
+          </header>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                {collection.filters.map((filter) => (
-                  <span
-                    key={filter}
-                    className="inline-flex rounded-full border border-[#e7ddd0] bg-white px-3 py-1.5 text-[12px] font-medium text-[#4f4b46]"
-                  >
-                    {filter}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-6">
-                <Link
-                  href={collection.ctaHref}
-                  className="inline-flex items-center justify-center rounded-full bg-[#6b95a2] px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-[#5c8794]"
-                >
-                  {collection.ctaLabel}
-                </Link>
-              </div>
-            </div>
-
-            <figure className="overflow-hidden rounded-[18px] border border-[#ede2d3] bg-white shadow-[0_16px_40px_rgba(25,35,38,0.06)]">
-              <div className="relative aspect-[16/10]">
-                <Image
-                  src={collection.heroImage}
-                  alt={collection.heroAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 640px"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
-          </div>
         </div>
       </section>
 
-      <section className="bg-[#fffdfa] pb-24 pt-12 md:pt-14">
-        <div className="ph-container">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {items.map((item, index) => (
-              <div key={item.slug} className={index === 0 ? "xl:col-span-2" : ""}>
-                <ArticleLinkCard item={item} />
-              </div>
+      <section className="ph-section-surface mt-14 pb-24">
+        <div className="ph-container-wide">
+          <div className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {items.map((item) => (
+              <ArticleLinkCard key={item.slug} item={item} tone="light" />
             ))}
           </div>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 import { openAdviseModal } from "@/lib/advise-modal";
 
@@ -16,21 +15,23 @@ export default function ProcessSection() {
       </div>
 
       <div className="ph-process-flow">
-        <img
+        <Image
           src={PHO_GIA_COMPANY.processDesktop}
           alt="Quy trình thiết kế và thi công nội thất"
           width={1634}
           height={385}
           className="ph-process-flow-desktop hidden lg:block"
+          quality={90}
         />
         <div className="ph-container">
-          <img
+          <Image
             src={PHO_GIA_COMPANY.processMobile}
             alt="Quy trình thiết kế và thi công nội thất"
             width={828}
             height={622}
             className="ph-process-flow-mobile block lg:hidden"
             loading="lazy"
+            quality={90}
           />
         </div>
       </div>
@@ -39,13 +40,14 @@ export default function ProcessSection() {
         <div id="consultation" className="ph-process-button">
           <div className="ph-process-button-inner">
             <div className="ph-process-button-thumb">
-              <img
+              <Image
                 src={PHO_GIA_COMPANY.processThumb}
                 alt="Đặt lịch kiến trúc sư tư vấn"
                 width={439}
                 height={568}
                 className="ph-process-consultation-thumb"
                 loading="lazy"
+                quality={90}
               />
               <button
                 type="button"

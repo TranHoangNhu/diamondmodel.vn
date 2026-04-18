@@ -1,11 +1,11 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import { useEffect, useMemo, useState } from "react";
 import { PHO_GIA_COMPLETED_LOGOS } from "@/lib/phogia";
 import { SectionHeading } from "./SharedComponents";
+import { useCarouselInteraction } from "./useCarouselInteraction";
 
 const AUTO_ADVANCE_MS = 2000;
 const DESKTOP_PAGE_SIZE = 12;
@@ -34,6 +34,11 @@ function chunk<T>(items: readonly T[], size: number) {
 export default function CompletedSection() {
   const [pageSize, setPageSize] = useState(DESKTOP_PAGE_SIZE);
   const [currentPage, setCurrentPage] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const { dragOffset, isDragging, pauseAuto, pauseUntilRef, bindDragHandlers } = useCarouselInteraction({
+    onSwipeLeft: () => setCurrentPage((page) => page + 1),
+    onSwipeRight: () => setCurrentPage((page) => page - 1),
+  });
 
   useEffect(() => {
     const updatePageSize = () => setPageSize(getPageSize());
@@ -46,46 +51,65 @@ export default function CompletedSection() {
 
   const pages = useMemo(() => chunk(PHO_GIA_COMPLETED_LOGOS, pageSize), [pageSize]);
   const pageCount = pages.length;
-  const activePage = pageCount > 0 ? currentPage % pageCount : 0;
+  const activePage = pageCount > 0 ? ((currentPage % pageCount) + pageCount) % pageCount : 0;
 
   useEffect(() => {
     if (pageCount <= 1) return;
 
     const timer = window.setInterval(() => {
+      if (Date.now() < pauseUntilRef.current) return;
       setCurrentPage((page) => (page + 1) % pageCount);
     }, AUTO_ADVANCE_MS);
 
     return () => window.clearInterval(timer);
-  }, [pageCount]);
+  }, [pageCount, pauseUntilRef]);
 
   const goToPage = (nextPage: number) => {
     if (pageCount <= 1) return;
+    pauseAuto();
+    setTransitionEnabled(true);
     setCurrentPage((nextPage + pageCount) % pageCount);
   };
 
+  const handleTransitionEnd = () => {
+    if (pageCount <= 1) return;
+
+    if (currentPage < 0 || currentPage >= pageCount) {
+      setTransitionEnabled(false);
+      setCurrentPage((nextPage) => ((nextPage % pageCount) + pageCount) % pageCount);
+      window.requestAnimationFrame(() => setTransitionEnabled(true));
+    }
+  };
+
   return (
-    <section id="completed" className="ph-section-tight scroll-mt-24">
+    <section id="completed" className="ph-section-surface scroll-mt-24">
       <div className="ph-container">
         <SectionHeading eyebrow="" title="NHỮNG DỰ ÁN NỘI THẤT ĐÃ HOÀN THIỆN" />
 
         <div className="mt-12">
           <div className="overflow-hidden">
             <div
-              className="flex transition-transform duration-700 ease-out"
+              {...bindDragHandlers}
+              className="flex select-none transition-transform duration-700 ease-out"
               style={{
-                transform: pageCount > 0 ? `translateX(-${(activePage * 100) / pageCount}%)` : "translateX(0%)",
+                transform: pageCount > 0 ? `translateX(calc(-${(activePage * 100) / pageCount}% + ${dragOffset}px))` : "translateX(0%)",
+                transition: isDragging || !transitionEnabled ? "none" : "transform 700ms ease-out",
+                touchAction: "pan-y",
               }}
+              onTransitionEnd={handleTransitionEnd}
             >
               {pages.map((page, pageIndex) => (
                 <div key={`completed-page-${pageIndex}`} className="w-full shrink-0 px-1 sm:px-2 lg:px-3">
                   <div className="grid grid-flow-col grid-rows-2 auto-cols-fr gap-x-8 gap-y-10 lg:gap-x-14 lg:gap-y-12">
                     {page.map((logo, index) => (
-                      <div key={logo} className="flex min-h-[64px] items-center justify-center px-2">
-                        <img
+                      <div key={logo} className="relative flex min-h-[64px] items-center justify-center px-2">
+                        <Image
                           src={logo}
                           alt={`Dự án nội thất ${pageIndex * pageSize + index + 1}`}
-                          className="max-h-[42px] w-auto object-contain opacity-[0.9]"
-                          loading={pageIndex === 0 ? "eager" : "lazy"}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 180px"
+                          className="object-contain opacity-[0.9]"
+                          loading="lazy"
                         />
                       </div>
                     ))}
@@ -100,7 +124,7 @@ export default function CompletedSection() {
               type="button"
               onClick={() => goToPage(currentPage - 1)}
               aria-label="Trang trước"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40"
+              className="hidden h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40 md:inline-flex"
             >
               <ArrowLongLeftIcon className="h-6 w-6" />
             </button>
@@ -131,7 +155,7 @@ export default function CompletedSection() {
               type="button"
               onClick={() => goToPage(currentPage + 1)}
               aria-label="Trang sau"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40"
+              className="hidden h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40 md:inline-flex"
             >
               <ArrowLongRightIcon className="h-6 w-6" />
             </button>

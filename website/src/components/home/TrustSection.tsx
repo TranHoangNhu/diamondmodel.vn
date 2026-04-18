@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { PHO_GIA_BENEFITS, PHO_GIA_COMPANY } from "@/lib/phogia";
 
 type Benefit = (typeof PHO_GIA_BENEFITS)[number];
@@ -9,9 +8,11 @@ const RIGHT_COLUMN: Benefit[] = [PHO_GIA_BENEFITS[1], PHO_GIA_BENEFITS[3]];
 
 function TrustArrow({ reverse = false }: { reverse?: boolean }) {
   return (
-    <img
+    <Image
       src="/phogia/icons/arrow_right_trust.svg"
       alt=""
+      width={44}
+      height={58}
       aria-hidden="true"
       className={["h-[58px] w-[44px] shrink-0 opacity-90", reverse ? "rotate-180" : ""].join(" ")}
       loading="lazy"
@@ -40,9 +41,14 @@ function TrustItem({ benefit, reverse = false }: { benefit: Benefit; reverse?: b
 export default function TrustSection() {
   return (
     <section id="trust" className="ph-trust-section relative overflow-hidden text-white">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${PHO_GIA_COMPANY.trustImage})` }}
+      <Image
+        src={PHO_GIA_COMPANY.trustImage}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        aria-hidden="true"
+        quality={85}
       />
       <div className="absolute inset-0 bg-[#10100f]/50" />
 

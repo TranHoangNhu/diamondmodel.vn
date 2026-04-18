@@ -1,7 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -152,7 +151,14 @@ export default function Header() {
           >
             <div className="ph-container flex h-full items-center justify-between">
               <Link href="/" className="shrink-0" aria-label="Trang chủ Phố Gia" tabIndex={compact ? -1 : 0}>
-                <img src={PHO_GIA_COMPANY.logo} alt="Phố Gia" className="h-9 w-auto lg:h-10" />
+                <Image
+                  src={PHO_GIA_COMPANY.logo}
+                  alt="Phố Gia"
+                  width={160}
+                  height={40}
+                  priority
+                  className="h-9 w-auto lg:h-10"
+                />
               </Link>
 
               <nav className="hidden items-center gap-7 lg:flex" aria-label="Menu chính">

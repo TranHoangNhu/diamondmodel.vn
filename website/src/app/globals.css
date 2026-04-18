@@ -130,7 +130,7 @@ html {
 body {
   font-family: var(--font-body);
   color: #4f4b46;
-  background-color: #fffdfa;
+  background-color: #ffffff;
   overflow-x: hidden;
 }
 
@@ -275,15 +275,28 @@ body {
 }
 
 .ph-section {
-  padding-block: 72px;
+  padding-block: 50px;
+  background-color: #ffffff;
 }
 
 .ph-section-tight {
-  padding-block: 56px;
+  padding-block: 50px;
+  background-color: #ffffff;
 }
 
 .ph-section-band {
   background: #fffdfa;
+}
+
+.ph-section-surface {
+  background-color: #ffffff;
+  background-image: image-set(
+    url("/phogia/backgrounds/abstract-white-gray-grunge-texture-pattern-background.avif") type("image/avif"),
+    url("/phogia/backgrounds/abstract-white-gray-grunge-texture-pattern-background.jpg") type("image/jpeg")
+  );
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ph-container {
@@ -316,6 +329,13 @@ body {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.ph-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .ph-script {
@@ -655,14 +675,6 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .ph-section {
-    padding-block: 112px;
-  }
-
-  .ph-section-tight {
-    padding-block: 84px;
-  }
-
   .ph-container,
   .ph-container-wide {
     width: min(calc(100% - 72px), 1180px);

@@ -1,11 +1,11 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { ArrowLongLeftIcon, ArrowLongRightIcon, PlayIcon } from "@heroicons/react/24/outline";
 import { useEffect, useMemo, useState } from "react";
 import { PHO_GIA_VIDEOS } from "@/lib/phogia";
 import { SectionHeading } from "./SharedComponents";
+import { useCarouselInteraction } from "./useCarouselInteraction";
 
 const AUTO_ADVANCE_MS = 2000;
 
@@ -50,12 +50,17 @@ function VideoSlide({
       aria-label={`Mở video ${title}`}
     >
       <div className="relative overflow-hidden rounded-[8px] bg-black shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-        <img
-          src={image}
-          alt={title}
-          className="aspect-[16/9] w-full object-cover opacity-[0.88] transition duration-500 group-hover:scale-[1.03]"
-          loading="eager"
-        />
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 520px"
+            className="object-cover opacity-[0.88] transition duration-500 group-hover:scale-[1.03]"
+            loading="lazy"
+            quality={90}
+          />
+        </div>
         <div className="absolute inset-0 bg-black/28 transition duration-500 group-hover:bg-black/18" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div
@@ -81,28 +86,28 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
   const loopedSlides = useMemo(() => buildLoopedSlides(PHO_GIA_VIDEOS, cloneCount), [cloneCount]);
   const [currentIndex, setCurrentIndex] = useState(() => cloneCount);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
-
-  useEffect(() => {
-    if (transitionEnabled) return;
-
-    const raf = window.requestAnimationFrame(() => setTransitionEnabled(true));
-    return () => window.cancelAnimationFrame(raf);
-  }, [transitionEnabled]);
+  const { dragOffset, isDragging, pauseAuto, pauseUntilRef, bindDragHandlers } = useCarouselInteraction({
+    onSwipeLeft: () => setCurrentIndex((index) => index + 1),
+    onSwipeRight: () => setCurrentIndex((index) => index - 1),
+  });
 
   useEffect(() => {
     if (PHO_GIA_VIDEOS.length <= 1) return;
 
     const timer = window.setInterval(() => {
+      if (Date.now() < pauseUntilRef.current) return;
       setCurrentIndex((index) => index + 1);
     }, AUTO_ADVANCE_MS);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [pauseUntilRef]);
 
-  const activeSlide = ((currentIndex - cloneCount) % PHO_GIA_VIDEOS.length + PHO_GIA_VIDEOS.length) % PHO_GIA_VIDEOS.length;
+  const activeSlide =
+    ((currentIndex - cloneCount) % PHO_GIA_VIDEOS.length + PHO_GIA_VIDEOS.length) % PHO_GIA_VIDEOS.length;
 
   const goToIndex = (nextIndex: number) => {
     if (PHO_GIA_VIDEOS.length <= 1) return;
+    pauseAuto();
     setTransitionEnabled(true);
     setCurrentIndex(nextIndex);
   };
@@ -113,12 +118,14 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
     if (currentIndex >= cloneCount + PHO_GIA_VIDEOS.length) {
       setTransitionEnabled(false);
       setCurrentIndex(cloneCount);
+      window.requestAnimationFrame(() => setTransitionEnabled(true));
       return;
     }
 
     if (currentIndex < cloneCount) {
       setTransitionEnabled(false);
       setCurrentIndex(cloneCount + PHO_GIA_VIDEOS.length - 1);
+      window.requestAnimationFrame(() => setTransitionEnabled(true));
     }
   };
 
@@ -135,11 +142,13 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
         }}
       >
         <div
-          className="flex items-stretch"
+          {...bindDragHandlers}
+          className="flex items-stretch select-none"
           style={{
             gap: `${gapSize}px`,
-            transform: `translate3d(calc(-1 * ${currentIndex} * ${slideStep}), 0, 0)`,
-            transition: transitionEnabled ? "transform 700ms ease-out" : "none",
+            transform: `translate3d(calc(-1 * ${currentIndex} * ${slideStep} + ${dragOffset}px), 0, 0)`,
+            transition: isDragging || !transitionEnabled ? "none" : "transform 700ms ease-out",
+            touchAction: "pan-y",
           }}
           onTransitionEnd={handleTransitionEnd}
         >
@@ -166,7 +175,7 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
           type="button"
           onClick={() => goToIndex(currentIndex - 1)}
           aria-label="Trang trước"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40"
+          className="hidden h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40 md:inline-flex"
         >
           <ArrowLongLeftIcon className="h-6 w-6" />
         </button>
@@ -197,7 +206,7 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
           type="button"
           onClick={() => goToIndex(currentIndex + 1)}
           aria-label="Trang sau"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40"
+          className="hidden h-10 w-10 items-center justify-center rounded-[8px] text-[#8e8e8e] transition hover:bg-[#f4efe7] hover:text-[#d5a24f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40 md:inline-flex"
         >
           <ArrowLongRightIcon className="h-6 w-6" />
         </button>
@@ -219,7 +228,7 @@ export default function VideosSection() {
   }, []);
 
   return (
-    <section id="videos" className="ph-section scroll-mt-24">
+    <section id="videos" className="ph-section-surface scroll-mt-24">
       <div className="ph-container-wide">
         <SectionHeading eyebrow="Năng lực của chúng tôi" title="KHÁM PHÁ PHỐ GIA" />
         <VideosCarousel key={slidesPerView} slidesPerView={slidesPerView} />

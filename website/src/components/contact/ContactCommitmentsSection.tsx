@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { PHO_GIA_CONTACT } from "@/lib/phogia";
 
@@ -19,7 +18,7 @@ function CommitmentItem({ title }: { title: string }) {
 
 export default function ContactCommitmentsSection() {
   return (
-    <section className="ph-section-tight bg-white pb-24">
+    <section className="ph-section-tight bg-transparent pb-24">
       <div className="ph-container">
         <AnimatedSection>
           <div className="text-center">
@@ -35,12 +34,15 @@ export default function ContactCommitmentsSection() {
             ))}
           </div>
 
-          <div className="mx-auto w-full max-w-[360px]">
-            <img
+          <div className="relative mx-auto aspect-square w-full max-w-[360px]">
+            <Image
               src={PHO_GIA_CONTACT.commitmentImage}
               alt="Phố Gia cam kết"
-              className="h-auto w-full object-contain"
+              fill
+              sizes="(max-width: 1024px) 100vw, 360px"
+              className="object-contain"
               loading="lazy"
+              quality={90}
             />
           </div>
 

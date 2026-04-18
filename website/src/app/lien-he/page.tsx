@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-
 import type { Metadata } from "next";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -54,9 +53,11 @@ export default function ContactPage() {
             <AnimatedSection animation="fade-right">
               <div>
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
-                  <img
+                  <Image
                     src={PHO_GIA_COMPANY.logo}
                     alt={PHO_GIA_CONTACT.companyTitle}
+                    width={80}
+                    height={80}
                     className="h-20 w-20 shrink-0"
                     loading="eager"
                   />

@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
 export default function Footer() {
@@ -21,7 +20,13 @@ export default function Footer() {
 
       <div className="ph-container pb-8 pt-9">
         <div className="text-center">
-          <img src={PHO_GIA_COMPANY.logo} alt="Phố Gia" className="mx-auto h-10 w-auto" />
+          <Image
+            src={PHO_GIA_COMPANY.logo}
+            alt="Phố Gia"
+            width={180}
+            height={44}
+            className="mx-auto h-10 w-auto"
+          />
         </div>
 
         <div className="mt-9 grid gap-7 text-center md:grid-cols-3">
@@ -61,7 +66,13 @@ export default function Footer() {
                 </p>
               </div>
               {address.title === "PHỐ GIA CN NHA TRANG" ? (
-                <img src={PHO_GIA_COMPANY.footerBadge} alt="Chứng nhận tín nhiệm mạng" className="mx-auto mt-4 w-[100px] md:mx-0" />
+                <Image
+                  src={PHO_GIA_COMPANY.footerBadge}
+                  alt="Chứng nhận tín nhiệm mạng"
+                  width={100}
+                  height={100}
+                  className="mx-auto mt-4 w-[100px] md:mx-0"
+                />
               ) : null}
             </div>
           ))}

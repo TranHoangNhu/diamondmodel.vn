@@ -1,13 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
 export default function MissionSection() {
   return (
-    <section id="mission" className="ph-section scroll-mt-24">
+    <section id="mission" className="ph-section-surface scroll-mt-24">
       <div className="ph-container">
         <div className="ph-section-header">
-          <img src={PHO_GIA_COMPANY.yearsBadge} alt="9 năm" className="mx-auto w-[112px] md:w-[142px]" />
+          <Image
+            src={PHO_GIA_COMPANY.yearsBadge}
+            alt="9 năm"
+            width={142}
+            height={52}
+            className="mx-auto w-[112px] md:w-[142px]"
+            quality={90}
+          />
           <p className="ph-script mt-6">Với Sứ Mệnh</p>
           <h2 className="mt-3 font-heading text-[31px] font-semibold uppercase leading-[1.05] text-[#45413d] md:text-[44px] lg:text-[48px]">
             “KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG”
@@ -16,12 +22,16 @@ export default function MissionSection() {
 
         <div className="mx-auto mt-14 grid max-w-[1040px] gap-10 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-14">
           <div className="overflow-hidden rounded-[8px] bg-[#f0ebe2]">
-            <img
-              src={PHO_GIA_COMPANY.missionImage}
-              alt="Không gian nội thất Phố Gia"
-              className="aspect-[4/5] w-full object-cover md:aspect-[5/4] lg:aspect-[4/5]"
-              loading="lazy"
-            />
+            <div className="relative aspect-[4/5] w-full md:aspect-[5/4] lg:aspect-[4/5]">
+              <Image
+                src={PHO_GIA_COMPANY.missionImage}
+                alt="Không gian nội thất Phố Gia"
+                fill
+                sizes="(max-width: 1024px) 100vw, 520px"
+                className="object-cover"
+                quality={90}
+              />
+            </div>
           </div>
           <div className="max-w-[520px] text-[15px] leading-8 text-[#5d5751]">
             <p className="mb-5 text-[13px] font-semibold uppercase text-[#7f7a74]">Với Phố Gia</p>
@@ -40,7 +50,7 @@ export default function MissionSection() {
               nghĩa, tạo nên sự gắn kết Chúng Tôi và Bạn vững bền.
             </p>
             <a href="#footer" className="ph-about-button mt-9 inline-flex">
-              <img src="/phogia/brand/logo_symbol_gold.svg" alt="" className="h-7 w-7" aria-hidden="true" />
+              <Image src="/phogia/brand/logo_symbol_gold.svg" alt="" width={28} height={28} className="h-7 w-7" aria-hidden="true" />
               <span>Về Phố Gia</span>
             </a>
           </div>
