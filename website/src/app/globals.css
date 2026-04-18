@@ -392,22 +392,18 @@ body {
   padding-top: 15px;
 }
 
-.ph-process-flow-desktop,
-.ph-process-flow-mobile {
-  display: block;
-  height: auto;
-}
-
 .ph-process-flow-desktop {
+  height: auto;
   margin-inline: auto;
   max-width: 1920px;
   width: 100%;
 }
 
 .ph-process-flow-mobile {
-  margin-left: -15%;
-  max-width: none;
-  width: calc(100% + 15%);
+  height: auto;
+  margin-inline: auto;
+  max-width: 540px;
+  width: 100%;
 }
 
 .ph-process-button {
@@ -434,6 +430,47 @@ body {
 
 .ph-process-button-cta {
   margin-top: 24px;
+}
+
+@media (max-width: 1023.98px) {
+  .ph-process-flow {
+    padding-top: 0;
+  }
+
+  .ph-process-flow-desktop {
+    display: none;
+  }
+
+  .ph-process-flow-mobile {
+    display: block;
+    max-width: none;
+    width: 100%;
+  }
+
+  .ph-process-button-inner {
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .ph-process-button-thumb {
+    align-items: center;
+    width: 100%;
+  }
+
+  .ph-process-button-cta {
+    align-self: center;
+    gap: 10px;
+    min-height: 44px;
+    min-width: 0;
+    margin-top: 18px;
+    padding: 0 16px 0 12px;
+    font-size: 11px;
+  }
+
+  .ph-process-button-cta::before {
+    height: 20px;
+    width: 20px;
+  }
 }
 
 .ph-trust-section {

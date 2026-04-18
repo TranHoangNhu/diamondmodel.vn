@@ -2,6 +2,7 @@
 
 import { CalendarDaysIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useId, useRef, useState } from "react";
+import { ADVISE_MODAL_OPEN_EVENT, openAdviseModal } from "@/lib/advise-modal";
 
 const RING_TEXT = "ĐẶT LỊCH KTS TƯ VẤN • ĐẶT LỊCH KTS TƯ VẤN • ";
 
@@ -36,13 +37,13 @@ function FloatingScheduleButton({ onClick }: { onClick: () => void }) {
       type="button"
       onClick={onClick}
       aria-label="Đặt lịch tư vấn"
-      className="fixed bottom-5 right-4 z-[60] h-[108px] w-[108px] md:bottom-6 md:right-6 md:h-[120px] md:w-[120px]"
+      className="fixed bottom-3 right-2 z-[60] h-[72px] w-[72px] md:bottom-6 md:right-6 md:h-[120px] md:w-[120px]"
     >
       <span className="relative block h-full w-full transition duration-300 ease-out hover:scale-[1.03]">
         <ScheduleRing />
         <span className="absolute inset-0 flex items-center justify-center">
-          <span className="flex h-[68px] w-[68px] items-center justify-center rounded-full bg-[#6c96a2] shadow-[0_10px_22px_rgba(0,0,0,0.14)]">
-            <CalendarDaysIcon className="h-8 w-8 text-[#efbe73]" />
+          <span className="flex h-[46px] w-[46px] items-center justify-center rounded-full bg-[#6c96a2] shadow-[0_10px_22px_rgba(0,0,0,0.14)]">
+            <CalendarDaysIcon className="h-5 w-5 text-[#efbe73]" />
           </span>
         </span>
       </span>
@@ -218,9 +219,16 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleOpen: EventListener = () => setIsOpen(true);
+
+    window.addEventListener(ADVISE_MODAL_OPEN_EVENT, handleOpen);
+    return () => window.removeEventListener(ADVISE_MODAL_OPEN_EVENT, handleOpen);
+  }, []);
+
   return (
     <>
-      <FloatingScheduleButton onClick={() => setIsOpen(true)} />
+      <FloatingScheduleButton onClick={openAdviseModal} />
       <FloatingAdviseModal open={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );

@@ -1,6 +1,9 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { openAdviseModal } from "@/lib/advise-modal";
 
 export default function ProcessSection() {
   return (
@@ -16,13 +19,18 @@ export default function ProcessSection() {
         <img
           src={PHO_GIA_COMPANY.processDesktop}
           alt="Quy trình thiết kế và thi công nội thất"
+          width={1634}
+          height={385}
           className="ph-process-flow-desktop hidden lg:block"
         />
-        <div className="ph-container lg:hidden">
+        <div className="ph-container">
           <img
             src={PHO_GIA_COMPANY.processMobile}
             alt="Quy trình thiết kế và thi công nội thất"
-            className="ph-process-flow-mobile mx-auto block w-full max-w-[440px]"
+            width={828}
+            height={622}
+            className="ph-process-flow-mobile block lg:hidden"
+            loading="lazy"
           />
         </div>
       </div>
@@ -34,12 +42,19 @@ export default function ProcessSection() {
               <img
                 src={PHO_GIA_COMPANY.processThumb}
                 alt="Đặt lịch kiến trúc sư tư vấn"
+                width={439}
+                height={568}
                 className="ph-process-consultation-thumb"
                 loading="lazy"
               />
-              <a href="#footer" className="ph-button ph-process-button-cta inline-flex">
-              Đặt lịch KTS tư vấn
-              </a>
+              <button
+                type="button"
+                onClick={openAdviseModal}
+                aria-haspopup="dialog"
+                className="ph-button ph-process-button-cta inline-flex"
+              >
+                Đặt lịch KTS tư vấn
+              </button>
             </div>
           </div>
         </div>
