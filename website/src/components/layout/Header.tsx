@@ -3,8 +3,10 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { PHO_GIA_COMPANY, PHO_GIA_NAV } from "@/lib/phogia";
+import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { SITE_NAV_ITEMS } from "@/lib/site-nav";
 
 const COMPACT_SCROLL_Y = 120;
 const SCROLL_DIRECTION_DELTA = 4;
@@ -49,13 +51,19 @@ function NavItem({
   className,
   tabIndex,
   onClick,
+  active = false,
 }: {
-  item: (typeof PHO_GIA_NAV)[number];
+  item: (typeof SITE_NAV_ITEMS)[number];
   className: string;
   tabIndex: number;
   onClick?: () => void;
+  active?: boolean;
 }) {
-  const sharedProps = { className, tabIndex, onClick };
+  const sharedProps = {
+    className: `${className} ${active ? "text-[#f1cd8a]" : ""}`,
+    tabIndex,
+    onClick,
+  };
 
   if (item.href.startsWith("/")) {
     return (
@@ -76,6 +84,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [compact, setCompact] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen || searchOpen ? "hidden" : "";
@@ -123,6 +132,8 @@ export default function Header() {
     };
   }, []);
 
+  const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href));
+
   return (
     <>
       <header
@@ -145,11 +156,12 @@ export default function Header() {
               </Link>
 
               <nav className="hidden items-center gap-7 lg:flex" aria-label="Menu chính">
-                {PHO_GIA_NAV.map((item) => (
+                {SITE_NAV_ITEMS.map((item) => (
                   <NavItem
                     key={item.label}
                     item={item}
                     tabIndex={compact ? -1 : 0}
+                    active={isActive(item.href)}
                     className="text-[12px] font-semibold uppercase text-white transition hover:text-[#f1cd8a]"
                   />
                 ))}
@@ -263,11 +275,12 @@ export default function Header() {
           ×
         </button>
         <div className="mx-auto flex max-w-[1180px] flex-col gap-5">
-          {PHO_GIA_NAV.map((item) => (
+          {SITE_NAV_ITEMS.map((item) => (
             <NavItem
               key={item.label}
               item={item}
               onClick={() => setMenuOpen(false)}
+              active={isActive(item.href)}
               className="font-heading text-3xl uppercase leading-none md:text-5xl"
               tabIndex={0}
             />

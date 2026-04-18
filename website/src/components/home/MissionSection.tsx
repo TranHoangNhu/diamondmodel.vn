@@ -9,7 +9,7 @@ export default function MissionSection() {
         <div className="ph-section-header">
           <img src={PHO_GIA_COMPANY.yearsBadge} alt="9 năm" className="mx-auto w-[112px] md:w-[142px]" />
           <p className="ph-script mt-6">Với Sứ Mệnh</p>
-          <h2 className="mt-3 font-heading text-[36px] font-semibold uppercase leading-[1.05] text-[#45413d] md:text-[56px]">
+          <h2 className="mt-3 font-heading text-[31px] font-semibold uppercase leading-[1.05] text-[#45413d] md:text-[44px] lg:text-[48px]">
             “KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG”
           </h2>
         </div>
@@ -26,13 +26,13 @@ export default function MissionSection() {
           <div className="max-w-[520px] text-[15px] leading-8 text-[#5d5751]">
             <p className="mb-5 text-[13px] font-semibold uppercase text-[#7f7a74]">Với Phố Gia</p>
             <p className="mb-5">
-              Để biến tấu một không gian hiện hữu trở nên hài hoà, thẩm mỹ, thoả GU của Gia Chủ thì yếu tố quan trọng
+              Để biến tấu một không gian hiện hữu trở nên hài hòa, thẩm mỹ, thoả GU của Gia Chủ thì yếu tố quan trọng
               nhất là giai đoạn Thiết Kế. Việc Kiến Trúc Sư khai phá được nội tâm, phong cách và sở thích thực sự của
               Gia Chủ sẽ là tiền đề để tạo nên một không gian nội thất với xúc cảm trọn vẹn.
             </p>
             <p className="mb-5">
               Thiết Kế & Thi Công trong lĩnh vực nội thất là cả một quá trình cần sự sáng tạo, cảm hứng, đam mê và tận
-              tâm thật sự. Khi không còn tồn tại sự vội vàng, áp đặt, sự gói ghém tằn tiện thì nguồn cảm hứng cho kiến
+              tâm thật sự. Khi không còn tồn tại sự vội vàng, áp đặt, sự gói ghém tận tiện thì nguồn cảm hứng cho kiến
               trúc sư sẽ thăng hoa.
             </p>
             <p>

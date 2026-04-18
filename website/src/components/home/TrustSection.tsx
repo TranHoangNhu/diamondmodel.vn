@@ -13,10 +13,7 @@ function TrustArrow({ reverse = false }: { reverse?: boolean }) {
       src="/phogia/icons/arrow_right_trust.svg"
       alt=""
       aria-hidden="true"
-      className={[
-        "h-[58px] w-[44px] shrink-0 opacity-90",
-        reverse ? "rotate-180" : "",
-      ].join(" ")}
+      className={["h-[58px] w-[44px] shrink-0 opacity-90", reverse ? "rotate-180" : ""].join(" ")}
       loading="lazy"
     />
   );
@@ -25,7 +22,7 @@ function TrustArrow({ reverse = false }: { reverse?: boolean }) {
 function TrustItem({ benefit, reverse = false }: { benefit: Benefit; reverse?: boolean }) {
   return (
     <article className="w-full max-w-[520px]">
-      <h3 className="font-heading text-[28px] font-semibold uppercase leading-[1.08] text-white md:text-[30px] lg:text-[36px]">
+      <h3 className="font-heading text-[24px] font-semibold uppercase leading-[1.08] text-white md:text-[27px] lg:text-[32px]">
         {benefit.title}
       </h3>
 
@@ -35,9 +32,7 @@ function TrustItem({ benefit, reverse = false }: { benefit: Benefit; reverse?: b
         {!reverse ? <TrustArrow /> : null}
       </div>
 
-      <p className="mt-5 max-w-[520px] text-[15px] leading-[1.75] text-white/90">
-        {benefit.description}
-      </p>
+      <p className="mt-5 max-w-[520px] text-[15px] leading-[1.75] text-white/90">{benefit.description}</p>
     </article>
   );
 }
@@ -45,12 +40,15 @@ function TrustItem({ benefit, reverse = false }: { benefit: Benefit; reverse?: b
 export default function TrustSection() {
   return (
     <section id="trust" className="ph-trust-section relative overflow-hidden text-white">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${PHO_GIA_COMPANY.trustImage})` }} />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${PHO_GIA_COMPANY.trustImage})` }}
+      />
       <div className="absolute inset-0 bg-[#10100f]/50" />
 
       <div className="ph-container relative">
         <div className="mx-auto max-w-[1140px] pt-8 text-center lg:pt-4">
-          <h2 className="font-heading text-[34px] font-semibold uppercase leading-[1.08] md:text-[42px] lg:text-[48px]">
+          <h2 className="font-heading text-[30px] font-semibold uppercase leading-[1.08] md:text-[38px] lg:text-[44px]">
             PHỐ GIA ĐEM ĐẾN CHO KHÁCH HÀNG
           </h2>
         </div>

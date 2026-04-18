@@ -266,7 +266,7 @@ body {
 }
 
 .section-title {
-  @apply text-3xl font-medium text-dark-800 md:text-4xl lg:text-5xl;
+  @apply text-[2rem] font-medium text-dark-800 md:text-[2.6rem] lg:text-[3.15rem];
   font-family: var(--font-heading);
 }
 
@@ -275,11 +275,11 @@ body {
 }
 
 .ph-section {
-  padding-block: 88px;
+  padding-block: 72px;
 }
 
 .ph-section-tight {
-  padding-block: 68px;
+  padding-block: 56px;
 }
 
 .ph-section-band {
@@ -297,7 +297,7 @@ body {
 }
 
 .ph-section-header {
-  max-width: 820px;
+  max-width: 760px;
   margin-inline: auto;
   text-align: center;
 }
@@ -312,16 +312,16 @@ body {
 .ph-title {
   font-family: var(--font-heading);
   color: #6b95a2;
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 1;
   text-transform: uppercase;
 }
 
 .ph-script {
   font-family: var(--font-accent);
   color: #e2bc7a;
-  font-size: 2.35rem;
+  font-size: 2.1rem;
   line-height: 1;
 }
 
@@ -370,19 +370,19 @@ body {
 
 .ph-process-section {
   overflow: hidden;
-  padding: 104px 0 72px;
+  padding: 88px 0 60px;
 }
 
 .ph-process-header {
   margin-inline: auto;
-  max-width: 980px;
+  max-width: 860px;
   text-align: center;
 }
 
 .ph-process-title {
   color: #6b95a2;
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2.15rem;
   font-weight: 700;
   line-height: 1.12;
   text-transform: uppercase;
@@ -474,13 +474,13 @@ body {
 }
 
 .ph-trust-section {
-  padding-block: 72px 82px;
+  padding-block: 64px 72px;
 }
 
 .ph-trust-heading {
   color: #fff;
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.08;
   text-transform: uppercase;
@@ -499,7 +499,7 @@ body {
 
 .ph-trust-title {
   color: #fff;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.12;
   padding: 0 62px 24px 0;
@@ -632,15 +632,15 @@ body {
   }
 
   .ph-title {
-    font-size: 3.25rem;
+    font-size: 2.8rem;
   }
 
   .ph-script {
-    font-size: 2.75rem;
+    font-size: 2.35rem;
   }
 
   .ph-process-title {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 
   .ph-trust-grid {
@@ -650,17 +650,17 @@ body {
   }
 
   .ph-trust-heading {
-    font-size: 2.65rem;
+    font-size: 2.4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .ph-section {
-    padding-block: 132px;
+    padding-block: 112px;
   }
 
   .ph-section-tight {
-    padding-block: 92px;
+    padding-block: 84px;
   }
 
   .ph-container,
@@ -673,19 +673,19 @@ body {
   }
 
   .ph-title {
-    font-size: 4rem;
+    font-size: 3.35rem;
   }
 
   .ph-script {
-    font-size: 3rem;
+    font-size: 2.55rem;
   }
 
   .ph-process-section {
-    padding: 128px 0 88px;
+    padding: 104px 0 72px;
   }
 
   .ph-process-title {
-    font-size: 4rem;
+    font-size: 3.45rem;
   }
 
   .ph-process-button-inner {
@@ -710,15 +710,15 @@ body {
   }
 
   .ph-trust-section {
-    padding-block: 84px 104px;
+    padding-block: 76px 92px;
   }
 
   .ph-trust-heading {
-    font-size: 3.15rem;
+    font-size: 2.85rem;
   }
 
   .ph-trust-title {
-    font-size: 2.05rem;
+    font-size: 1.85rem;
   }
 
   .ph-scroll-indicator {
