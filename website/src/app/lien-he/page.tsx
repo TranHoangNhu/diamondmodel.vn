@@ -63,7 +63,7 @@ export default function ContactPage() {
                   />
 
                   <div className="max-w-[560px]">
-                    <h2 className="font-heading text-[24px] font-semibold uppercase leading-[1.1] text-[#45413d] md:text-[28px]">
+                    <h2 className="font-display text-[44px] font-semibold uppercase leading-[1.05] text-[#45413d]">
                       {PHO_GIA_CONTACT.companyTitle}
                     </h2>
                     <p className="mt-2 text-[12px] uppercase tracking-[0.18em] text-[#7f7a74]">

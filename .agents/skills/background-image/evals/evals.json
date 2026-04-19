@@ -1,0 +1,38 @@
+{
+  "skill_name": "background-image",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A blog archive page still looks too white. Update the website background system so the texture shows through behind the archive content, but the cards and typography remain readable.",
+      "expected_output": "The solution changes the page canvas or outer wrappers, keeps the cards readable, and mentions visual verification with a browser screenshot.",
+      "files": [],
+      "expectations": [
+        "The solution changes a global canvas or section wrapper, not only card colors.",
+        "The solution keeps content readable while letting the background show through.",
+        "The response includes a browser screenshot or equivalent visual verification."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A homepage section is hiding the background texture behind a white block. Fix the layering so the background remains visible, and do not make the text or images translucent.",
+      "expected_output": "The solution makes the wrapper transparent or moves the background to a proper layer, avoids opacity on content containers, and explains the stacking order used.",
+      "files": [],
+      "expectations": [
+        "The solution uses a background layer or transparent wrapper instead of opacity on content.",
+        "The solution mentions stacking order, z-index, or isolation when relevant.",
+        "The content itself remains opaque and readable."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add a reusable background treatment for a website so future pages can use a soft texture canvas with readable cards and section-specific surfaces.",
+      "expected_output": "The solution defines a reusable background pattern or convention for the project and documents how future pages should use it.",
+      "files": [],
+      "expectations": [
+        "The solution defines a reusable pattern for future pages.",
+        "The solution separates canvas, section, and card surfaces.",
+        "The response documents how to verify the result visually."
+      ]
+    }
+  ]
+}

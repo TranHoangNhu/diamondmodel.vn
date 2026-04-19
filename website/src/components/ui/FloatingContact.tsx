@@ -102,7 +102,7 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
         <div className="relative flex items-center justify-center bg-[#6d97a5] px-12 py-4 text-center">
           <h2
             id={titleId}
-            className="font-heading text-[18px] font-semibold uppercase tracking-[0.04em] text-[#efbe73] sm:text-[24px]"
+            className="font-display text-[44px] font-semibold uppercase tracking-[0.01em] text-[#efbe73]"
           >
             CÙNG TRÒ CHUYỆN VỚI CHUYÊN GIA KIẾN TRÚC SƯ
           </h2>

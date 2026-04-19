@@ -15,7 +15,7 @@ export default function MissionSection() {
             quality={90}
           />
           <p className="ph-script mt-6">Với Sứ Mệnh</p>
-          <h2 className="mt-3 font-heading text-[31px] font-semibold uppercase leading-[1.05] text-[#45413d] md:text-[44px] lg:text-[48px]">
+          <h2 className="font-display mt-3 text-[44px] font-semibold uppercase leading-[1.05] text-[#45413d]">
             “KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG”
           </h2>
         </div>

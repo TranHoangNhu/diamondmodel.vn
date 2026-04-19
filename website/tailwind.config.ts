@@ -47,9 +47,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ['"Cormorant Garamond"', "serif"],
-        body: ['"Be Vietnam Pro"', "sans-serif"],
-        accent: ['"Playfair Display"', "serif"],
+        display: ["var(--font-heading)", "serif"],
+        heading: ["var(--font-body)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        accent: ["var(--font-accent)", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.8s ease-out forwards",

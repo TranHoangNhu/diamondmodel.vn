@@ -168,7 +168,7 @@ export default function Header() {
                     item={item}
                     tabIndex={compact ? -1 : 0}
                     active={isActive(item.href)}
-                    className="text-[12px] font-semibold uppercase text-white transition hover:text-[#f1cd8a]"
+                    className="text-[16px] font-semibold uppercase tracking-[0.08em] text-white transition hover:text-[#f1cd8a]"
                   />
                 ))}
               </nav>
@@ -248,7 +248,7 @@ export default function Header() {
         <div className="ph-container mt-24 max-w-[760px]">
           <div className="rounded-[8px] bg-white p-6 shadow-2xl">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="font-heading text-3xl uppercase text-[#4f4b46]">Tìm kiếm</h2>
+              <h2 className="font-display text-[44px] uppercase leading-[1.05] text-[#4f4b46]">Tìm kiếm</h2>
               <button
                 type="button"
                 onClick={() => setSearchOpen(false)}
@@ -287,7 +287,7 @@ export default function Header() {
               item={item}
               onClick={() => setMenuOpen(false)}
               active={isActive(item.href)}
-              className="font-heading text-3xl uppercase leading-none md:text-5xl"
+              className="text-[16px] font-semibold uppercase tracking-[0.08em] leading-tight"
               tabIndex={0}
             />
           ))}

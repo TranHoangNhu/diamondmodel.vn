@@ -30,9 +30,9 @@
   --color-dark-800: #1e2d31;
   --color-dark-900: #152024;
 
-  --font-heading: "Cormorant Garamond", serif;
-  --font-body: "Be Vietnam Pro", sans-serif;
-  --font-accent: "Allura", cursive;
+  --font-heading: serif;
+  --font-body: sans-serif;
+  --font-accent: var(--font-body);
 
   --tracking-luxury: 0.15em;
 
@@ -125,13 +125,38 @@
 
 html {
   scroll-behavior: smooth;
+  background: #f7f1e8;
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   font-family: var(--font-body);
   color: #4f4b46;
-  background-color: #ffffff;
+  background-color: #f7f1e8;
   overflow-x: hidden;
+}
+
+:where(h1, h2) {
+  font-family: var(--font-heading);
+  letter-spacing: 0.01em;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #f7f1e8;
+  background-image: image-set(
+    url("/phogia/backgrounds/white-wall-background-texture-with-plaster-white-concrete-wall-banner-interior-design-background.avif") type("image/avif"),
+    url("/phogia/backgrounds/white-wall-background-texture-with-plaster-white-concrete-wall-banner-interior-design-background.jpg") type("image/jpeg")
+  );
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
 }
 
 ::selection {
@@ -261,27 +286,31 @@ body {
 
 .section-label {
   @apply text-sm uppercase text-gold-400;
-  font-family: var(--font-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
   letter-spacing: 0.08em;
 }
 
 .section-title {
-  @apply text-[2rem] font-medium text-dark-800 md:text-[2.6rem] lg:text-[3.15rem];
+  @apply text-[44px] font-semibold text-dark-800;
   font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
 }
 
 .font-heading {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
 }
 
 .ph-section {
   padding-block: 50px;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .ph-section-tight {
   padding-block: 50px;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .ph-section-band {
@@ -289,14 +318,7 @@ body {
 }
 
 .ph-section-surface {
-  background-color: #ffffff;
-  background-image: image-set(
-    url("/phogia/backgrounds/abstract-white-gray-grunge-texture-pattern-background.avif") type("image/avif"),
-    url("/phogia/backgrounds/abstract-white-gray-grunge-texture-pattern-background.jpg") type("image/jpeg")
-  );
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: transparent;
 }
 
 .ph-container {
@@ -325,9 +347,10 @@ body {
 .ph-title {
   font-family: var(--font-heading);
   color: #6b95a2;
-  font-size: 2.1rem;
-  font-weight: 600;
-  line-height: 1;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -339,9 +362,11 @@ body {
 }
 
 .ph-script {
-  font-family: var(--font-accent);
+  font-family: var(--font-body);
   color: #e2bc7a;
   font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   line-height: 1;
 }
 
@@ -402,9 +427,10 @@ body {
 .ph-process-title {
   color: #6b95a2;
   font-family: var(--font-heading);
-  font-size: 2.15rem;
+  font-size: 44px;
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -499,10 +525,11 @@ body {
 
 .ph-trust-heading {
   color: #fff;
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.08;
+  font-family: var(--font-body);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -519,9 +546,11 @@ body {
 
 .ph-trust-title {
   color: #fff;
+  font-family: var(--font-body);
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.12;
+  letter-spacing: 0.015em;
   padding: 0 62px 24px 0;
   position: relative;
   text-transform: uppercase;
@@ -652,7 +681,7 @@ body {
   }
 
   .ph-title {
-    font-size: 2.8rem;
+    font-size: 44px;
   }
 
   .ph-script {
@@ -660,7 +689,7 @@ body {
   }
 
   .ph-process-title {
-    font-size: 3rem;
+    font-size: 44px;
   }
 
   .ph-trust-grid {
@@ -670,7 +699,7 @@ body {
   }
 
   .ph-trust-heading {
-    font-size: 2.4rem;
+    font-size: 44px;
   }
 }
 
@@ -685,7 +714,7 @@ body {
   }
 
   .ph-title {
-    font-size: 3.35rem;
+    font-size: 44px;
   }
 
   .ph-script {
@@ -697,7 +726,7 @@ body {
   }
 
   .ph-process-title {
-    font-size: 3.45rem;
+    font-size: 44px;
   }
 
   .ph-process-button-inner {
@@ -726,7 +755,7 @@ body {
   }
 
   .ph-trust-heading {
-    font-size: 2.85rem;
+    font-size: 44px;
   }
 
   .ph-trust-title {

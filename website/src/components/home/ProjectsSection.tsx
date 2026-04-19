@@ -3,7 +3,7 @@ import { ProjectCard, SectionHeading } from "./SharedComponents";
 
 export default function ProjectsSection() {
   return (
-    <>
+    <div className="flex flex-col gap-[50px]">
       {PHO_GIA_PROJECTS.map((group) => (
         <section key={group.id} id={group.id} className="ph-section-surface scroll-mt-24">
           <div className="ph-container">
@@ -21,6 +21,6 @@ export default function ProjectsSection() {
           </div>
         </section>
       ))}
-    </>
+    </div>
   );
 }

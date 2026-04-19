@@ -216,7 +216,7 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
 }
 
 export default function VideosSection() {
-  const [slidesPerView, setSlidesPerView] = useState(() => getSlidesPerView());
+  const [slidesPerView, setSlidesPerView] = useState(3);
 
   useEffect(() => {
     const updateSlidesPerView = () => setSlidesPerView(getSlidesPerView());

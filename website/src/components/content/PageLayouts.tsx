@@ -86,7 +86,7 @@ function ArticleBody({ sections }: { sections: ArticleSection[] }) {
     <div className="space-y-10">
       {sections.map((section) => (
         <section key={section.id} id={section.id} className="scroll-mt-28">
-          <h2 className="font-heading text-[26px] font-semibold uppercase leading-[1.08] text-[#4f4b46] md:text-[30px]">
+          <h2 className="font-display text-[44px] font-semibold uppercase leading-[1.05] text-[#4f4b46]">
             {section.title}
           </h2>
           <div className="mt-4 space-y-4 text-[15px] leading-8 text-[#5d5751]">
@@ -236,13 +236,13 @@ export function ArticleLayout({
   }) {
   return (
     <>
-      <section className="bg-white pt-24 md:pt-28">
+      <section className="bg-transparent pt-24 md:pt-28">
         <div className="ph-container">
           <Breadcrumbs items={breadcrumbs} />
 
           <header className="mx-auto mt-8 max-w-[980px] text-center">
             <p className="ph-eyebrow">{article.categoryLabel}</p>
-            <h1 className="mt-3 font-heading text-[36px] font-semibold uppercase leading-[1.04] text-[#6b95a2] md:text-[52px] lg:text-[60px]">
+            <h1 className="font-display mt-3 text-[44px] font-semibold uppercase leading-[1.05] text-[#6b95a2]">
               {article.title}
             </h1>
             <p className="mx-auto mt-4 max-w-[820px] text-[16px] leading-8 text-[#5d5751] md:text-[18px]">
@@ -329,12 +329,12 @@ export function ArchiveLayout({
 }) {
   return (
     <>
-      <section className="bg-white pt-24 md:pt-28">
+      <section className="bg-transparent pt-24 md:pt-28">
         <div className="ph-container-wide">
           <Breadcrumbs items={breadcrumbs} />
 
           <header className="mx-auto mt-10 max-w-[900px] text-center">
-            <h1 className="font-heading text-[38px] font-semibold uppercase leading-[1.04] text-[#45413d] md:text-[54px] lg:text-[62px]">
+            <h1 className="font-display text-[44px] font-semibold uppercase leading-[1.05] text-[#45413d]">
               {collection.label}
             </h1>
             <p className="ph-clamp-2 mx-auto mt-4 max-w-[760px] text-[16px] leading-8 text-[#5d5751] md:text-[18px]">
@@ -345,7 +345,7 @@ export function ArchiveLayout({
         </div>
       </section>
 
-      <section className="ph-section-surface mt-14 pb-24">
+      <section className="ph-section-surface pb-24">
         <div className="ph-container-wide">
           <div className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
             {items.map((item) => (

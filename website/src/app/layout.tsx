@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Allura, Be_Vietnam_Pro, Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/layout/AppShell";
 
-const headingFont = Cormorant_Garamond({
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+const headingFont = localFont({
+  src: [
+    { path: "./fonts/svn-moneta/SVN-Moneta-Light.ttf", weight: "300", style: "normal" },
+    { path: "./fonts/svn-moneta/SVN-Moneta-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/svn-moneta/SVN-Moneta-Bold.ttf", weight: "700", style: "normal" },
+    { path: "./fonts/svn-moneta/SVN-Moneta-Black.ttf", weight: "900", style: "normal" },
+  ],
   variable: "--font-heading",
+  display: "swap",
 });
 
-const bodyFont = Be_Vietnam_Pro({
-  subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700"],
+const bodyFont = Mulish({
+  subsets: ["latin", "latin-ext", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
-});
-
-const accentFont = Allura({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-accent",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -58,8 +59,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
-      <body className={`${headingFont.variable} ${bodyFont.variable} ${accentFont.variable} antialiased`}>
+    <html lang="vi" data-scroll-behavior="smooth">
+      <body className={`${headingFont.variable} ${bodyFont.variable} antialiased`}>
         <AppShell>{children}</AppShell>
       </body>
     </html>

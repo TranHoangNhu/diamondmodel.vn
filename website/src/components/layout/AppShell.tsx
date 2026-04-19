@@ -10,7 +10,7 @@ export default function AppShell({
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="flex flex-col gap-[50px]">{children}</main>
       <Footer />
       <FloatingContact />
     </>

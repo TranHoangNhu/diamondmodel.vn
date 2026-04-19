@@ -27,9 +27,7 @@ export default function AnimatedSection({
   return (
     <div
       ref={ref}
-      className={`${className} ${
-        isInView ? animationClass : "opacity-0"
-      }`}
+      className={`${className} ${isInView ? animationClass : ""}`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {children}

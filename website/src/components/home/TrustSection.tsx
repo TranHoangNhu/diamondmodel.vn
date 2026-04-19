@@ -54,7 +54,7 @@ export default function TrustSection() {
 
       <div className="ph-container relative">
         <div className="mx-auto max-w-[1140px] pt-8 text-center lg:pt-4">
-          <h2 className="font-heading text-[30px] font-semibold uppercase leading-[1.08] md:text-[38px] lg:text-[44px]">
+          <h2 className="font-display text-[44px] font-semibold uppercase leading-[1.05]">
             PHỐ GIA ĐEM ĐẾN CHO KHÁCH HÀNG
           </h2>
         </div>
