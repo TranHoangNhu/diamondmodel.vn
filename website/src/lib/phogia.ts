@@ -195,14 +195,14 @@ export const PHO_GIA_PROJECTS = [
         meta2Type: "scale",
       },
       {
-        title: "THIẾT KẾ NỘI THẤT BIỆT THỰ THẢO ĐIỀN QUẬN 2",
+        title: "Thiết kế nội thất biệt thự Thảo Điền quận 2",
         image: "/phogia/projects/thiet-ke-villa-nha-pho-thao-dien-quan-2-thumb-458x250.jpg",
         meta1: "Diện tích: 200M2",
         meta2: "Quy mô: 1 Trệt, 2 Lầu",
         meta2Type: "scale",
       },
       {
-        title: "THIẾT KẾ NỘI THẤT VILLA LIỀN KỀ BÌNH DƯƠNG",
+        title: "Thiết kế nội thất villa liền kề Bình Dương",
         image: "/phogia/projects/thiet-ke-noi-that-villa-lien-ke-binh-duong-thumb-458x250.jpg",
         meta1: "Diện tích: 320M2",
         meta2: "Quy mô: 1 Trệt, 2 Lầu",
@@ -223,7 +223,7 @@ export const PHO_GIA_PROJECTS = [
         meta2Type: "scale",
       },
       {
-        title: "THIẾT KẾ NỘI THẤT LAKEVIEW CITY QUẬN 2",
+        title: "Thiết kế nội thất Lakeview City quận 2",
         image: "/phogia/projects/thiet-ke-noi-that-lakeview-city-quan-2-thumb-458x250.jpg",
         meta1: "Diện tích: 94M2",
         meta2: "Quy mô:",
@@ -292,17 +292,17 @@ export const PHO_GIA_VALUES = [
 
 export const PHO_GIA_VIDEOS = [
   {
-    title: "QUY TRÌNH SẢN XUẤT TẠI XƯỞNG PHỐ GIA DECOR",
+    title: "Quy trình sản xuất tại xưởng Phố Gia Decor",
     image: "/phogia/videos/BANNER-CHINH.jpg",
     href: "https://youtu.be/87aKui2Cl-g",
   },
   {
-    title: "QUÁ TRÌNH THI CÔNG TẠI CÔNG TRÌNH",
+    title: "Quá trình thi công tại công trình",
     image: "/phogia/videos/izPEwzhK04g-hqdefault.jpg",
     href: "https://youtu.be/izPEwzhK04g",
   },
   {
-    title: "TRẢI NGHIỆM KHÁCH HÀNG PHỐ GIA",
+    title: "Trải nghiệm khách hàng Phố Gia",
     image: "/phogia/videos/trai-nghiem-kh-video-thumb.jpg",
     href: "https://vimeo.com/803366386",
   },
