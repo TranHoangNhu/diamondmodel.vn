@@ -5,6 +5,7 @@ import type { ArticleItem, ArticleMeta, ArticleSection, ArchiveCollection } from
 import { SITE_URL } from "@/lib/site-content";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 import ShareToolbar from "@/components/content/ShareToolbar";
+import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
 type Crumb = {
   label: string;
@@ -145,12 +146,12 @@ function ArticleLinkCard({ item, tone = "light" }: { item: ArticleItem; tone?: "
   const metaClass = tone === "dark" ? "inline-flex items-center gap-1 text-[12px] text-white/60" : "inline-flex items-center gap-1 text-[12px] text-[#8a8277]";
   const titleClass =
     tone === "dark"
-      ? "ph-clamp-2 mt-4 min-h-[4.6rem] font-heading text-[22px] font-semibold uppercase leading-[1.12] text-white transition group-hover:text-[#f1be7e] md:text-[24px]"
-      : "ph-clamp-2 mt-4 min-h-[4.6rem] font-heading text-[22px] font-semibold uppercase leading-[1.12] text-[#4f4b46] transition group-hover:text-[#6b95a2] md:text-[24px]";
+      ? `ph-clamp-2 mt-3 min-h-[3rem] ${CARD_TITLE_CLASS} text-white transition group-hover:text-[#f1be7e]`
+      : `ph-clamp-2 mt-3 min-h-[3rem] ${CARD_TITLE_CLASS} text-[#4f4b46] transition group-hover:text-[#6b95a2]`;
   const summaryClass =
     tone === "dark"
-      ? "ph-clamp-2 mt-3 min-h-[3.9rem] text-[14px] leading-7 text-white/70"
-      : "ph-clamp-2 mt-3 min-h-[3.9rem] text-[14px] leading-7 text-[#5d5751]";
+      ? `ph-clamp-2 mt-2 min-h-[2.75rem] ${CARD_DESC_CLASS} text-white/70`
+      : `ph-clamp-2 mt-2 min-h-[2.75rem] ${CARD_DESC_CLASS} text-[#5d5751]`;
   const linkClass =
     tone === "dark"
       ? "mt-auto inline-flex items-center gap-2 pt-5 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#f1be7e] transition group-hover:text-white"
@@ -347,7 +348,7 @@ export function ArchiveLayout({
 
       <section className="ph-section-surface pb-24">
         <div className="ph-container-wide">
-          <div className="grid items-stretch gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
               <ArticleLinkCard key={item.slug} item={item} tone="light" />
             ))}

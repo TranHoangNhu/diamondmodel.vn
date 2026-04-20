@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PHO_GIA_BENEFITS, PHO_GIA_COMPANY } from "@/lib/phogia";
+import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
 type Benefit = (typeof PHO_GIA_BENEFITS)[number];
 
@@ -23,7 +24,7 @@ function TrustArrow({ reverse = false }: { reverse?: boolean }) {
 function TrustItem({ benefit, reverse = false }: { benefit: Benefit; reverse?: boolean }) {
   return (
     <article className="w-full max-w-[520px]">
-      <h3 className="font-heading text-[24px] font-semibold uppercase leading-[1.08] text-white md:text-[27px] lg:text-[32px]">
+      <h3 className={`ph-clamp-2 min-h-[3rem] ${CARD_TITLE_CLASS} text-white`}>
         {benefit.title}
       </h3>
 
@@ -33,7 +34,7 @@ function TrustItem({ benefit, reverse = false }: { benefit: Benefit; reverse?: b
         {!reverse ? <TrustArrow /> : null}
       </div>
 
-      <p className="mt-5 max-w-[520px] text-[15px] leading-[1.75] text-white/90">{benefit.description}</p>
+      <p className={`mt-3 max-w-[520px] ${CARD_DESC_CLASS} text-white/90`}>{benefit.description}</p>
     </article>
   );
 }

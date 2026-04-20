@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PHO_GIA_PROJECTS } from "@/lib/phogia";
+import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
 export function SectionHeading({
   eyebrow,
@@ -50,8 +51,8 @@ export function ProjectCard({
         </div>
       </div>
       <div className="px-1 pb-1 pt-3">
-        <h3 className="min-h-[42px] text-[13px] font-medium uppercase leading-[1.45] text-[#4f4b46]">{item.title}</h3>
-        <div className="mt-3 grid gap-2 text-[12px] text-[#756d63] sm:grid-cols-2">
+        <h3 className={`ph-clamp-2 min-h-[3rem] ${CARD_TITLE_CLASS} text-[#4f4b46]`}>{item.title}</h3>
+        <div className="mt-2.5 grid gap-2 text-[12px] text-[#756d63] sm:grid-cols-2">
           <div className="flex items-center gap-2">
             <MetaIcon type="area" />
             <span>{item.meta1}</span>
@@ -87,7 +88,7 @@ export function VideoCard({ image, title, href }: { image: string; title: string
           </span>
         </div>
       </div>
-      <h3 className="mt-4 text-center text-[13px] font-semibold uppercase leading-[1.45] text-[#4f4b46]">{title}</h3>
+      <h3 className={`ph-clamp-2 mt-3 min-h-[3rem] text-center ${CARD_TITLE_CLASS} text-[#4f4b46]`}>{title}</h3>
     </>
   );
 
