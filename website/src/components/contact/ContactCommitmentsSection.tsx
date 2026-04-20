@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 import { PHO_GIA_CONTACT } from "@/lib/phogia";
 
 const LEFT_ITEMS = PHO_GIA_CONTACT.commitments.slice(0, 3);
@@ -8,7 +9,7 @@ const RIGHT_ITEMS = PHO_GIA_CONTACT.commitments.slice(3);
 function CommitmentItem({ title }: { title: string }) {
   return (
     <article className="max-w-[420px]">
-      <h3 className="font-heading text-[26px] font-semibold uppercase leading-[1.08] text-[#5a8492] md:text-[32px]">
+      <h3 className={`ph-clamp-2 min-h-[3rem] ${CARD_TITLE_CLASS} text-[#5a8492]`}>
         {title}
       </h3>
       <div className="mt-4 h-px w-full bg-[#d8cfc4]/80" />
