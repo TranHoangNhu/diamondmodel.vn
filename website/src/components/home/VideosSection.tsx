@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowLongLeftIcon, ArrowLongRightIcon, PlayIcon } from "@heroicons/react/24/outline";
 import { useEffect, useMemo, useState } from "react";
 import { PHO_GIA_VIDEOS } from "@/lib/phogia";
+import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 import { SectionHeading } from "./SharedComponents";
 import { useCarouselInteraction } from "./useCarouselInteraction";
 
@@ -73,7 +74,7 @@ function VideoSlide({
           </div>
         </div>
       </div>
-      <h3 className="mx-auto mt-4 max-w-[92%] text-center text-[14px] font-medium uppercase leading-[1.45] tracking-[0.01em] text-[#4f4b46] md:text-[15px] lg:text-[16px]">
+      <h3 className={`ph-clamp-2 mx-auto mt-3 min-h-[3rem] max-w-[92%] text-center ${CARD_TITLE_CLASS} text-[#4f4b46]`}>
         {title}
       </h3>
     </a>

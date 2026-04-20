@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 import { COMPANY } from "@/lib/constants";
 
 export default function VideoSection() {
@@ -39,7 +40,7 @@ export default function VideoSection() {
             <AnimatedSection key={item.title} animation="fade-up" delay={300 + i * 100}>
               <div className="bg-cream-50 border border-cream-200 p-6 text-center group hover:border-gold-300/50 transition-all cursor-pointer card-lift">
                 <span className="text-3xl mb-3 block">{item.icon}</span>
-                <h3 className="font-heading text-sm text-dark-800 uppercase tracking-wide group-hover:text-primary-400 transition-colors">
+                <h3 className={`ph-clamp-2 mt-3 min-h-[3rem] ${CARD_TITLE_CLASS} text-dark-800 group-hover:text-primary-400 transition-colors`}>
                   {item.title}
                 </h3>
               </div>
