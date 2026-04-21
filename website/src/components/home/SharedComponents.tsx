@@ -32,36 +32,38 @@ export function MetaIcon({ type }: { type: "area" | "bedroom" | "scale" }) {
 
 export function ProjectCard({
   item,
+  badge,
 }: {
   item: (typeof PHO_GIA_PROJECTS)[number]["items"][number];
+  badge: string;
 }) {
+  const summary = `${item.meta1} · ${item.meta2}`;
+
   return (
-    <article className="group">
-      <div className="overflow-hidden rounded-[8px] bg-[#f3eee6]">
-        <div className="relative aspect-[458/250] w-full">
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 458px"
-            className="object-cover transition duration-500 group-hover:scale-[1.03]"
-            loading="lazy"
-            quality={90}
-          />
-        </div>
+    <article className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#e7ddd0] bg-white shadow-[0_12px_30px_rgba(25,35,38,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(25,35,38,0.1)]">
+      <div className="relative aspect-[16/10] bg-[#f4eee4]">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          sizes="(max-width: 1024px) 100vw, 458px"
+          className="object-cover transition duration-500 group-hover:scale-[1.03]"
+          loading="eager"
+          quality={90}
+        />
       </div>
-      <div className="px-1 pb-1 pt-3">
-        <h3 className={`ph-clamp-2 min-h-[3rem] ${CARD_TITLE_CLASS} text-[#4f4b46]`}>{item.title}</h3>
-        <div className="mt-2.5 grid gap-2 text-[12px] text-[#756d63] sm:grid-cols-2">
-          <div className="flex items-center gap-2">
-            <MetaIcon type="area" />
-            <span>{item.meta1}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <MetaIcon type={item.meta2Type} />
-            <span>{item.meta2}</span>
-          </div>
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex rounded-full bg-[#f4eee4] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6b95a2]">
+            {badge}
+          </span>
+          <span className="text-[12px] text-[#8a8277]">{item.meta1}</span>
+          <span className="text-[12px] text-[#8a8277]">{item.meta2}</span>
         </div>
+        <h3 className={`ph-clamp-2 mt-4 min-h-[3rem] ${CARD_TITLE_CLASS} text-[#4f4b46]`}>{item.title}</h3>
+        <p className="ph-clamp-2 mt-2 min-h-[2.75rem] text-[14px] leading-[1.65] tracking-normal text-[#5d5751]">
+          {summary}
+        </p>
       </div>
     </article>
   );

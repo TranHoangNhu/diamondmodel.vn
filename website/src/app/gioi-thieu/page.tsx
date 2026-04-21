@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import {
   ABOUT_ARTICLE,
   getRelatedArticles,
@@ -11,13 +11,13 @@ import {
 } from "@/components/content/PageLayouts";
 
 export const metadata: Metadata = {
-  title: "Giới thiệu | Phố Gia",
+  title: "Giới thiệu | Diamond Model",
   description:
-    "Bài viết giới thiệu Phố Gia theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
+    "Bài viết giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
   openGraph: {
-    title: "Giới thiệu | Phố Gia",
+    title: "Giới thiệu | Diamond Model",
     description:
-      "Bài viết giới thiệu Phố Gia theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
+      "Bài viết giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
     url: "/gioi-thieu",
     type: "article",
   },
@@ -44,3 +44,4 @@ export default function GioiThieuPage() {
     </>
   );
 }
+

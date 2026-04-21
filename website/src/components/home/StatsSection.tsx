@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -88,7 +88,7 @@ export default function StatsSection() {
   return (
     <section id="stats" className="ph-section-surface">
       <div className="ph-container">
-        <SectionHeading eyebrow="Phố Gia đã thực hiện" title="GIÁ TRỊ CHÚNG TÔI ĐÃ TRAO ĐI" />
+        <SectionHeading eyebrow="Diamond Model đã thực hiện" title="GIÁ TRỊ CHÚNG TÔI ĐÃ TRAO ĐI" />
 
         <div
           className="relative mx-auto mt-6 min-h-[430px] max-w-[1240px] overflow-visible sm:min-h-[500px] lg:mt-8 lg:min-h-[580px]"
@@ -125,3 +125,4 @@ export default function StatsSection() {
     </section>
   );
 }
+

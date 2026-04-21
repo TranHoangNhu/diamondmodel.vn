@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactCommitmentsSection from "@/components/contact/ContactCommitmentsSection";
 import { PHO_GIA_COMPANY, PHO_GIA_CONTACT } from "@/lib/phogia";
 
 export const metadata: Metadata = {
-  title: "Liên hệ | Phố Gia Decor",
+  title: "Liên hệ | Diamond Model Decor",
   description:
-    "Liên hệ Phố Gia Decor để được tư vấn thiết kế và thi công nội thất. Hotline: 090 9490 585",
+    "Liên hệ Diamond Model Decor để được tư vấn thiết kế và thi công nội thất. Hotline: 0901 62 62 82",
 };
 
 function SocialLink({
@@ -56,9 +55,9 @@ export default function ContactPage() {
                   <Image
                     src={PHO_GIA_COMPANY.logo}
                     alt={PHO_GIA_CONTACT.companyTitle}
-                    width={80}
-                    height={80}
-                    className="h-20 w-20 shrink-0"
+                    width={240}
+                    height={60}
+                    className="h-auto w-[180px] shrink-0 object-contain sm:w-[220px] lg:w-[240px]"
                     loading="eager"
                   />
 
@@ -76,7 +75,14 @@ export default function ContactPage() {
                       rel="noreferrer"
                       className="mt-6 inline-flex items-center gap-2 rounded-[8px] border border-[#e5d8c7] px-4 py-3 text-[13px] uppercase tracking-[0.08em] text-[#5a8492] transition hover:border-[#5a8492] hover:text-[#3f6773]"
                     >
-                      <ArrowDownTrayIcon className="h-4 w-4" />
+                      <Image
+                        src="/diamondmodel/brand/icon-diamondmodel-drop.png"
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="h-4 w-4"
+                        aria-hidden="true"
+                      />
                       Tải hồ sơ năng lực
                     </a>
                   </div>
@@ -178,7 +184,7 @@ export default function ContactPage() {
           <AnimatedSection>
             <div className="text-center">
               <p className="ph-eyebrow">{PHO_GIA_CONTACT.formLabel}</p>
-              <h2 className="ph-title mt-3">Liên hệ với Phố Gia</h2>
+              <h2 className="ph-title mt-3">Liên hệ với Diamond Model</h2>
               <p className="mx-auto mt-5 max-w-[760px] whitespace-pre-line text-[15px] leading-7 text-[#5d5751]">
                 {PHO_GIA_CONTACT.formLead}
               </p>
@@ -195,3 +201,4 @@ export default function ContactPage() {
     </>
   );
 }
+

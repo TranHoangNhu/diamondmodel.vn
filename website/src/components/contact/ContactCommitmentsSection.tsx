@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 import { PHO_GIA_CONTACT } from "@/lib/phogia";
@@ -38,7 +38,7 @@ export default function ContactCommitmentsSection() {
           <div className="relative mx-auto aspect-square w-full max-w-[360px]">
             <Image
               src={PHO_GIA_CONTACT.commitmentImage}
-              alt="Phố Gia cam kết"
+              alt="Diamond Model cam kết"
               fill
               sizes="(max-width: 1024px) 100vw, 360px"
               className="object-contain"
@@ -57,3 +57,4 @@ export default function ContactCommitmentsSection() {
     </section>
   );
 }
+

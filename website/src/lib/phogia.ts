@@ -1,11 +1,11 @@
-export const PHO_GIA_COMPANY = {
-  name: "PHỐ GIA",
-  fullName: "CTY CP KIẾN TRÚC & NỘI THẤT PHỐ GIA",
-  phone: "090 9490 585",
-  phoneHref: "0909490585",
-  email: "info@phogiadecor.vn",
-  zalo: "https://zalo.me/0909490585",
-  logo: "/phogia/brand/logo.svg",
+﻿export const PHO_GIA_COMPANY = {
+  name: "Diamond Model",
+  fullName: "CÔNG TY TNHH MÔ HÌNH KIM CƯƠNG",
+  phone: "0901 62 62 82",
+  phoneHref: "0901626282",
+  email: "info@diamondmodel.vn",
+  zalo: "https://zalo.me/0901626282",
+  logo: "/diamondmodel/brand/logo-diamondmodel.png",
   zaloIcon: "/phogia/brand/icon-zalo.svg",
   heroVideo: "/phogia/home/PHO-GIA-DECOR-2023.mp4",
   heroPoster: "/phogia/home/banner-lf.jpg",
@@ -17,37 +17,35 @@ export const PHO_GIA_COMPANY = {
   processThumb: "/phogia/home/procedure-home.webp",
   statsBackground: "/phogia/home/value-customer-01.webp",
   footerBadge: "/phogia/brand/tinnhiemmang-cert.png",
-  facebook: "https://www.facebook.com/phogiadecor.vn",
-  youtube: "https://www.youtube.com/channel/UCWjXVgC9Khzcp4JMxE0eUsA",
+  facebook: "https://facebook.com/diamondmodel",
+  youtube: "https://www.youtube.com/embed/P4WI7VRvwdU",
   addresses: [
     {
-      title: "PHỐ GIA HCM",
+      title: "DIAMOND MODEL HCM",
       lines: [
-        "Toà nhà La Bonita - Tầng 4: 215 Nguyễn Gia Trí, P. 25, Q. Bình Thạnh, TP. HCM",
-        "Xưởng Sản Xuất Mộc : 999/3D Võ Thị Thừa, P. An Phú Đông, Q.12, TP. HCM",
-        "Xưởng Sản Xuất Sofa : 999/5D Võ Thị Thừa, P. An Phú Đông, Q.12, TP. HCM",
+        "433/43 Lê Đức Thọ, F17, Q.Gò Vấp, TP. Hồ Chí Minh",
       ],
-      phone: "090 9490 585",
-      href: "0909490585",
+      phone: "0901 62 62 82",
+      href: "0901626282",
     },
     {
-      title: "PHỐ GIA CN BÌNH DƯƠNG",
-      lines: ["109/5 đường Vĩnh Phú 32, P. Vĩnh Phú, TP. Thuận An, Bình Dương."],
-      phone: "093 2770611",
-      href: "0932770611",
+      title: "DIAMOND MODEL XƯỞNG",
+      lines: ["252 TL15 (Thạnh Lộc 15), P. Thạnh Lộc, Q.12"],
+      phone: "0901 666 901",
+      href: "0901666901",
     },
     {
-      title: "PHỐ GIA CN NHA TRANG",
-      lines: ["47 Khóm Quốc Tuấn, P. Phước Tân, TP. Nha Trang, Khánh Hòa."],
-      phone: "090 9490 585",
-      href: "0909490585",
+      title: "DIAMOND MODEL LIÊN HỆ",
+      lines: ["Email: info@diamondmodel.vn", "Website: www.diamondmodel.vn"],
+      phone: "0901 62 62 82",
+      href: "0901626282",
     },
   ],
   policies: [
     { label: "Chính sách bảo hành, bảo trì", href: "https://phogiadecor.vn/chinh-sach-bao-hanh-bao-tri" },
     { label: "Chính sách bảo mật", href: "https://phogiadecor.vn/chinh-sach-bao-mat" },
     {
-      label: "Phố Gia trên Google News",
+      label: "Diamond Model trên Google News",
       href: "https://news.google.com/publications/CAAqBwgKMPfWtwswhPLOAw?hl=vi&gl=VN&ceid=VN:vi",
     },
   ],
@@ -55,12 +53,12 @@ export const PHO_GIA_COMPANY = {
 
 export const PHO_GIA_CONTACT = {
   introLabel: "liên hệ",
-  introTitle: "PHỐ GIA – KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG",
+  introTitle: "DIAMOND MODEL – KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG",
   companyTitle: PHO_GIA_COMPANY.fullName,
   downloadUrl: "https://drive.google.com/file/d/1rTxiVb_7WqyLkfr1vvDWasnrhOVPmixb/view",
-  socialTitle: "PHỐ GIA social chanel",
-  hotlineLabel: "HOLINE",
-  serviceLabel: "PHẢN ÁNH DỊCH VỤ",
+  socialTitle: "KÊNH MẠNG XÃ HỘI",
+  hotlineLabel: "HOTLINE",
+  serviceLabel: "PHẢN HỒI DỊCH VỤ",
   registerLabel: "ĐẶT LỊCH",
   registerTitle: "KIẾN TRÚC SƯ TƯ VẤN",
   formLabel: "form liên hệ",
@@ -68,7 +66,7 @@ export const PHO_GIA_CONTACT = {
     "Bạn vui lòng điền thông tin cần giải đáp / tư vấn vào form liên hệ bên dưới.\nĐội ngũ hỗ trợ của chúng tôi sẽ phản hồi cho bạn nhanh nhất có thể.",
   formNote: "Chúng tôi cam kết bảo mật tuyệt đối thông tin của Bạn.",
   commitmentsLabel: "6 điều",
-  commitmentsTitle: "PHỐ GIA CAM KẾT",
+  commitmentsTitle: "DIAMOND MODEL CAM KẾT",
   commitmentImage: "/phogia/contact/cam-ket-01.svg",
   commitments: [
     "thiết kế độc bản",
@@ -126,6 +124,7 @@ type ProjectGroup = {
   id: string;
   eyebrow: string;
   title: string;
+  badge: string;
   cta: string;
   items: readonly ProjectItem[];
 };
@@ -135,6 +134,7 @@ export const PHO_GIA_PROJECTS = [
     id: "design-apartment",
     eyebrow: "Công trình thiết kế",
     title: "THIẾT KẾ NỘI THẤT CĂN HỘ",
+    badge: "Căn hộ",
     cta: "Xem thêm",
     items: [
       {
@@ -185,6 +185,7 @@ export const PHO_GIA_PROJECTS = [
     id: "design-townhouse",
     eyebrow: "Công trình thiết kế",
     title: "THIẾT KẾ NỘI THẤT NHÀ PHỐ",
+    badge: "Nhà phố & villa",
     cta: "Xem thêm",
     items: [
       {
@@ -235,6 +236,7 @@ export const PHO_GIA_PROJECTS = [
     id: "construction",
     eyebrow: "Dự án mới bàn giao",
     title: "CÔNG TRÌNH THI CÔNG NỘI THẤT",
+    badge: "Thi công nội thất",
     cta: "Xem thêm",
     items: [
       {
@@ -292,7 +294,7 @@ export const PHO_GIA_VALUES = [
 
 export const PHO_GIA_VIDEOS = [
   {
-    title: "Quy trình sản xuất tại xưởng Phố Gia Decor",
+    title: "Quy trình sản xuất tại xưởng Diamond Model Decor",
     image: "/phogia/videos/BANNER-CHINH.jpg",
     href: "https://youtu.be/87aKui2Cl-g",
   },
@@ -302,7 +304,7 @@ export const PHO_GIA_VIDEOS = [
     href: "https://youtu.be/izPEwzhK04g",
   },
   {
-    title: "Trải nghiệm khách hàng Phố Gia",
+    title: "Trải nghiệm khách hàng Diamond Model",
     image: "/phogia/videos/trai-nghiem-kh-video-thumb.jpg",
     href: "https://vimeo.com/803366386",
   },
@@ -339,3 +341,4 @@ export const PHO_GIA_COMPLETED_LOGOS = [
   "/phogia/completed/logo-18.png",
   "/phogia/completed/logo-19.png",
 ] as const;
+

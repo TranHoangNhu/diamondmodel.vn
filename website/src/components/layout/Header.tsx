@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -150,10 +150,10 @@ export default function Header() {
             aria-hidden={compact}
           >
             <div className="ph-container flex h-full items-center justify-between">
-              <Link href="/" className="shrink-0" aria-label="Trang chủ Phố Gia" tabIndex={compact ? -1 : 0}>
+              <Link href="/" className="shrink-0" aria-label="Trang chủ Diamond Model" tabIndex={compact ? -1 : 0}>
                 <Image
                   src={PHO_GIA_COMPANY.logo}
-                  alt="Phố Gia"
+                  alt="Diamond Model"
                   width={160}
                   height={40}
                   priority
@@ -178,7 +178,7 @@ export default function Header() {
                   href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
                   tabIndex={compact ? -1 : 0}
                   className="flex h-14 w-14 items-center justify-center rounded-full bg-[#efbf73] text-[#5b746f] transition hover:scale-105"
-                  aria-label="Gọi Phố Gia"
+                  aria-label="Gọi Diamond Model"
                 >
                   <PhoneIcon />
                 </a>
@@ -221,7 +221,7 @@ export default function Header() {
             <a
               href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
               className="mr-7 flex h-12 w-12 items-center justify-center rounded-full bg-[#efbf73] text-[#5b746f] transition hover:scale-105 lg:h-14 lg:w-14"
-              aria-label="Gọi Phố Gia"
+              aria-label="Gọi Diamond Model"
               tabIndex={compact ? 0 : -1}
             >
               <PhoneIcon />
@@ -299,3 +299,4 @@ export default function Header() {
     </>
   );
 }
+

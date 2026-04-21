@@ -1,6 +1,6 @@
-import { PHO_GIA_COMPANY, PHO_GIA_PROJECTS } from "@/lib/phogia";
+﻿import { PHO_GIA_COMPANY, PHO_GIA_PROJECTS } from "@/lib/phogia";
 
-export const SITE_URL = "https://phogiadecor.vn";
+export const SITE_URL = "https://diamondmodel.vn";
 export const SITE_BUILD_DATE_ISO = "2026-04-18";
 
 export type ArticleMeta = {
@@ -70,7 +70,7 @@ const PROJECT_GROUP_INFO: Record<
     categoryLabel: "Căn hộ",
     summaryLead: "Không gian căn hộ cần gọn, sáng và có nhịp sử dụng linh hoạt.",
     intro:
-      "Các dự án căn hộ của Phố Gia luôn bắt đầu từ câu chuyện sinh hoạt thật: ai sử dụng, thói quen nào cần giữ, và đâu là chi tiết có thể tối ưu để căn hộ vận hành nhẹ nhàng hơn.",
+      "Các dự án căn hộ của Diamond Model luôn bắt đầu từ câu chuyện sinh hoạt thật: ai sử dụng, thói quen nào cần giữ, và đâu là chi tiết có thể tối ưu để căn hộ vận hành nhẹ nhàng hơn.",
     designFocus: [
       "Ưu tiên bố cục mạch lạc để mặt bằng nhỏ vẫn thoáng và dễ đi lại.",
       "Khai thác hệ lưu trữ âm tường, tủ kịch trần và các chi tiết đa năng.",
@@ -88,7 +88,7 @@ const PROJECT_GROUP_INFO: Record<
     categoryLabel: "Nhà phố & villa",
     summaryLead: "Nhà phố và villa cần cân bằng giữa công năng gia đình và cảm giác sang trọng.",
     intro:
-      "Nhóm công trình nhà phố, villa và không gian nhiều tầng luôn đòi hỏi sự đồng bộ giữa mặt tiền, công năng và cách phân lớp vật liệu. Phố Gia xử lý bài toán này bằng cách giữ cho ngôn ngữ thiết kế đủ nhất quán nhưng không đơn điệu.",
+      "Nhóm công trình nhà phố, villa và không gian nhiều tầng luôn đòi hỏi sự đồng bộ giữa mặt tiền, công năng và cách phân lớp vật liệu. Diamond Model xử lý bài toán này bằng cách giữ cho ngôn ngữ thiết kế đủ nhất quán nhưng không đơn điệu.",
     designFocus: [
       "Phân tầng rõ khu vực sinh hoạt chung, riêng tư và tiếp khách.",
       "Dùng điểm nhấn vật liệu để dẫn hướng thị giác nhưng không làm nặng mặt bằng.",
@@ -106,7 +106,7 @@ const PROJECT_GROUP_INFO: Record<
     categoryLabel: "Thi công nội thất",
     summaryLead: "Thi công là nơi ý tưởng được chuyển thành sản phẩm thực tế chính xác.",
     intro:
-      "Với các công trình thi công nội thất, mục tiêu của Phố Gia là giữ sự khớp giữa bản vẽ, vật liệu và tiến độ. Đây là giai đoạn đòi hỏi kiểm soát chặt nhưng vẫn phải đủ linh hoạt để xử lý những phát sinh tại công trình.",
+      "Với các công trình thi công nội thất, mục tiêu của Diamond Model là giữ sự khớp giữa bản vẽ, vật liệu và tiến độ. Đây là giai đoạn đòi hỏi kiểm soát chặt nhưng vẫn phải đủ linh hoạt để xử lý những phát sinh tại công trình.",
     designFocus: [
       "Chuẩn hóa hồ sơ kỹ thuật trước khi bước vào sản xuất.",
       "Đảm bảo cấu tạo, kích thước và vị trí lắp đặt khớp với hiện trạng.",
@@ -129,7 +129,7 @@ export const SERVICE_BLUEPRINTS = [
     summary:
       "Quy trình tư vấn giúp gia chủ xác định nhu cầu, phong cách và ngân sách trước khi bắt tay vào bản vẽ.",
     heroImage: PHO_GIA_COMPANY.missionImage,
-    heroAlt: "Tư vấn thiết kế nội thất Phố Gia",
+    heroAlt: "Tư vấn thiết kế nội thất Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
       { label: "Loại", value: "Gặp gỡ & khảo sát" },
@@ -143,7 +143,7 @@ export const SERVICE_BLUEPRINTS = [
         title: "Bản chất của buổi tư vấn",
         paragraphs: [
           "Buổi tư vấn đầu tiên không chỉ là nghe nhu cầu, mà còn là quá trình tách bạch đâu là mong muốn, đâu là giới hạn thực tế và đâu là phần có thể tối ưu thêm cho không gian.",
-          "Phố Gia thường bắt đầu bằng việc đặt các câu hỏi rất cụ thể về nhịp sống, số lượng người dùng, thói quen lưu trữ và cảm giác mong muốn khi bước vào nhà.",
+          "Diamond Model thường bắt đầu bằng việc đặt các câu hỏi rất cụ thể về nhịp sống, số lượng người dùng, thói quen lưu trữ và cảm giác mong muốn khi bước vào nhà.",
         ],
         bullets: [
           "Xác định phong cách phù hợp với lối sống.",
@@ -175,7 +175,7 @@ export const SERVICE_BLUEPRINTS = [
     summary:
       "Dịch vụ trọn gói kết nối bản vẽ, vật liệu và hồ sơ thi công trong một quy trình thống nhất.",
     heroImage: PHO_GIA_COMPANY.trustImage,
-    heroAlt: "Thiết kế nội thất trọn gói Phố Gia",
+    heroAlt: "Thiết kế nội thất trọn gói Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
       { label: "Loại", value: "Hồ sơ thiết kế" },
@@ -199,7 +199,7 @@ export const SERVICE_BLUEPRINTS = [
       },
       {
         id: "lap-trinh",
-        title: "Cách Phố Gia triển khai",
+        title: "Cách Diamond Model triển khai",
         paragraphs: [
           "Đội ngũ sẽ đi theo thứ tự: khảo sát, lên định hướng, chốt phương án, kiểm tra kỹ thuật và bàn giao hồ sơ.",
           "Mỗi mốc đều có người chịu trách nhiệm rõ ràng để đảm bảo bản vẽ không chỉ đẹp mà còn đủ khả năng thi công.",
@@ -221,7 +221,7 @@ export const SERVICE_BLUEPRINTS = [
     summary:
       "Thi công nội thất tập trung vào độ chuẩn xác, tiến độ và chất lượng hoàn thiện tại công trình.",
     heroImage: PHO_GIA_COMPANY.processThumb,
-    heroAlt: "Thi công nội thất Phố Gia",
+    heroAlt: "Thi công nội thất Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
       { label: "Loại", value: "Sản xuất & lắp đặt" },
@@ -235,7 +235,7 @@ export const SERVICE_BLUEPRINTS = [
         title: "Định hướng thi công",
         paragraphs: [
           "Thi công là bước biến mọi đường nét trên giấy thành khối lượng thật ngoài hiện trường. Vì vậy, điều quan trọng nhất là kiểm soát từ bản vẽ, vật liệu cho tới thứ tự lắp đặt.",
-          "Phố Gia coi thi công là một quy trình nhiều lớp, trong đó mỗi lớp đều có tiêu chuẩn riêng trước khi chuyển sang lớp tiếp theo.",
+          "Diamond Model coi thi công là một quy trình nhiều lớp, trong đó mỗi lớp đều có tiêu chuẩn riêng trước khi chuyển sang lớp tiếp theo.",
         ],
         bullets: [
           "Bóc tách kỹ thuật rõ trước khi sản xuất.",
@@ -267,7 +267,7 @@ export const SERVICE_BLUEPRINTS = [
     summary:
       "Dịch vụ hậu mãi giúp công trình giữ được độ ổn định và thẩm mỹ trong suốt quá trình sử dụng.",
     heroImage: PHO_GIA_COMPANY.heroPoster,
-    heroAlt: "Bảo hành và bảo trì nội thất Phố Gia",
+    heroAlt: "Bảo hành và bảo trì nội thất Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
       { label: "Loại", value: "Hậu mãi" },
@@ -293,7 +293,7 @@ export const SERVICE_BLUEPRINTS = [
         id: "quy-trinh",
         title: "Quy trình hỗ trợ",
         paragraphs: [
-          "Phố Gia tiếp nhận yêu cầu, kiểm tra thực tế, xác định nguyên nhân và đề xuất phương án xử lý phù hợp với từng công trình.",
+          "Diamond Model tiếp nhận yêu cầu, kiểm tra thực tế, xác định nguyên nhân và đề xuất phương án xử lý phù hợp với từng công trình.",
           "Mục tiêu là khôi phục chất lượng vận hành mà không làm ảnh hưởng đến tổng thể thiết kế ban đầu.",
         ],
       },
@@ -302,7 +302,7 @@ export const SERVICE_BLUEPRINTS = [
         title: "Cam kết sau bàn giao",
         paragraphs: [
           "Khách hàng luôn có một đầu mối rõ ràng để liên hệ khi cần hỗ trợ.",
-          "Đó là cách Phố Gia giữ trọn trách nhiệm cho công trình, không để việc bàn giao là điểm kết thúc của trải nghiệm.",
+          "Đó là cách Diamond Model giữ trọn trách nhiệm cho công trình, không để việc bàn giao là điểm kết thúc của trải nghiệm.",
         ],
       },
     ],
@@ -461,7 +461,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
   summary:
     "Bài viết này giúp bạn xác định đúng nhu cầu, đúng thời điểm và đúng thứ tự ưu tiên trước khi bắt đầu một dự án nội thất.",
   heroImage: PHO_GIA_COMPANY.heroPoster,
-  heroAlt: "Giới thiệu Phố Gia Decor",
+  heroAlt: "Giới thiệu Diamond Model Decor",
   publishedAt: SITE_BUILD_DATE_ISO,
   dateLabel: "18/04/2026",
   readTime: "6 phút",
@@ -477,7 +477,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
       title: "Bắt đầu từ nhu cầu thật",
       paragraphs: [
         "Một dự án nội thất chỉ đi đúng hướng khi nhu cầu thật của gia chủ được xác định trước khi nói đến phong cách. Không ít công trình bị kéo lệch vì quyết định được đưa ra quá sớm, chỉ dựa trên cảm hứng nhất thời.",
-        "Phố Gia thường bắt đầu bằng việc đọc thói quen sinh hoạt, số lượng người dùng và những điểm bất tiện đang tồn tại trong không gian hiện hữu.",
+        "Diamond Model thường bắt đầu bằng việc đọc thói quen sinh hoạt, số lượng người dùng và những điểm bất tiện đang tồn tại trong không gian hiện hữu.",
       ],
       bullets: [
         "Ai là người sử dụng chính của không gian.",
@@ -494,7 +494,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
       ],
       image: {
         src: PHO_GIA_COMPANY.missionImage,
-        alt: "Quy trình thiết kế nội thất Phố Gia",
+        alt: "Quy trình thiết kế nội thất Diamond Model",
         caption: "Không gian tốt phải cân bằng giữa gu thẩm mỹ và cách sử dụng thật của gia chủ.",
       },
     },
@@ -516,7 +516,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
       title: "Quy trình làm việc rõ ràng giúp giảm phát sinh",
       paragraphs: [
         "Một quy trình tốt giúp khách hàng biết chính xác đang ở đâu, giai đoạn nào và cần quyết định gì tiếp theo. Đó cũng là cách để kiểm soát chi phí và tiến độ một cách minh bạch hơn.",
-        "Tại Phố Gia, mọi công trình đều được chuyển qua các bước rõ ràng từ tư vấn, thiết kế, sản xuất đến lắp đặt và bảo hành.",
+        "Tại Diamond Model, mọi công trình đều được chuyển qua các bước rõ ràng từ tư vấn, thiết kế, sản xuất đến lắp đặt và bảo hành.",
       ],
       bullets: [
         "Khảo sát và đặt bài toán ban đầu.",
@@ -601,13 +601,13 @@ function createProjectArticle(group: ProjectGroup, item: ProjectItem, index: num
       { label: "Quy mô", value: area },
       { label: "Trạng thái", value: detail || "Hoàn thiện" },
     ],
-    tags: [info.categoryLabel, "Phố Gia", detail || "Thiết kế & thi công"],
+    tags: [info.categoryLabel, "Diamond Model", detail || "Thiết kế & thi công"],
     sections: [
       section(
         "boi-canh",
         "Bối cảnh và yêu cầu",
         [
-          `${item.title} thuộc nhóm ${info.categoryLabel.toLowerCase()} với quy mô ${area}. Phố Gia tiếp cận bài toán này bằng cách đặt lại thứ tự ưu tiên: công năng trước, thẩm mỹ sau, rồi mới tối ưu chi tiết.`,
+          `${item.title} thuộc nhóm ${info.categoryLabel.toLowerCase()} với quy mô ${area}. Diamond Model tiếp cận bài toán này bằng cách đặt lại thứ tự ưu tiên: công năng trước, thẩm mỹ sau, rồi mới tối ưu chi tiết.`,
           info.intro,
         ],
         [
@@ -696,7 +696,7 @@ const SERVICE_ITEMS = [
     summary:
       "Quy trình tư vấn giúp gia chủ xác định nhu cầu, phong cách và ngân sách trước khi bắt tay vào bản vẽ.",
     heroImage: PHO_GIA_COMPANY.missionImage,
-    heroAlt: "Tư vấn thiết kế nội thất Phố Gia",
+    heroAlt: "Tư vấn thiết kế nội thất Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "5 phút",
@@ -712,7 +712,7 @@ const SERVICE_ITEMS = [
         "Bản chất của buổi tư vấn",
         [
           "Buổi tư vấn đầu tiên không chỉ là nghe nhu cầu, mà là quá trình tách bạch đâu là mong muốn, đâu là giới hạn thực tế và đâu là phần có thể tối ưu thêm cho không gian.",
-          "Phố Gia thường bắt đầu bằng việc đặt các câu hỏi rất cụ thể về nhịp sống, số lượng người dùng, thói quen lưu trữ và cảm giác mong muốn khi bước vào nhà.",
+          "Diamond Model thường bắt đầu bằng việc đặt các câu hỏi rất cụ thể về nhịp sống, số lượng người dùng, thói quen lưu trữ và cảm giác mong muốn khi bước vào nhà.",
         ],
         [
           "Xác định phong cách phù hợp với lối sống.",
@@ -747,7 +747,7 @@ const SERVICE_ITEMS = [
     summary:
       "Dịch vụ trọn gói kết nối bản vẽ, vật liệu và hồ sơ thi công trong một quy trình thống nhất.",
     heroImage: PHO_GIA_COMPANY.trustImage,
-    heroAlt: "Thiết kế nội thất trọn gói Phố Gia",
+    heroAlt: "Thiết kế nội thất trọn gói Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "5 phút",
@@ -773,7 +773,7 @@ const SERVICE_ITEMS = [
       ),
       section(
         "lap-trinh",
-        "Cách Phố Gia triển khai",
+        "Cách Diamond Model triển khai",
         [
           "Đội ngũ sẽ đi theo thứ tự: khảo sát, lên định hướng, chốt phương án, kiểm tra kỹ thuật và bàn giao hồ sơ.",
           "Mỗi mốc đều có người chịu trách nhiệm rõ ràng để đảm bảo bản vẽ không chỉ đẹp mà còn đủ khả năng thi công.",
@@ -798,7 +798,7 @@ const SERVICE_ITEMS = [
     summary:
       "Thi công nội thất tập trung vào độ chuẩn xác, tiến độ và chất lượng hoàn thiện tại công trình.",
     heroImage: PHO_GIA_COMPANY.processThumb,
-    heroAlt: "Thi công nội thất Phố Gia",
+    heroAlt: "Thi công nội thất Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "5 phút",
@@ -814,7 +814,7 @@ const SERVICE_ITEMS = [
         "Định hướng thi công",
         [
           "Thi công là bước biến mọi đường nét trên giấy thành khối lượng thật ngoài hiện trường. Vì vậy, điều quan trọng nhất là kiểm soát từ bản vẽ, vật liệu cho tới thứ tự lắp đặt.",
-          "Phố Gia coi thi công là một quy trình nhiều lớp, trong đó mỗi lớp đều có tiêu chuẩn riêng trước khi chuyển sang lớp tiếp theo.",
+          "Diamond Model coi thi công là một quy trình nhiều lớp, trong đó mỗi lớp đều có tiêu chuẩn riêng trước khi chuyển sang lớp tiếp theo.",
         ],
         [
           "Bóc tách kỹ thuật rõ trước khi sản xuất.",
@@ -849,7 +849,7 @@ const SERVICE_ITEMS = [
     summary:
       "Dịch vụ hậu mãi giúp công trình giữ được độ ổn định và thẩm mỹ trong suốt quá trình sử dụng.",
     heroImage: PHO_GIA_COMPANY.heroPoster,
-    heroAlt: "Bảo hành và bảo trì nội thất Phố Gia",
+    heroAlt: "Bảo hành và bảo trì nội thất Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "4 phút",
@@ -877,7 +877,7 @@ const SERVICE_ITEMS = [
         "quy-trinh",
         "Quy trình hỗ trợ",
         [
-          "Phố Gia tiếp nhận yêu cầu, kiểm tra thực tế, xác định nguyên nhân và đề xuất phương án xử lý phù hợp với từng công trình.",
+          "Diamond Model tiếp nhận yêu cầu, kiểm tra thực tế, xác định nguyên nhân và đề xuất phương án xử lý phù hợp với từng công trình.",
           "Mục tiêu là khôi phục chất lượng vận hành mà không làm ảnh hưởng đến tổng thể thiết kế ban đầu.",
         ],
       ),
@@ -886,7 +886,7 @@ const SERVICE_ITEMS = [
         "Cam kết sau bàn giao",
         [
           "Khách hàng luôn có một đầu mối rõ ràng để liên hệ khi cần hỗ trợ.",
-          "Đó là cách Phố Gia giữ trọn trách nhiệm cho công trình, không để việc bàn giao là điểm kết thúc của trải nghiệm.",
+          "Đó là cách Diamond Model giữ trọn trách nhiệm cho công trình, không để việc bàn giao là điểm kết thúc của trải nghiệm.",
         ],
       ),
     ],
@@ -960,10 +960,10 @@ export const PROJECT_COLLECTION: ArchiveCollection = {
   label: "Dự án",
   title: "Dự án tiêu biểu",
   description:
-    "Khám phá các công trình Phố Gia đã triển khai theo nhịp điệu căn hộ, nhà phố, villa và thi công nội thất thực tế.",
+    "Khám phá các công trình Diamond Model đã triển khai theo nhịp điệu căn hộ, nhà phố, villa và thi công nội thất thực tế.",
   eyebrow: "Công trình thực hiện",
   heroImage: PHO_GIA_COMPANY.processDesktop,
-  heroAlt: "Dự án Phố Gia",
+  heroAlt: "Dự án Diamond Model",
   filters: ["Căn hộ", "Nhà phố & villa", "Thi công nội thất"],
   ctaLabel: "Đặt lịch tư vấn dự án",
   ctaHref: "/lien-he",
@@ -974,12 +974,12 @@ export const PROJECT_COLLECTION: ArchiveCollection = {
 export const SERVICE_COLLECTION: ArchiveCollection = {
   slug: "dich-vu",
   label: "Dịch vụ",
-  title: "Dịch vụ của Phố Gia",
+  title: "Dịch vụ của Diamond Model",
   description:
     "Từ tư vấn, thiết kế đến thi công và bảo hành, mọi dịch vụ đều được tổ chức theo một quy trình thống nhất và rõ ràng.",
   eyebrow: "Hệ dịch vụ",
   heroImage: PHO_GIA_COMPANY.processThumb,
-  heroAlt: "Dịch vụ Phố Gia",
+  heroAlt: "Dịch vụ Diamond Model",
   filters: ["Tư vấn", "Thiết kế", "Thi công", "Bảo hành"],
   ctaLabel: "Tìm hiểu dịch vụ",
   ctaHref: "/lien-he",
@@ -995,7 +995,7 @@ export const NEWS_COLLECTION: ArchiveCollection = {
     "Những bài viết ngắn gọn nhưng có chiều sâu về vật liệu, ánh sáng, ngân sách và các quyết định quan trọng trong một dự án nội thất.",
   eyebrow: "Bài viết mới",
   heroImage: PHO_GIA_COMPANY.trustImage,
-  heroAlt: "Tin tức Phố Gia",
+  heroAlt: "Tin tức Diamond Model",
   filters: ["Xu hướng", "Ngân sách", "Ánh sáng", "Vật liệu"],
   ctaLabel: "Khám phá bài viết",
   ctaHref: "/lien-he",
@@ -1055,3 +1055,4 @@ export function getAllStaticPaths() {
     ...NEWS_ARTICLES.map((item) => `/tin-tuc/${item.slug}`),
   ];
 }
+

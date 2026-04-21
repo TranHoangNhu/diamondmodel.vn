@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
             {Array.from({ length: 4 }).map((_, index) => (
               <span key={index} className="inline-flex items-center gap-8">
                 <span className="text-[#f1cd8a]">TRÒ CHUYỆN CÙNG KIẾN TRÚC SƯ</span>
-                <span>PHỐ GIA</span>
+                <span>DIAMOND MODEL</span>
               </span>
             ))}
           </div>
@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="text-center">
           <Image
             src={PHO_GIA_COMPANY.logo}
-            alt="Phố Gia"
+            alt="Diamond Model"
             width={180}
             height={44}
             className="mx-auto h-10 w-auto"
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-11 grid gap-8 md:grid-cols-3">
-          {PHO_GIA_COMPANY.addresses.map((address) => (
+          {PHO_GIA_COMPANY.addresses.map((address, index) => (
             <div key={address.title} className="text-center md:text-left">
               <h3 className="font-semibold uppercase text-white">{address.title}</h3>
               <div className="mt-3 space-y-2 text-[14px] leading-7 text-white/90">
@@ -65,7 +65,7 @@ export default function Footer() {
                   </a>
                 </p>
               </div>
-              {address.title === "PHỐ GIA CN NHA TRANG" ? (
+              {index === 2 ? (
                 <Image
                   src={PHO_GIA_COMPANY.footerBadge}
                   alt="Chứng nhận tín nhiệm mạng"
@@ -91,7 +91,7 @@ export default function Footer() {
         <div className="mt-6 border-t border-white/10 pt-5">
           <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
             <p className="text-[12px] text-white/80">
-              Copyright © 2026 PHO GIA Architecture & Interior. Web Design & Digital Marketing: Lead Digital
+              Copyright © 2026 Diamond Model Architecture & Interior. Web Design & Digital Marketing: Lead Digital
             </p>
             <div className="flex items-center gap-5 text-[12px] uppercase text-white">
               <a href={PHO_GIA_COMPANY.facebook} target="_blank" rel="noreferrer">
@@ -110,3 +110,4 @@ export default function Footer() {
     </footer>
   );
 }
+

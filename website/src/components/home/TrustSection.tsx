@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { PHO_GIA_BENEFITS, PHO_GIA_COMPANY } from "@/lib/phogia";
 import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
@@ -56,7 +56,7 @@ export default function TrustSection() {
       <div className="ph-container relative">
         <div className="mx-auto max-w-[1140px] pt-8 text-center lg:pt-4">
           <h2 className="font-display text-[44px] font-semibold uppercase leading-[1.05]">
-            PHỐ GIA ĐEM ĐẾN CHO KHÁCH HÀNG
+            DIAMOND MODEL ĐEM ĐẾN CHO KHÁCH HÀNG
           </h2>
         </div>
 
@@ -77,3 +77,4 @@ export default function TrustSection() {
     </section>
   );
 }
+

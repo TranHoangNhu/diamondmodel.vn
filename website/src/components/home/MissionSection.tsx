@@ -1,4 +1,5 @@
-import Image from "next/image";
+﻿import Image from "next/image";
+import Link from "next/link";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
 export default function MissionSection() {
@@ -25,7 +26,7 @@ export default function MissionSection() {
             <div className="relative aspect-[4/5] w-full md:aspect-[5/4] lg:aspect-[4/5]">
               <Image
                 src={PHO_GIA_COMPANY.missionImage}
-                alt="Không gian nội thất Phố Gia"
+                alt="Không gian nội thất Diamond Model"
                 fill
                 sizes="(max-width: 1024px) 100vw, 520px"
                 className="object-cover"
@@ -34,7 +35,7 @@ export default function MissionSection() {
             </div>
           </div>
           <div className="max-w-[520px] text-[15px] leading-8 text-[#5d5751]">
-            <p className="mb-5 text-[13px] font-semibold uppercase text-[#7f7a74]">Với Phố Gia</p>
+            <p className="mb-5 text-[13px] font-semibold uppercase text-[#7f7a74]">Với Diamond Model</p>
             <p className="mb-5">
               Để biến tấu một không gian hiện hữu trở nên hài hòa, thẩm mỹ, thoả GU của Gia Chủ thì yếu tố quan trọng
               nhất là giai đoạn Thiết Kế. Việc Kiến Trúc Sư khai phá được nội tâm, phong cách và sở thích thực sự của
@@ -49,13 +50,21 @@ export default function MissionSection() {
               Hãy cộng hưởng cùng Chúng Tôi để bạn thấy được giá trị trọn vẹn của một không gian sống ĐỘC BẢN đúng
               nghĩa, tạo nên sự gắn kết Chúng Tôi và Bạn vững bền.
             </p>
-            <a href="#footer" className="ph-about-button mt-9 inline-flex">
-              <Image src="/phogia/brand/logo_symbol_gold.svg" alt="" width={28} height={28} className="h-7 w-7" aria-hidden="true" />
-              <span>Về Phố Gia</span>
-            </a>
+            <Link href="/gioi-thieu" className="ph-about-button mt-9 inline-flex">
+              <Image
+                src="/diamondmodel/brand/icon-diamondmodel-drop.png"
+                alt=""
+                width={28}
+                height={28}
+                className="h-7 w-7"
+                aria-hidden="true"
+              />
+              <span>Về Diamond Model</span>
+            </Link>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

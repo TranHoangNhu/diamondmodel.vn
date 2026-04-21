@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import {
   ArchiveLayout,
   BreadcrumbJsonLd,
@@ -7,11 +7,11 @@ import {
 import { NEWS_COLLECTION } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "Tin tức | Phố Gia",
+  title: "Tin tức | Diamond Model",
   description:
     "Tin tức và bài viết cảm hứng về nội thất, vật liệu, ánh sáng và ngân sách, trình bày theo dạng bài blog chuẩn SEO.",
   openGraph: {
-    title: "Tin tức | Phố Gia",
+    title: "Tin tức | Diamond Model",
     description:
       "Tin tức và bài viết cảm hứng về nội thất, vật liệu, ánh sáng và ngân sách, trình bày theo dạng bài blog chuẩn SEO.",
     url: "/tin-tuc",
@@ -33,3 +33,4 @@ export default function TinTucPage() {
     </>
   );
 }
+

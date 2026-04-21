@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import {
   ArchiveLayout,
   BreadcrumbJsonLd,
@@ -7,13 +7,13 @@ import {
 import { SERVICE_COLLECTION } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "Dịch vụ | Phố Gia",
+  title: "Dịch vụ | Diamond Model",
   description:
-    "Danh mục dịch vụ Phố Gia gồm tư vấn, thiết kế, thi công và bảo hành, được trình bày theo dạng blog/portfolio rõ ràng.",
+    "Danh mục dịch vụ Diamond Model gồm tư vấn, thiết kế, thi công và bảo hành, được trình bày theo dạng blog/portfolio rõ ràng.",
   openGraph: {
-    title: "Dịch vụ | Phố Gia",
+    title: "Dịch vụ | Diamond Model",
     description:
-      "Danh mục dịch vụ Phố Gia gồm tư vấn, thiết kế, thi công và bảo hành, được trình bày theo dạng blog/portfolio rõ ràng.",
+      "Danh mục dịch vụ Diamond Model gồm tư vấn, thiết kế, thi công và bảo hành, được trình bày theo dạng blog/portfolio rõ ràng.",
     url: "/dich-vu",
     type: "website",
   },
@@ -33,3 +33,4 @@ export default function DichVuPage() {
     </>
   );
 }
+

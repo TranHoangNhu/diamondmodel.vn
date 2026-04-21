@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import {
   CollectionJsonLd,
   ArchiveLayout,
@@ -7,13 +7,13 @@ import {
 import { PROJECT_COLLECTION } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "Dự án | Phố Gia",
+  title: "Dự án | Diamond Model",
   description:
-    "Danh mục dự án nội thất Phố Gia được trình bày theo dạng blog/portfolio với các card chi tiết, phù hợp cho SEO và điều hướng nội dung.",
+    "Danh mục dự án nội thất Diamond Model được trình bày theo dạng blog/portfolio với các card chi tiết, phù hợp cho SEO và điều hướng nội dung.",
   openGraph: {
-    title: "Dự án | Phố Gia",
+    title: "Dự án | Diamond Model",
     description:
-      "Danh mục dự án nội thất Phố Gia được trình bày theo dạng blog/portfolio với các card chi tiết, phù hợp cho SEO và điều hướng nội dung.",
+      "Danh mục dự án nội thất Diamond Model được trình bày theo dạng blog/portfolio với các card chi tiết, phù hợp cho SEO và điều hướng nội dung.",
     url: "/du-an",
     type: "website",
   },
@@ -33,3 +33,4 @@ export default function DuAnPage() {
     </>
   );
 }
+

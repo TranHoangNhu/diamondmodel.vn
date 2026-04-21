@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { ArrowLongLeftIcon, ArrowLongRightIcon, PlayIcon } from "@heroicons/react/24/outline";
@@ -231,9 +231,10 @@ export default function VideosSection() {
   return (
     <section id="videos" className="ph-section-surface scroll-mt-24">
       <div className="ph-container-wide">
-        <SectionHeading eyebrow="Năng lực của chúng tôi" title="KHÁM PHÁ PHỐ GIA" />
+        <SectionHeading eyebrow="Năng lực của chúng tôi" title="KHÁM PHÁ DIAMOND MODEL" />
         <VideosCarousel key={slidesPerView} slidesPerView={slidesPerView} />
       </div>
     </section>
   );
 }
+

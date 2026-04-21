@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   ArticleJsonLd,
@@ -33,10 +33,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${article.title} | Dự án Phố Gia`,
+    title: `${article.title} | Dự án Diamond Model`,
     description: article.summary,
     openGraph: {
-      title: `${article.title} | Dự án Phố Gia`,
+      title: `${article.title} | Dự án Diamond Model`,
       description: article.summary,
       url: `/du-an/${article.slug}`,
       type: "article",

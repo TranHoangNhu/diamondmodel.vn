@@ -1,4 +1,4 @@
-// Company info constants
+﻿// Company info constants
 export const COMPANY = {
   name: "Diamond Model",
   fullName: "CÔNG TY TNHH MÔ HÌNH KIM CƯƠNG",
@@ -7,6 +7,7 @@ export const COMPANY = {
   phone2: "0901 666 901",
   email: "info@diamondmodel.vn",
   website: "www.diamondmodel.vn",
+  logo: "/diamondmodel/brand/logo-diamondmodel.png",
   address: "433/43 Lê Đức Thọ, F17, Q.Gò Vấp, TP. Hồ Chí Minh",
   workshop: "252 TL15 (Thạnh Lộc 15), P. Thạnh Lộc, Q.12",
   googleMap:

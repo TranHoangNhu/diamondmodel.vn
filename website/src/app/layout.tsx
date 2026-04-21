@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Mulish } from "next/font/google";
 import "./globals.css";
@@ -23,29 +23,29 @@ const bodyFont = Mulish({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://phogiadecor.vn"),
-  title: "Phố Gia | Thiết kế và thi công nội thất",
+  metadataBase: new URL("https://diamondmodel.vn"),
+  title: "Diamond Model | Thiết kế và thi công nội thất",
   description:
-    "Thiết kế và thi công nội thất Phố Gia mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
+    "Thiết kế và thi công nội thất Diamond Model mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
   keywords: [
-    "phố gia",
+    "diamond model",
     "thiết kế nội thất",
     "thi công nội thất",
-    "phogia decor",
+    "diamondmodel.vn",
     "nội thất cao cấp",
   ],
   openGraph: {
-    title: "Phố Gia | Thiết kế và thi công nội thất",
+    title: "Diamond Model | Thiết kế và thi công nội thất",
     description:
-      "Thiết kế và thi công nội thất Phố Gia mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
-    url: "https://phogiadecor.vn",
-    siteName: "Phố Gia",
+      "Thiết kế và thi công nội thất Diamond Model mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
+    url: "https://diamondmodel.vn",
+    siteName: "Diamond Model",
     images: [
       {
         url: "/phogia/home/banner-lf.jpg",
         width: 1920,
         height: 1358,
-        alt: "Phố Gia Decor",
+        alt: "Diamond Model Decor",
       },
     ],
     locale: "vi_VN",
@@ -66,3 +66,4 @@ export default function RootLayout({
     </html>
   );
 }
+

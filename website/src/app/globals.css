@@ -393,7 +393,7 @@ body::before {
 }
 
 .ph-button::before {
-  background: url("/phogia/brand/logo_symbol_gold.svg") no-repeat center center;
+  background: url("/diamondmodel/brand/icon-diamondmodel-drop.png") no-repeat center center;
   background-size: contain;
   content: "";
   display: block;
