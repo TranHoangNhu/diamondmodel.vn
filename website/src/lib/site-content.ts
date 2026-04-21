@@ -102,24 +102,6 @@ const PROJECT_GROUP_INFO: Record<
     closing:
       "Khi hoàn thiện, mô hình kiến trúc không chỉ đẹp hơn mà còn giúp khách hàng nhìn thấy rõ ngôn ngữ và giá trị của công trình.",
   },
-  construction: {
-    categoryLabel: "Thi công mô hình",
-    summaryLead: "Thi công là nơi ý tưởng mô hình được chuyển thành sản phẩm thực tế chính xác.",
-    intro:
-      "Với các công trình thi công mô hình, mục tiêu của Diamond Model là giữ sự khớp giữa bản vẽ, vật liệu và tiến độ. Đây là giai đoạn đòi hỏi kiểm soát chặt nhưng vẫn phải đủ linh hoạt để xử lý các phát sinh trong quá trình hoàn thiện.",
-    designFocus: [
-      "Chuẩn hóa hồ sơ kỹ thuật trước khi bước vào sản xuất mô hình.",
-      "Đảm bảo cấu tạo, kích thước và vị trí lắp đặt khớp với hiện trạng công trình.",
-      "Giữ nhịp hoàn thiện nhẹ nhàng để mô hình sẵn sàng đúng kế hoạch trình bày.",
-    ],
-    executionFocus: [
-      "Kiểm tra từng bóc tách, từng cụm chi tiết trước khi xuất xưởng.",
-      "Giám sát lắp đặt tại chỗ và xử lý sai số ngay trong ngày.",
-      "Nghiệm thu theo lớp: cấu tạo, bề mặt, phụ kiện và khả năng trình bày.",
-    ],
-    closing:
-      "Một mô hình thi công tốt không cần phô trương, nhưng phải cho khách hàng cảm giác yên tâm ngay từ lần nhìn đầu tiên.",
-  },
 };
 
 export const SERVICE_BLUEPRINTS = [
@@ -307,7 +289,7 @@ export const SERVICE_BLUEPRINTS = [
       },
     ],
   },
-] as const;
+];
 
 const NEWS_ITEMS = [
   {
@@ -997,7 +979,7 @@ const DEMO_NEWS_OVERRIDES = [
     ],
     tags: ["Bất động sản", "Trình bày", "Quan sát"],
   },
-] as const;
+];
 
 const NEWS_ITEMS_WITH_RELATION = DEMO_NEWS_OVERRIDES.map((override, index) =>
   createNewsArticle({
