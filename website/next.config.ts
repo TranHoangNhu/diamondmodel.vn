@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "bizweb.dktcdn.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "http",
+        hostname: "bizweb.dktcdn.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "images.unsplash.com",
         pathname: "/**",
       },

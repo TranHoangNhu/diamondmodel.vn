@@ -67,58 +67,58 @@ const PROJECT_GROUP_INFO: Record<
   }
 > = {
   "design-apartment": {
-    categoryLabel: "Căn hộ",
-    summaryLead: "Không gian căn hộ cần gọn, sáng và có nhịp sử dụng linh hoạt.",
+    categoryLabel: "Sa bàn kiến trúc",
+    summaryLead: "Sa bàn cần rõ tỷ lệ, rõ khối và dễ đọc ngay từ góc nhìn tổng thể.",
     intro:
-      "Các dự án căn hộ của Diamond Model luôn bắt đầu từ câu chuyện sinh hoạt thật: ai sử dụng, thói quen nào cần giữ, và đâu là chi tiết có thể tối ưu để căn hộ vận hành nhẹ nhàng hơn.",
+      "Nhóm sa bàn công trình của Diamond Model luôn bắt đầu từ câu chuyện quy mô, trục nhìn và điểm nhấn thị giác. Mục tiêu là giúp chủ đầu tư và khách hàng nắm được cấu trúc dự án một cách trực quan, gọn và chính xác.",
     designFocus: [
-      "Ưu tiên bố cục mạch lạc để mặt bằng nhỏ vẫn thoáng và dễ đi lại.",
-      "Khai thác hệ lưu trữ âm tường, tủ kịch trần và các chi tiết đa năng.",
-      "Giữ bảng màu cân bằng để không gian sáng hơn và bền hơn theo thời gian.",
+      "Giữ tỷ lệ giữa khối nhà, cảnh quan và hạ tầng đúng với tinh thần dự án.",
+      "Dẫn mắt người xem bằng trục nhìn và điểm nhấn chính của tổng thể.",
+      "Tối ưu bố cục để mô hình dễ đọc ngay cả khi nhìn từ xa.",
     ],
     executionFocus: [
-      "Đối chiếu bản vẽ với thực tế sản xuất để hạn chế sai số khi lắp đặt.",
-      "Chọn vật liệu có độ ổn định tốt, phù hợp với cường độ sử dụng hằng ngày.",
-      "Rà soát từng điểm nối, nẹp và hoàn thiện bề mặt trước khi bàn giao.",
+      "Đối chiếu bản vẽ với kích thước mô hình để hạn chế sai số khi thi công.",
+      "Chọn vật liệu mô hình có độ ổn định tốt, dễ hoàn thiện và dễ bảo trì.",
+      "Rà soát từng lớp mặt, mép cắt và bề mặt hoàn thiện trước khi bàn giao.",
     ],
     closing:
-      "Kết quả là một căn hộ có cảm giác sống được ngay, đủ tinh tế cho những buổi tiếp khách nhưng vẫn ấm áp khi trở về mỗi ngày.",
+      "Kết quả là một sa bàn có khả năng kể chuyện tốt, giúp công trình trở nên thuyết phục hơn ngay từ lần trình bày đầu tiên.",
   },
   "design-townhouse": {
-    categoryLabel: "Nhà phố & villa",
-    summaryLead: "Nhà phố và villa cần cân bằng giữa công năng gia đình và cảm giác sang trọng.",
+    categoryLabel: "Mô hình kiến trúc",
+    summaryLead: "Mô hình kiến trúc cần cân bằng giữa chi tiết, vật liệu và cảm giác tổng thể.",
     intro:
-      "Nhóm công trình nhà phố, villa và không gian nhiều tầng luôn đòi hỏi sự đồng bộ giữa mặt tiền, công năng và cách phân lớp vật liệu. Diamond Model xử lý bài toán này bằng cách giữ cho ngôn ngữ thiết kế đủ nhất quán nhưng không đơn điệu.",
+      "Nhóm mô hình kiến trúc này tập trung vào việc thể hiện đúng tinh thần công trình, từ hình khối, tỉ lệ đến độ sạch của chi tiết. Diamond Model xử lý theo hướng rõ ràng, trực quan và đủ sức thuyết phục trong buổi trình bày.",
     designFocus: [
-      "Phân tầng rõ khu vực sinh hoạt chung, riêng tư và tiếp khách.",
-      "Dùng điểm nhấn vật liệu để dẫn hướng thị giác nhưng không làm nặng mặt bằng.",
-      "Tạo trục ánh sáng và thông gió giúp công trình có cảm giác rộng hơn diện tích thực.",
+      "Phân lớp khối chính, khối phụ và bối cảnh để mô hình có chiều sâu.",
+      "Dùng chất liệu và màu sắc vừa đủ để tôn khối công trình mà không làm rối mắt.",
+      "Giữ điểm nhìn chủ đạo rõ ràng để người xem hiểu ngay kiến trúc đang thể hiện.",
     ],
     executionFocus: [
-      "Theo dõi kỹ các chi tiết bo góc, phào chỉ và mảng chuyển vật liệu.",
-      "Đồng bộ màu sơn, veneer, đá và kim loại để mặt bằng có chiều sâu.",
-      "Phối hợp giữa xưởng và công trình để đảm bảo đúng tinh thần thiết kế ban đầu.",
+      "Theo dõi kỹ các chi tiết nhỏ như mái, bậc, lam và bề mặt chuyển tiếp.",
+      "Đồng bộ cắt, dán và sơn để mô hình giữ được độ sạch khi lên ảnh.",
+      "Phối hợp giữa xưởng và giai đoạn hoàn thiện để đúng tinh thần thiết kế ban đầu.",
     ],
     closing:
-      "Khi hoàn thiện, nhà phố và villa không chỉ đẹp hơn mà còn có trật tự rõ ràng, dễ sử dụng và dễ bảo trì trong thời gian dài.",
+      "Khi hoàn thiện, mô hình kiến trúc không chỉ đẹp hơn mà còn giúp khách hàng nhìn thấy rõ ngôn ngữ và giá trị của công trình.",
   },
   construction: {
-    categoryLabel: "Thi công nội thất",
-    summaryLead: "Thi công là nơi ý tưởng được chuyển thành sản phẩm thực tế chính xác.",
+    categoryLabel: "Thi công mô hình",
+    summaryLead: "Thi công là nơi ý tưởng mô hình được chuyển thành sản phẩm thực tế chính xác.",
     intro:
-      "Với các công trình thi công nội thất, mục tiêu của Diamond Model là giữ sự khớp giữa bản vẽ, vật liệu và tiến độ. Đây là giai đoạn đòi hỏi kiểm soát chặt nhưng vẫn phải đủ linh hoạt để xử lý những phát sinh tại công trình.",
+      "Với các công trình thi công mô hình, mục tiêu của Diamond Model là giữ sự khớp giữa bản vẽ, vật liệu và tiến độ. Đây là giai đoạn đòi hỏi kiểm soát chặt nhưng vẫn phải đủ linh hoạt để xử lý các phát sinh trong quá trình hoàn thiện.",
     designFocus: [
-      "Chuẩn hóa hồ sơ kỹ thuật trước khi bước vào sản xuất.",
-      "Đảm bảo cấu tạo, kích thước và vị trí lắp đặt khớp với hiện trạng.",
-      "Giữ nhịp hoàn thiện nhẹ nhàng để công trình đi vào sử dụng đúng kế hoạch.",
+      "Chuẩn hóa hồ sơ kỹ thuật trước khi bước vào sản xuất mô hình.",
+      "Đảm bảo cấu tạo, kích thước và vị trí lắp đặt khớp với hiện trạng công trình.",
+      "Giữ nhịp hoàn thiện nhẹ nhàng để mô hình sẵn sàng đúng kế hoạch trình bày.",
     ],
     executionFocus: [
       "Kiểm tra từng bóc tách, từng cụm chi tiết trước khi xuất xưởng.",
       "Giám sát lắp đặt tại chỗ và xử lý sai số ngay trong ngày.",
-      "Nghiệm thu theo lớp: cấu tạo, bề mặt, phụ kiện và khả năng vận hành.",
+      "Nghiệm thu theo lớp: cấu tạo, bề mặt, phụ kiện và khả năng trình bày.",
     ],
     closing:
-      "Một công trình thi công tốt không cần phô trương, nhưng phải cho khách hàng cảm giác yên tâm ngay từ lần chạm đầu tiên.",
+      "Một mô hình thi công tốt không cần phô trương, nhưng phải cho khách hàng cảm giác yên tâm ngay từ lần nhìn đầu tiên.",
   },
 };
 
@@ -894,21 +894,117 @@ const SERVICE_ITEMS = [
   }),
 ];
 
-const NEWS_ITEMS_WITH_RELATION = NEWS_ITEMS.map((item) =>
+const DEMO_NEWS_OVERRIDES = [
+  {
+    slug: "cach-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep",
+    title: "Cách làm mô hình kiến trúc đẹp và chuyên nghiệp",
+    summary: "Một mô hình đẹp phải rõ tỷ lệ, khối và độ sạch trong hoàn thiện.",
+    heroImage:
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/685/articles/kinh-nghiem-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep-1.jpg?v=1623114922693",
+    heroAlt: "Mô hình kiến trúc đẹp và chuyên nghiệp",
+    publishedAt: "2025-06-18",
+    dateLabel: formatDisplayDate("2025-06-18"),
+    readTime: "5 phút",
+    meta: [
+      { label: "Chuyên mục", value: "Mô hình kiến trúc" },
+      { label: "Đăng ngày", value: formatDisplayDate("2025-06-18") },
+      { label: "Đọc", value: "5 phút" },
+    ],
+    tags: ["Mô hình", "Tỷ lệ", "Hoàn thiện"],
+  },
+  {
+    slug: "6-phu-kien-trang-tri-mo-hinh-khong-the-thieu-va-cach-che-tao",
+    title: "6 phụ kiện trang trí mô hình không thể thiếu và cách chế tạo",
+    summary: "Phụ kiện đúng chỗ giúp mô hình có chiều sâu mà không làm rối bố cục.",
+    heroImage:
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/685/articles/phu-kien-trang-tri-mo-hinh-7.jpg?v=1622649607453",
+    heroAlt: "Phụ kiện trang trí mô hình",
+    publishedAt: "2025-06-05",
+    dateLabel: formatDisplayDate("2025-06-05"),
+    readTime: "4 phút",
+    meta: [
+      { label: "Chuyên mục", value: "Mô hình kiến trúc" },
+      { label: "Đăng ngày", value: formatDisplayDate("2025-06-05") },
+      { label: "Đọc", value: "4 phút" },
+    ],
+    tags: ["Phụ kiện", "Chi tiết", "Mô hình"],
+  },
+  {
+    slug: "sa-ban-du-an-la-gi-thiet-ke-sa-ban-du-an-o-dau",
+    title: "Sa bàn dự án là gì? Thiết kế sa bàn dự án ở đâu?",
+    summary: "Sa bàn dự án là công cụ trình bày quy hoạch, phân khu và điểm nhấn công trình.",
+    heroImage:
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/685/articles/sa-ban-du-an-1.jpg?v=1622179257017",
+    heroAlt: "Sa bàn dự án",
+    publishedAt: "2025-05-22",
+    dateLabel: formatDisplayDate("2025-05-22"),
+    readTime: "6 phút",
+    meta: [
+      { label: "Chuyên mục", value: "Sa bàn dự án" },
+      { label: "Đăng ngày", value: formatDisplayDate("2025-05-22") },
+      { label: "Đọc", value: "6 phút" },
+    ],
+    tags: ["Sa bàn", "Quy hoạch", "Dự án"],
+  },
+  {
+    slug: "thiet-ke-mo-hinh-kien-truc-nha-san-chuyen-nghiep-va-doc-dao",
+    title: "Thiết kế mô hình kiến trúc nhà sàn chuyên nghiệp và độc đáo",
+    summary: "Mô hình nhà sàn đòi hỏi cách xử lý chân đế, mái và tỷ lệ chi tiết riêng.",
+    heroImage:
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/685/articles/mo-hinh-nha-san-1.jpg?v=1621598982757",
+    heroAlt: "Mô hình kiến trúc nhà sàn",
+    publishedAt: "2025-05-08",
+    dateLabel: formatDisplayDate("2025-05-08"),
+    readTime: "5 phút",
+    meta: [
+      { label: "Chuyên mục", value: "Mô hình kiến trúc" },
+      { label: "Đăng ngày", value: formatDisplayDate("2025-05-08") },
+      { label: "Đọc", value: "5 phút" },
+    ],
+    tags: ["Nhà sàn", "Kiến trúc", "Tỷ lệ"],
+  },
+  {
+    slug: "lam-mo-hinh-chuyen-nghiep-mat-bao-lau",
+    title: "Làm mô hình kiến trúc chuyên nghiệp mất bao lâu?",
+    summary: "Thời gian làm mô hình phụ thuộc quy mô, vật liệu và mức độ tinh xảo.",
+    heroImage:
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/685/articles/thoi-gian-lam-mo-hinh-kien-truc-2.jpg?v=1621100714030",
+    heroAlt: "Thời gian làm mô hình kiến trúc",
+    publishedAt: "2025-04-24",
+    dateLabel: formatDisplayDate("2025-04-24"),
+    readTime: "4 phút",
+    meta: [
+      { label: "Chuyên mục", value: "Mô hình kiến trúc" },
+      { label: "Đăng ngày", value: formatDisplayDate("2025-04-24") },
+      { label: "Đọc", value: "4 phút" },
+    ],
+    tags: ["Tiến độ", "Quy mô", "Sản xuất"],
+  },
+  {
+    slug: "kinh-nghiem-xem-mo-hinh-kien-truc-bat-dong-san-cuc-chi-tiet",
+    title: "Kinh nghiệm xem mô hình kiến trúc bất động sản cực chi tiết",
+    summary: "Khi xem mô hình, hãy chú ý trục nhìn, ánh sáng và mức độ đồng bộ.",
+    heroImage:
+      "https://bizweb.dktcdn.net/thumb/grande/100/347/685/articles/mo-hinh-bat-dong-san-1.jpg?v=1619485698573",
+    heroAlt: "Kinh nghiệm xem mô hình kiến trúc bất động sản",
+    publishedAt: "2025-04-10",
+    dateLabel: formatDisplayDate("2025-04-10"),
+    readTime: "6 phút",
+    meta: [
+      { label: "Chuyên mục", value: "Mô hình kiến trúc" },
+      { label: "Đăng ngày", value: formatDisplayDate("2025-04-10") },
+      { label: "Đọc", value: "6 phút" },
+    ],
+    tags: ["Bất động sản", "Trình bày", "Quan sát"],
+  },
+] as const;
+
+const NEWS_ITEMS_WITH_RELATION = DEMO_NEWS_OVERRIDES.map((override, index) =>
   createNewsArticle({
-    slug: item.slug,
+    ...NEWS_ITEMS[index % NEWS_ITEMS.length],
+    ...override,
     categoryLabel: "Tin tức",
     categoryHref: "/tin-tuc",
-    title: item.title,
-    summary: item.summary,
-    heroImage: item.heroImage,
-    heroAlt: item.heroAlt,
-    publishedAt: item.publishedAt,
-    dateLabel: item.meta[1].value,
-    readTime: item.readTime,
-    meta: item.meta,
-    tags: item.tags,
-    sections: item.sections,
   }),
 );
 
@@ -958,13 +1054,13 @@ export const NEWS_ARTICLES = NEWS_ITEMS_WITH_RELATION;
 export const PROJECT_COLLECTION: ArchiveCollection = {
   slug: "du-an",
   label: "Dự án",
-  title: "Dự án tiêu biểu",
+  title: "Dự án sa bàn",
   description:
-    "Khám phá các công trình Diamond Model đã triển khai theo nhịp điệu căn hộ, nhà phố, villa và thi công nội thất thực tế.",
+    "Khám phá các công trình sa bàn, mô hình kiến trúc và thi công thực tế mà Diamond Model đã triển khai.",
   eyebrow: "Công trình thực hiện",
-  heroImage: PHO_GIA_COMPANY.processDesktop,
-  heroAlt: "Dự án Diamond Model",
-  filters: ["Căn hộ", "Nhà phố & villa", "Thi công nội thất"],
+  heroImage: PROJECT_ITEMS[0]?.heroImage ?? PHO_GIA_COMPANY.processDesktop,
+  heroAlt: PROJECT_ITEMS[0]?.heroAlt ?? "Dự án Diamond Model",
+  filters: ["Sa bàn", "Kiến trúc", "Thi công mô hình"],
   ctaLabel: "Đặt lịch tư vấn dự án",
   ctaHref: "/lien-he",
   featuredSlug: PROJECT_ITEMS[0]?.slug,
@@ -990,13 +1086,13 @@ export const SERVICE_COLLECTION: ArchiveCollection = {
 export const NEWS_COLLECTION: ArchiveCollection = {
   slug: "tin-tuc",
   label: "Tin tức",
-  title: "Tin tức & cảm hứng",
+  title: "Tin tức & cảm hứng kiến trúc",
   description:
-    "Những bài viết ngắn gọn nhưng có chiều sâu về vật liệu, ánh sáng, ngân sách và các quyết định quan trọng trong một dự án nội thất.",
+    "Những bài viết ngắn gọn nhưng có chiều sâu về sa bàn, mô hình kiến trúc, vật liệu và cách trình bày dự án.",
   eyebrow: "Bài viết mới",
-  heroImage: PHO_GIA_COMPANY.trustImage,
-  heroAlt: "Tin tức Diamond Model",
-  filters: ["Xu hướng", "Ngân sách", "Ánh sáng", "Vật liệu"],
+  heroImage: NEWS_ITEMS_WITH_RELATION[0]?.heroImage ?? PHO_GIA_COMPANY.trustImage,
+  heroAlt: NEWS_ITEMS_WITH_RELATION[0]?.heroAlt ?? "Tin tức Diamond Model",
+  filters: ["Mô hình", "Sa bàn", "Kiến trúc", "Trình bày"],
   ctaLabel: "Khám phá bài viết",
   ctaHref: "/lien-he",
   featuredSlug: NEWS_ITEMS_WITH_RELATION[0]?.slug,

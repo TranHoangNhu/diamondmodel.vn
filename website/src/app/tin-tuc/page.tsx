@@ -9,11 +9,11 @@ import { NEWS_COLLECTION } from "@/lib/site-content";
 export const metadata: Metadata = {
   title: "Tin tức | Diamond Model",
   description:
-    "Tin tức và bài viết cảm hứng về nội thất, vật liệu, ánh sáng và ngân sách, trình bày theo dạng bài blog chuẩn SEO.",
+    "Tin tức và bài viết cảm hứng về mô hình kiến trúc, sa bàn, vật liệu và cách trình bày dự án, trình bày theo dạng bài blog chuẩn SEO.",
   openGraph: {
     title: "Tin tức | Diamond Model",
     description:
-      "Tin tức và bài viết cảm hứng về nội thất, vật liệu, ánh sáng và ngân sách, trình bày theo dạng bài blog chuẩn SEO.",
+      "Tin tức và bài viết cảm hứng về mô hình kiến trúc, sa bàn, vật liệu và cách trình bày dự án, trình bày theo dạng bài blog chuẩn SEO.",
     url: "/tin-tuc",
     type: "website",
   },
