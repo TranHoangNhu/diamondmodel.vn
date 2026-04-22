@@ -7,14 +7,15 @@ export default function MissionSection() {
     <section id="mission" className="ph-section-surface scroll-mt-24">
       <div className="ph-container">
         <div className="ph-section-header">
-          <Image
-            src={PHO_GIA_COMPANY.yearsBadge}
-            alt="9 năm"
-            width={142}
-            height={52}
-            className="mx-auto w-[112px] md:w-[142px]"
-            quality={90}
-          />
+            <Image
+              src={PHO_GIA_COMPANY.yearsBadge}
+              alt="9 năm"
+              width={142}
+              height={52}
+              className="mx-auto h-auto w-[112px] md:w-[142px]"
+              style={{ height: "auto" }}
+              quality={90}
+            />
           <p className="ph-script mt-6">Với Sứ Mệnh</p>
           <h2 className="font-display mt-3 text-[44px] font-semibold uppercase leading-[1.05] text-[#45413d]">
             “KIẾN TẠO GIÁ TRỊ SA BÀN”

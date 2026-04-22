@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
-const HERO_AUTO_MS = 5500;
+const HERO_AUTO_MS = 3000;
 
 export default function HeroSection() {
   const slides = PHO_GIA_COMPANY.heroSlides ?? [PHO_GIA_COMPANY.heroPoster];
@@ -39,7 +39,7 @@ export default function HeroSection() {
               className="object-cover"
               aria-hidden="true"
               priority={index === 0}
-              quality={92}
+              quality={90}
             />
           </div>
         ))}
