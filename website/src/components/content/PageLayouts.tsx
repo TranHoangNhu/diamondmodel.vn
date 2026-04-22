@@ -202,7 +202,7 @@ function RelatedArticles({ items }: { items: ArticleItem[] }) {
 
   return (
     <section className="ph-section-surface pb-24">
-      <div className="ph-container">
+      <div className="ph-container-wide">
         <div className="mx-auto max-w-[980px]">
           <p className="ph-eyebrow text-center">Bài viết liên quan</p>
           <div className="mt-3 text-center">

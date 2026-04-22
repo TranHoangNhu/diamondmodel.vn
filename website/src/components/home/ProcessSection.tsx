@@ -30,7 +30,7 @@ const PROCESS_STEPS = [
 export default function ProcessSection() {
   return (
     <section id="process" className="ph-section-surface scroll-mt-24">
-      <div className="ph-container">
+      <div className="ph-container-wide">
         <div className="ph-process-header">
           <p className="ph-eyebrow">Quy trình thiết kế & thi công sa bàn</p>
           <h2 className="ph-process-title mt-3">QUY TRÌNH CHUYÊN NGHIỆP & RÕ RÀNG</h2>

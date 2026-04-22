@@ -5,7 +5,7 @@ import { PHO_GIA_COMPANY } from "@/lib/phogia";
 export default function MissionSection() {
   return (
     <section id="mission" className="ph-section-surface scroll-mt-24">
-      <div className="ph-container">
+      <div className="ph-container-wide">
         <div className="ph-section-header">
             <Image
               src={PHO_GIA_COMPANY.yearsBadge}
@@ -22,7 +22,7 @@ export default function MissionSection() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-[1040px] gap-10 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-14">
+        <div className="mx-auto mt-14 grid max-w-[1360px] gap-10 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-14">
           <div className="overflow-hidden rounded-[8px] bg-[#f0ebe2]">
             <div className="relative aspect-[4/5] w-full md:aspect-[5/4] lg:aspect-[4/5]">
               <Image

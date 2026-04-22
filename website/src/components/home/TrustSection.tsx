@@ -53,8 +53,8 @@ export default function TrustSection() {
       />
       <div className="absolute inset-0 bg-[#10100f]/50" />
 
-      <div className="ph-container relative">
-        <div className="mx-auto max-w-[1140px] pt-8 text-center lg:pt-4">
+      <div className="ph-container-wide relative">
+        <div className="mx-auto max-w-[1360px] pt-8 text-center lg:pt-4">
           <h2 className="font-display text-[44px] font-semibold uppercase leading-[1.05]">
             DIAMOND MODEL ĐEM ĐẾN CHO KHÁCH HÀNG
           </h2>

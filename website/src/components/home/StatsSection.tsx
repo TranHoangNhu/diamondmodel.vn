@@ -87,7 +87,7 @@ export default function StatsSection() {
 
   return (
     <section id="stats" className="ph-section-surface">
-      <div className="ph-container">
+      <div className="ph-container-wide">
         <SectionHeading eyebrow="Diamond Model đã thực hiện" title="GIÁ TRỊ CHÚNG TÔI ĐÃ TRAO ĐI" />
 
         <div
