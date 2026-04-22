@@ -84,7 +84,7 @@ export default function CompletedSection() {
   return (
     <section id="completed" className="ph-section-surface scroll-mt-24">
       <div className="ph-container">
-        <SectionHeading eyebrow="" title="NHỮNG DỰ ÁN NỘI THẤT ĐÃ HOÀN THIỆN" />
+        <SectionHeading eyebrow="" title="NHỮNG CÔNG TRÌNH ĐÃ HOÀN THIỆN" />
 
         <div className="mt-12">
           <div className="overflow-hidden">
@@ -92,7 +92,8 @@ export default function CompletedSection() {
               {...bindDragHandlers}
               className="flex select-none transition-transform duration-700 ease-out"
               style={{
-                transform: pageCount > 0 ? `translateX(calc(-${(activePage * 100) / pageCount}% + ${dragOffset}px))` : "translateX(0%)",
+                transform:
+                  pageCount > 0 ? `translateX(calc(-${(activePage * 100) / pageCount}% + ${dragOffset}px))` : "translateX(0%)",
                 transition: isDragging || !transitionEnabled ? "none" : "transform 700ms ease-out",
                 touchAction: "pan-y",
               }}
@@ -105,7 +106,7 @@ export default function CompletedSection() {
                       <div key={logo} className="relative flex min-h-[64px] items-center justify-center px-2">
                         <Image
                           src={logo}
-                          alt={`Dự án nội thất ${pageIndex * pageSize + index + 1}`}
+                          alt={`Công trình tiêu biểu ${pageIndex * pageSize + index + 1}`}
                           fill
                           sizes="(max-width: 1024px) 50vw, 180px"
                           className="object-contain opacity-[0.9]"

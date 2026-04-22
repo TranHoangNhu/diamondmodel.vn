@@ -6,7 +6,7 @@ export default function PressSection() {
   return (
     <section id="press" className="ph-section-tight scroll-mt-24">
       <div className="ph-container">
-        <SectionHeading eyebrow="" title="BÁO CHÍ NÓI VỀ CHÚNG TÔI" />
+        <SectionHeading eyebrow="" title="BÁO CHÍ NÓI VỀ DIAMOND MODEL" />
         <div className="mt-12 grid grid-cols-2 items-center gap-x-6 gap-y-8 md:grid-cols-3 lg:grid-cols-6">
           {PHO_GIA_PRESS_LOGOS.map((logo, index) => (
             <div key={logo} className="relative flex min-h-[72px] items-center justify-center px-3">

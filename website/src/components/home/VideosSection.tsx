@@ -1,14 +1,15 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
-import { ArrowLongLeftIcon, ArrowLongRightIcon, PlayIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import { useEffect, useMemo, useState } from "react";
-import { PHO_GIA_VIDEOS } from "@/lib/phogia";
-import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
+import { SERVICE_COLLECTION } from "@/lib/site-content";
+import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 import { SectionHeading } from "./SharedComponents";
 import { useCarouselInteraction } from "./useCarouselInteraction";
 
-const AUTO_ADVANCE_MS = 2000;
+const AUTO_ADVANCE_MS = 3500;
 
 function getSlidesPerView() {
   if (typeof window === "undefined") return 3;
@@ -31,60 +32,59 @@ function buildLoopedSlides<T>(slides: readonly T[], cloneCount: number) {
   return [...slides.slice(-cloneCount), ...slides, ...slides.slice(0, cloneCount)];
 }
 
-function VideoSlide({
-  image,
-  title,
-  href,
-  tone,
-}: {
-  image: string;
-  title: string;
-  href: string;
-  tone: "accent" | "dark";
-}) {
+type ServiceCard = (typeof SERVICE_COLLECTION.items)[number];
+
+function ServiceSlide({ item }: { item: ServiceCard }) {
+  const href = `${item.categoryHref}/${item.slug}`.replace(/\/+/g, "/");
+  const badge = item.tags[0] ?? item.categoryLabel;
+
   return (
-    <a
+    <Link
       href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group flex h-full flex-col"
-      aria-label={`Mở video ${title}`}
+      className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#e7ddd0] bg-white shadow-[0_12px_30px_rgba(25,35,38,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(25,35,38,0.1)]"
     >
-      <div className="relative overflow-hidden rounded-[8px] bg-black shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-        <div className="relative aspect-[16/9] w-full">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 520px"
-            className="object-cover opacity-[0.88] transition duration-500 group-hover:scale-[1.03]"
-            loading="lazy"
-            quality={90}
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/28 transition duration-500 group-hover:bg-black/18" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div
-            className={[
-              "flex h-14 w-20 items-center justify-center rounded-[16px] shadow-[0_10px_20px_rgba(0,0,0,0.22)] transition duration-300 group-hover:scale-[1.05]",
-              tone === "accent" ? "bg-[#ed1c24]" : "bg-[#1d1d1d]/85",
-            ].join(" ")}
-          >
-            <PlayIcon className="h-7 w-7 translate-x-[1px] text-white" />
-          </div>
-        </div>
+      <div className="relative aspect-[16/10] bg-[#f4eee4]">
+        <Image
+          src={item.heroImage}
+          alt={item.heroAlt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 520px"
+          className="object-cover transition duration-500 group-hover:scale-[1.03]"
+          loading="eager"
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-black/8 to-transparent" />
+        <span className="absolute left-4 top-4 inline-flex rounded-full bg-white/92 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6b95a2] shadow-sm">
+          {badge}
+        </span>
       </div>
-      <h3 className={`ph-clamp-2 mx-auto mt-3 min-h-[3rem] max-w-[92%] text-center ${CARD_TITLE_CLASS} text-[#4f4b46]`}>
-        {title}
-      </h3>
-    </a>
+
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-wrap items-center gap-2 text-[12px] text-[#8a8277]">
+          <span>{item.meta[0]?.value}</span>
+          <span aria-hidden="true">•</span>
+          <span>{item.meta[1]?.value}</span>
+        </div>
+        <h3 className={`ph-clamp-2 mt-3 min-h-[3rem] ${CARD_TITLE_CLASS} text-[#4f4b46] transition group-hover:text-[#6b95a2]`}>
+          {item.title}
+        </h3>
+        <p className={`ph-clamp-2 mt-2 min-h-[2.75rem] ${CARD_DESC_CLASS} text-[#5d5751]`}>
+          {item.summary}
+        </p>
+        <span className="mt-auto inline-flex items-center gap-2 pt-5 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#6b95a2] transition group-hover:text-[#4f4b46]">
+          Xem dịch vụ
+          <ArrowLongRightIcon className="h-4 w-4" />
+        </span>
+      </div>
+    </Link>
   );
 }
 
-function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
+function ServicesCarousel({ slidesPerView }: { slidesPerView: number }) {
+  const services = SERVICE_COLLECTION.items;
   const gapSize = getGapSize(slidesPerView);
-  const cloneCount = Math.min(slidesPerView, PHO_GIA_VIDEOS.length);
-  const loopedSlides = useMemo(() => buildLoopedSlides(PHO_GIA_VIDEOS, cloneCount), [cloneCount]);
+  const cloneCount = Math.min(slidesPerView, services.length);
+  const loopedSlides = useMemo(() => buildLoopedSlides(services, cloneCount), [cloneCount, services]);
   const [currentIndex, setCurrentIndex] = useState(() => cloneCount);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   const { dragOffset, isDragging, pauseAuto, pauseUntilRef, bindDragHandlers } = useCarouselInteraction({
@@ -93,7 +93,7 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
   });
 
   useEffect(() => {
-    if (PHO_GIA_VIDEOS.length <= 1) return;
+    if (services.length <= 1) return;
 
     const timer = window.setInterval(() => {
       if (Date.now() < pauseUntilRef.current) return;
@@ -101,22 +101,22 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
     }, AUTO_ADVANCE_MS);
 
     return () => window.clearInterval(timer);
-  }, [pauseUntilRef]);
+  }, [pauseUntilRef, services.length]);
 
   const activeSlide =
-    ((currentIndex - cloneCount) % PHO_GIA_VIDEOS.length + PHO_GIA_VIDEOS.length) % PHO_GIA_VIDEOS.length;
+    ((currentIndex - cloneCount) % services.length + services.length) % services.length;
 
   const goToIndex = (nextIndex: number) => {
-    if (PHO_GIA_VIDEOS.length <= 1) return;
+    if (services.length <= 1) return;
     pauseAuto();
     setTransitionEnabled(true);
     setCurrentIndex(nextIndex);
   };
 
   const handleTransitionEnd = () => {
-    if (PHO_GIA_VIDEOS.length <= 1) return;
+    if (services.length <= 1) return;
 
-    if (currentIndex >= cloneCount + PHO_GIA_VIDEOS.length) {
+    if (currentIndex >= cloneCount + services.length) {
       setTransitionEnabled(false);
       setCurrentIndex(cloneCount);
       window.requestAnimationFrame(() => setTransitionEnabled(true));
@@ -125,7 +125,7 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
 
     if (currentIndex < cloneCount) {
       setTransitionEnabled(false);
-      setCurrentIndex(cloneCount + PHO_GIA_VIDEOS.length - 1);
+      setCurrentIndex(cloneCount + services.length - 1);
       window.requestAnimationFrame(() => setTransitionEnabled(true));
     }
   };
@@ -153,18 +153,10 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
           }}
           onTransitionEnd={handleTransitionEnd}
         >
-          {loopedSlides.map((video, index) => {
-            const realIndex = ((index - cloneCount) % PHO_GIA_VIDEOS.length + PHO_GIA_VIDEOS.length) % PHO_GIA_VIDEOS.length;
-            const isFirstVisibleRealVideo = realIndex === activeSlide;
-
+          {loopedSlides.map((item, index) => {
             return (
-              <div key={`${video.title}-${index}`} className="shrink-0" style={{ width: slideWidth }}>
-                <VideoSlide
-                  image={video.image}
-                  title={video.title}
-                  href={video.href}
-                  tone={isFirstVisibleRealVideo ? "accent" : "dark"}
-                />
+              <div key={`${item.slug}-${index}`} className="shrink-0" style={{ width: slideWidth }}>
+                <ServiceSlide item={item} />
               </div>
             );
           })}
@@ -182,15 +174,15 @@ function VideosCarousel({ slidesPerView }: { slidesPerView: number }) {
         </button>
 
         <div className="flex items-center gap-2">
-          {PHO_GIA_VIDEOS.map((_, videoIndex) => {
-            const active = videoIndex === activeSlide;
+          {services.map((_, serviceIndex) => {
+            const active = serviceIndex === activeSlide;
 
             return (
               <button
-                key={`video-dot-${videoIndex}`}
+                key={`service-dot-${serviceIndex}`}
                 type="button"
-                onClick={() => goToIndex(cloneCount + videoIndex)}
-                aria-label={`Chuyển tới video ${videoIndex + 1}`}
+                onClick={() => goToIndex(cloneCount + serviceIndex)}
+                aria-label={`Chuyển tới dịch vụ ${serviceIndex + 1}`}
                 aria-current={active ? "true" : undefined}
                 className={[
                   "h-2.5 w-2.5 rounded-[8px] border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5a24f]/40",
@@ -229,12 +221,11 @@ export default function VideosSection() {
   }, []);
 
   return (
-    <section id="videos" className="ph-section-surface scroll-mt-24">
+    <section id="services" className="ph-section-surface scroll-mt-24">
       <div className="ph-container-wide">
-        <SectionHeading eyebrow="Năng lực của chúng tôi" title="KHÁM PHÁ DIAMOND MODEL" />
-        <VideosCarousel key={slidesPerView} slidesPerView={slidesPerView} />
+        <SectionHeading eyebrow="Dịch vụ của chúng tôi" title="DỊCH VỤ NỔI BẬT" />
+        <ServicesCarousel key={slidesPerView} slidesPerView={slidesPerView} />
       </div>
     </section>
   );
 }
-

@@ -9,11 +9,11 @@ import { SERVICE_COLLECTION } from "@/lib/site-content";
 export const metadata: Metadata = {
   title: "Dịch vụ | Diamond Model",
   description:
-    "Danh mục dịch vụ Diamond Model gồm tư vấn, thiết kế, thi công và bảo hành, được trình bày theo dạng blog/portfolio rõ ràng.",
+    "Danh mục dịch vụ Diamond Model gồm tư vấn sa bàn, thi công, thiết kế 3D phối cảnh và bảo trì mô hình, được trình bày theo dạng blog/portfolio rõ ràng.",
   openGraph: {
     title: "Dịch vụ | Diamond Model",
     description:
-      "Danh mục dịch vụ Diamond Model gồm tư vấn, thiết kế, thi công và bảo hành, được trình bày theo dạng blog/portfolio rõ ràng.",
+      "Danh mục dịch vụ Diamond Model gồm tư vấn sa bàn, thi công, thiết kế 3D phối cảnh và bảo trì mô hình, được trình bày theo dạng blog/portfolio rõ ràng.",
     url: "/dich-vu",
     type: "website",
   },

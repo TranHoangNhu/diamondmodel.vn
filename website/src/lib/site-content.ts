@@ -106,19 +106,19 @@ const PROJECT_GROUP_INFO: Record<
 
 export const SERVICE_BLUEPRINTS = [
   {
-    slug: "tu-van-thiet-ke-noi-that",
-    title: "Tư vấn thiết kế nội thất",
+    slug: "tu-van-thiet-ke-sa-ban",
+    title: "Tư vấn thiết kế sa bàn",
     summary:
-      "Quy trình tư vấn giúp gia chủ xác định nhu cầu, phong cách và ngân sách trước khi bắt tay vào bản vẽ.",
+      "Buổi tư vấn giúp chốt tỷ lệ, quy mô và ngôn ngữ trình bày trước khi đi vào bản vẽ mô hình.",
     heroImage: PHO_GIA_COMPANY.missionImage,
-    heroAlt: "Tư vấn thiết kế nội thất Diamond Model",
+    heroAlt: "Tư vấn thiết kế sa bàn Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
-      { label: "Loại", value: "Gặp gỡ & khảo sát" },
+      { label: "Loại", value: "Khảo sát & định hướng" },
       { label: "Thời gian", value: "1-2 buổi" },
-      { label: "Mục tiêu", value: "Chốt định hướng rõ ràng" },
+      { label: "Mục tiêu", value: "Chốt concept rõ ràng" },
     ],
-    tags: ["Tư vấn", "Khảo sát", "Định hướng"],
+    tags: ["Tư vấn", "Khảo sát", "Tỷ lệ"],
     sections: [
       {
         id: "ban-chat",
@@ -671,136 +671,87 @@ PROJECT_ITEMS.forEach((item) => {
 
 const SERVICE_ITEMS = [
   createServiceArticle({
-    slug: "tu-van-thiet-ke-noi-that",
+    slug: "tu-van-thiet-ke-sa-ban",
     categoryLabel: "Dịch vụ",
     categoryHref: "/dich-vu",
-    title: "Tư vấn thiết kế nội thất",
+    title: "Tư vấn thiết kế sa bàn",
     summary:
-      "Quy trình tư vấn giúp gia chủ xác định nhu cầu, phong cách và ngân sách trước khi bắt tay vào bản vẽ.",
-    heroImage: PHO_GIA_COMPANY.missionImage,
-    heroAlt: "Tư vấn thiết kế nội thất Diamond Model",
+      "Khảo sát yêu cầu, tỷ lệ và góc nhìn trưng bày trước khi đi vào mô hình.",
+    heroImage:
+      "https://bizweb.dktcdn.net/100/347/685/articles/sa-ban-du-an-1.jpg?v=1622179257017",
+    heroAlt: "Tư vấn thiết kế sa bàn Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "5 phút",
     meta: [
-      { label: "Loại", value: "Gặp gỡ & khảo sát" },
+      { label: "Loại", value: "Khảo sát & định hướng" },
       { label: "Thời gian", value: "1-2 buổi" },
-      { label: "Mục tiêu", value: "Chốt định hướng rõ ràng" },
+      { label: "Mục tiêu", value: "Chốt concept rõ ràng" },
     ],
-    tags: ["Tư vấn", "Khảo sát", "Định hướng"],
+    tags: ["Tư vấn", "Khảo sát", "Tỷ lệ"],
     sections: [
       section(
-        "ban-chat",
-        "Bản chất của buổi tư vấn",
+        "boi-canh",
+        "Bối cảnh buổi tư vấn",
         [
-          "Buổi tư vấn đầu tiên không chỉ là nghe nhu cầu, mà là quá trình tách bạch đâu là mong muốn, đâu là giới hạn thực tế và đâu là phần có thể tối ưu thêm cho không gian.",
-          "Diamond Model thường bắt đầu bằng việc đặt các câu hỏi rất cụ thể về nhịp sống, số lượng người dùng, thói quen lưu trữ và cảm giác mong muốn khi bước vào nhà.",
+          "Buổi tư vấn đầu tiên giúp Diamond Model xác định cổng trình cần truyền tải điều gì: tổng thể dự án, điểm nhấn quy hoạch hay trải nghiệm khi khách hàng nhìn vào sa bàn.",
+          "Từ đó, đội ngũ sẽ chốt tỉ lệ, phạm vi trưng bày, mức độ chi tiết và cách sắp lớp để mô hình vừa đẹp mắt vừa dễ đọc ở khoảng cách thực tế.",
         ],
         [
-          "Xác định phong cách phù hợp với lối sống.",
-          "Ước lượng sơ bộ ngân sách và phạm vi đầu tư.",
-          "Chốt những hạng mục nên ưu tiên trước.",
+          "Xác định tỷ lệ mô hình phù hợp với mục tiêu trưng bày.",
+          "Đọc nhanh quy mô, phạm vi và mốc thời gian thực hiện.",
+          "Chọn đúng khu vực cần nhấn mạnh trong bố cục.",
         ],
       ),
       section(
         "quy-trinh",
         "Quy trình làm việc",
         [
-          "Sau buổi trao đổi, đội ngũ sẽ tổng hợp hiện trạng, ghi nhận các điểm cần xử lý và đề xuất định hướng mặt bằng hoặc moodboard sơ bộ.",
-          "Cách làm này giúp khách hàng tránh được tình trạng đổi ý quá nhiều ở giai đoạn sau, khi việc điều chỉnh đã bắt đầu tốn kém hơn.",
+          "Sau buổi trao đổi, đội ngũ tổng hợp hồ sơ, ghi nhận tỷ lệ, kích thước và yêu cầu trưng bày trước khi chốt một khung concept gọn và dễ triển khai.",
+          "Cách làm này giúp khách hàng tránh phải sửa quá nhiều ở giai đoạn thi công, khi cấu trúc mô hình đã bắt đầu vào nhịp sản xuất.",
         ],
       ),
       section(
         "gia-tri",
         "Giá trị nhận được",
         [
-          "Khách hàng có một khung tham chiếu rõ ràng hơn trước khi ký hợp đồng thiết kế hoặc thi công.",
-          "Đó là nền tảng để các bước sau diễn ra mạch lạc, giảm phát sinh và giữ được đúng gu ban đầu.",
+          "Khách hàng có một khung tham chiếu rõ ràng hơn trước khi bước vào giai đoạn sản xuất mô hình.",
+          "Đó là nền tảng để toàn bộ quy trình sau diễn ra mạch lạc, giảm phát sinh và giữ được tinh thần trưng bày ban đầu.",
         ],
       ),
     ],
     relatedSlugs: [],
   }),
   createServiceArticle({
-    slug: "thiet-ke-noi-that-tron-goi",
+    slug: "thi-cong-sa-ban",
     categoryLabel: "Dịch vụ",
     categoryHref: "/dich-vu",
-    title: "Thiết kế nội thất trọn gói",
+    title: "Thi công sa bàn",
     summary:
-      "Dịch vụ trọn gói kết nối bản vẽ, vật liệu và hồ sơ thi công trong một quy trình thống nhất.",
-    heroImage: PHO_GIA_COMPANY.trustImage,
-    heroAlt: "Thiết kế nội thất trọn gói Diamond Model",
+      "Thi công, lắp ráp và hoàn thiện mô hình theo đúng tỷ lệ, vật liệu và tiến độ.",
+    heroImage:
+      "https://bizweb.dktcdn.net/100/347/685/articles/kinh-nghiem-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep-1.jpg?v=1623114922693",
+    heroAlt: "Thi công sa bàn Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "5 phút",
     meta: [
-      { label: "Loại", value: "Hồ sơ thiết kế" },
-      { label: "Thời gian", value: "7-14 ngày" },
-      { label: "Mục tiêu", value: "Đồng bộ từ ý tưởng đến triển khai" },
-    ],
-    tags: ["Thiết kế", "Hồ sơ", "Đồng bộ"],
-    sections: [
-      section(
-        "pham-vi",
-        "Phạm vi của dịch vụ",
-        [
-          "Thiết kế trọn gói không dừng ở phối cảnh. Dịch vụ này bao gồm phân tích nhu cầu, lên mặt bằng công năng, phát triển concept, lựa chọn vật liệu và hoàn thiện hồ sơ để sẵn sàng bước vào sản xuất.",
-          "Cách làm trọn gói giúp gia chủ nhìn được toàn bộ hành trình ngay từ đầu, hạn chế cảm giác rời rạc giữa ý tưởng và thực tế.",
-        ],
-        [
-          "Concept và moodboard tổng thể.",
-          "Mặt bằng bố trí và phối cảnh 3D.",
-          "Hồ sơ kỹ thuật phục vụ sản xuất và thi công.",
-        ],
-      ),
-      section(
-        "lap-trinh",
-        "Cách Diamond Model triển khai",
-        [
-          "Đội ngũ sẽ đi theo thứ tự: khảo sát, lên định hướng, chốt phương án, kiểm tra kỹ thuật và bàn giao hồ sơ.",
-          "Mỗi mốc đều có người chịu trách nhiệm rõ ràng để đảm bảo bản vẽ không chỉ đẹp mà còn đủ khả năng thi công.",
-        ],
-      ),
-      section(
-        "doi-tuong",
-        "Dành cho ai",
-        [
-          "Đây là lựa chọn phù hợp với khách hàng muốn kiểm soát chất lượng đồng thời cả thẩm mỹ, công năng và tiến độ.",
-          "Đặc biệt hiệu quả với những công trình cần một ngôn ngữ thiết kế nhất quán trên nhiều khu vực chức năng.",
-        ],
-      ),
-    ],
-    relatedSlugs: [],
-  }),
-  createServiceArticle({
-    slug: "thi-cong-noi-that",
-    categoryLabel: "Dịch vụ",
-    categoryHref: "/dich-vu",
-    title: "Thi công nội thất",
-    summary:
-      "Thi công nội thất tập trung vào độ chuẩn xác, tiến độ và chất lượng hoàn thiện tại công trình.",
-    heroImage: PHO_GIA_COMPANY.processThumb,
-    heroAlt: "Thi công nội thất Diamond Model",
-    publishedAt: SITE_BUILD_DATE_ISO,
-    dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
-    readTime: "5 phút",
-    meta: [
-      { label: "Loại", value: "Sản xuất & lắp đặt" },
+      { label: "Loại", value: "Sản xuất & lắp ráp" },
       { label: "Thời gian", value: "Theo quy mô" },
       { label: "Mục tiêu", value: "Đúng bản vẽ - đúng hẹn" },
     ],
-    tags: ["Thi công", "Lắp đặt", "Giám sát"],
+    tags: ["Thi công", "Lắp ráp", "Hoàn thiện"],
     sections: [
       section(
-        "huong-di",
+        "dinh-huong",
         "Định hướng thi công",
         [
-          "Thi công là bước biến mọi đường nét trên giấy thành khối lượng thật ngoài hiện trường. Vì vậy, điều quan trọng nhất là kiểm soát từ bản vẽ, vật liệu cho tới thứ tự lắp đặt.",
-          "Diamond Model coi thi công là một quy trình nhiều lớp, trong đó mỗi lớp đều có tiêu chuẩn riêng trước khi chuyển sang lớp tiếp theo.",
+          "Thi công là bước biến toàn bộ thông tin trên bản vẽ thành khối lượng thật ngoài hiện trường hoặc tại xưởng.",
+          "Diamond Model ưu tiên kiểm soát cấu tạo, tỷ lệ và vật liệu cho tới khâu lắp ráp để mô hình giữ được độ sạch và độ bền khi trưng bày.",
         ],
         [
           "Bóc tách kỹ thuật rõ trước khi sản xuất.",
-          "Giảm sai số khi lên công trình.",
+          "Giảm sai số khi lắp ráp và nghiệm thu.",
           "Rà soát chất lượng theo từng hạng mục.",
         ],
       ),
@@ -808,59 +759,112 @@ const SERVICE_ITEMS = [
         "kiem-soat",
         "Cách kiểm soát chất lượng",
         [
-          "Xưởng và công trình luôn cần nói cùng một ngôn ngữ. Vì vậy, mọi chi tiết từ kích thước, bề mặt cho đến phụ kiện đều được kiểm tra theo checklist thống nhất.",
-          "Cách làm này giúp công trình hạn chế phát sinh, đồng thời giữ cho quá trình lắp đặt diễn ra gọn và an toàn hơn.",
+          "Xưởng và công trình luôn cần nói cùng một ngôn ngữ, vì vậy mọi chi tiết từ kích thước, bề mặt cho đến phụ kiện đều được kiểm tra theo checklist thống nhất.",
+          "Cách làm này giúp mô hình hạn chế phát sinh, đồng thời giữ cho quá trình hoàn thiện diễn ra gọn và an toàn hơn.",
         ],
       ),
       section(
         "ban-giao",
         "Bàn giao công trình",
         [
-          "Khi bàn giao, khách hàng không chỉ nhận một không gian hoàn thiện, mà còn nhận bộ hồ sơ và hướng dẫn vận hành rõ ràng.",
-          "Đó là nền tảng để sử dụng bền hơn và xử lý nhanh hơn khi cần bảo trì về sau.",
+          "Khi bàn giao, khách hàng nhận được không chỉ một mô hình hoàn thiện mà còn có hướng dẫn vận hành, bảo quản và xử lý tình huống thường gặp.",
+          "Đó là nền tảng để mô hình giữ được độ ổn định tốt hơn trong suốt thời gian sử dụng.",
         ],
       ),
     ],
     relatedSlugs: [],
   }),
   createServiceArticle({
-    slug: "bao-hanh-bao-tri-noi-that",
+    slug: "thiet-ke-3d-phoi-canh",
     categoryLabel: "Dịch vụ",
     categoryHref: "/dich-vu",
-    title: "Bảo hành & bảo trì",
+    title: "Thiết kế 3D phối cảnh",
     summary:
-      "Dịch vụ hậu mãi giúp công trình giữ được độ ổn định và thẩm mỹ trong suốt quá trình sử dụng.",
-    heroImage: PHO_GIA_COMPANY.heroPoster,
-    heroAlt: "Bảo hành và bảo trì nội thất Diamond Model",
+      "Phối cảnh 3D giúp chủ đầu tư hình dung công trình trước khi bước vào thi công mô hình.",
+    heroImage:
+      "https://bizweb.dktcdn.net/100/347/685/articles/phoi-canh-du-an-can-ho-la-premier.jpg?v=1561036880087",
+    heroAlt: "Thiết kế 3D phối cảnh Diamond Model",
+    publishedAt: SITE_BUILD_DATE_ISO,
+    dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
+    readTime: "5 phút",
+    meta: [
+      { label: "Loại", value: "Phối cảnh & trình bày" },
+      { label: "Thời gian", value: "5-10 ngày" },
+      { label: "Mục tiêu", value: "Dễ duyệt phương án" },
+    ],
+    tags: ["3D", "Phối cảnh", "Trình bày"],
+    sections: [
+      section(
+        "vai-tro",
+        "Vai trò của phối cảnh 3D",
+        [
+          "Phối cảnh 3D cho phép khách hàng nhìn trước hình khối, ánh sáng và mối liên hệ giữa các thành phần công trình trước khi mô hình bước vào giai đoạn sản xuất.",
+          "Đây là lớp trung gian rất quan trọng giữa ý tưởng trên giấy và sản phẩm thực tế, giúp giảm mơ hồ trong quá trình duyệt phương án.",
+        ],
+        [
+          "Làm rõ khối, mảng và điểm nhấn tổng thể.",
+          "Hỗ trợ chủ đầu tư ra quyết định nhanh hơn.",
+          "Tạo tư liệu trình bày trước khi thi công.",
+        ],
+      ),
+      section(
+        "quy-trinh",
+        "Quy trình thực hiện",
+        [
+          "Đội ngũ nhận bản vẽ, ảnh tham chiếu và yêu cầu trình bày, sau đó xác định góc nhìn chính, chất liệu bề mặt và nhịp sáng phù hợp với mục tiêu truyền thông.",
+          "Các vòng chỉnh sửa được gom lại thành từng mốc rõ ràng để việc duyệt phương án không bị kéo dài quá mức.",
+        ],
+      ),
+      section(
+        "gia-tri",
+        "Giá trị trong quá trình duyệt",
+        [
+          "Khi phối cảnh đủ rõ, khách hàng dễ hình dung hơn về tinh thần công trình và dễ trao đổi lại với đội ngũ thiết kế hoặc kinh doanh.",
+          "Đó cũng là cách Diamond Model tiết kiệm thời gian chỉnh sửa, để bước thi công mô hình đi nhanh hơn và nhất quán hơn.",
+        ],
+      ),
+    ],
+    relatedSlugs: [],
+  }),
+  createServiceArticle({
+    slug: "bao-tri-sua-chua-mo-hinh",
+    categoryLabel: "Dịch vụ",
+    categoryHref: "/dich-vu",
+    title: "Bảo trì & sửa chữa mô hình",
+    summary:
+      "Bảo trì định kỳ giúp mô hình luôn ổn định, sạch và sẵn sàng trưng bày.",
+    heroImage:
+      "https://bizweb.dktcdn.net/100/347/685/articles/mo-hinh-bat-dong-san-1.jpg?v=1619485698573",
+    heroAlt: "Bảo trì và sửa chữa mô hình Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
     readTime: "4 phút",
     meta: [
       { label: "Loại", value: "Hậu mãi" },
-      { label: "Thời gian", value: "Dài hạn" },
+      { label: "Thời gian", value: "Theo yêu cầu" },
       { label: "Mục tiêu", value: "Vận hành ổn định" },
     ],
-    tags: ["Bảo hành", "Bảo trì", "Hậu mãi"],
+    tags: ["Bảo trì", "Sửa chữa", "Hậu mãi"],
     sections: [
       section(
         "y-nghia",
         "Vì sao hậu mãi quan trọng",
         [
-          "Nội thất không kết thúc ở ngày bàn giao. Trong quá trình sử dụng, các phụ kiện, bề mặt và cấu tạo có thể cần được kiểm tra lại để duy trì hiệu quả vận hành.",
-          "Một dịch vụ bảo hành và bảo trì tốt giúp khách hàng yên tâm hơn về chi phí dài hạn lẫn độ bền công trình.",
+          "Mô hình sau một thời gian trưng bày hoặc vận chuyển có thể phát sinh bụi bẩn, lệch chi tiết hoặc bong tách bề mặt, nên việc bảo trì định kỳ là rất cần thiết.",
+          "Một quy trình hậu mãi tốt giúp mô hình luôn giữ được hình thức chỉn chu, đồng thời tăng tuổi thọ sử dụng cho khách hàng.",
         ],
         [
           "Kiểm tra các điểm chịu lực và phụ kiện.",
-          "Xử lý nhanh các phát sinh sau sử dụng.",
-          "Giữ thẩm mỹ công trình ổn định lâu dài.",
+          "Xử lý nhanh các phát sinh sau vận chuyển hoặc trưng bày.",
+          "Giữ thẩm mỹ mô hình ổn định lâu dài.",
         ],
       ),
       section(
         "quy-trinh",
         "Quy trình hỗ trợ",
         [
-          "Diamond Model tiếp nhận yêu cầu, kiểm tra thực tế, xác định nguyên nhân và đề xuất phương án xử lý phù hợp với từng công trình.",
-          "Mục tiêu là khôi phục chất lượng vận hành mà không làm ảnh hưởng đến tổng thể thiết kế ban đầu.",
+          "Diamond Model tiếp nhận yêu cầu, kiểm tra thực tế, xác định nguyên nhân và đề xuất phương án xử lý phù hợp với từng mô hình.",
+          "Mục tiêu là khôi phục chất lượng trưng bày mà không làm ảnh hưởng đến tinh thần thiết kế ban đầu.",
         ],
       ),
       section(
@@ -868,14 +872,13 @@ const SERVICE_ITEMS = [
         "Cam kết sau bàn giao",
         [
           "Khách hàng luôn có một đầu mối rõ ràng để liên hệ khi cần hỗ trợ.",
-          "Đó là cách Diamond Model giữ trọn trách nhiệm cho công trình, không để việc bàn giao là điểm kết thúc của trải nghiệm.",
+          "Đó là cách Diamond Model giữ trọn trách nhiệm cho mô hình, không để việc bàn giao là điểm kết thúc của trải nghiệm.",
         ],
       ),
     ],
     relatedSlugs: [],
   }),
 ];
-
 const DEMO_NEWS_OVERRIDES = [
   {
     slug: "cach-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep",
@@ -1052,13 +1055,13 @@ export const PROJECT_COLLECTION: ArchiveCollection = {
 export const SERVICE_COLLECTION: ArchiveCollection = {
   slug: "dich-vu",
   label: "Dịch vụ",
-  title: "Dịch vụ của Diamond Model",
+  title: "Dịch vụ sa bàn & mô hình",
   description:
-    "Từ tư vấn, thiết kế đến thi công và bảo hành, mọi dịch vụ đều được tổ chức theo một quy trình thống nhất và rõ ràng.",
+    "Tư vấn, thiết kế 3D, thi công và bảo trì mô hình kiến trúc được tổ chức theo một quy trình thống nhất và rõ ràng.",
   eyebrow: "Hệ dịch vụ",
-  heroImage: PHO_GIA_COMPANY.processThumb,
-  heroAlt: "Dịch vụ Diamond Model",
-  filters: ["Tư vấn", "Thiết kế", "Thi công", "Bảo hành"],
+  heroImage: SERVICE_ITEMS[0]?.heroImage ?? PHO_GIA_COMPANY.processThumb,
+  heroAlt: "Dịch vụ sa bàn và mô hình Diamond Model",
+  filters: ["Tư vấn", "Thi công", "3D", "Bảo trì"],
   ctaLabel: "Tìm hiểu dịch vụ",
   ctaHref: "/lien-he",
   featuredSlug: SERVICE_ITEMS[0]?.slug,

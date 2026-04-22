@@ -6,8 +6,6 @@ import ProjectsSection from "@/components/home/ProjectsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import StatsSection from "@/components/home/StatsSection";
 import VideosSection from "@/components/home/VideosSection";
-import PressSection from "@/components/home/PressSection";
-import CompletedSection from "@/components/home/CompletedSection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 function HomeReveal({ children }: { children: ReactNode }) {
@@ -35,12 +33,6 @@ export default function Home() {
       </HomeReveal>
       <HomeReveal>
         <VideosSection />
-      </HomeReveal>
-      <HomeReveal>
-        <PressSection />
-      </HomeReveal>
-      <HomeReveal>
-        <CompletedSection />
       </HomeReveal>
     </>
   );

@@ -1,63 +1,52 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { PHO_GIA_COMPANY } from "@/lib/phogia";
 
-const HERO_FRAME_TIME = 15;
+const HERO_AUTO_MS = 5500;
 
 export default function HeroSection() {
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const slides = PHO_GIA_COMPANY.heroSlides ?? [PHO_GIA_COMPANY.heroPoster];
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const video = heroVideoRef.current;
-    if (!video) return;
+    if (slides.length <= 1) return;
 
-    const lockHeroFrame = () => {
-      const targetTime = Math.min(HERO_FRAME_TIME, Math.max(0, (video.duration || HERO_FRAME_TIME) - 0.1));
+    const timer = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % slides.length);
+    }, HERO_AUTO_MS);
 
-      try {
-        video.currentTime = targetTime;
-      } catch {
-        // Ignore timing issues while metadata is still loading.
-      }
-
-      const pauseFrame = () => {
-        video.pause();
-      };
-
-      if (video.readyState >= 2) {
-        pauseFrame();
-      } else {
-        video.addEventListener("seeked", pauseFrame, { once: true });
-      }
-    };
-
-    if (video.readyState >= 1) {
-      lockHeroFrame();
-    } else {
-      video.addEventListener("loadedmetadata", lockHeroFrame, { once: true });
-    }
-
-    return () => {
-      video.removeEventListener("loadedmetadata", lockHeroFrame);
-    };
-  }, []);
+    return () => window.clearInterval(timer);
+  }, [slides.length]);
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-black">
-      <video
-        ref={heroVideoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={PHO_GIA_COMPANY.heroPoster}
-      >
-        <source src={PHO_GIA_COMPANY.heroVideo} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <div
+            key={slide}
+            className={[
+              "absolute inset-0 transition-opacity duration-1000 ease-out",
+              index === activeIndex ? "opacity-100" : "opacity-0",
+            ].join(" ")}
+          >
+            <Image
+              src={slide}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              aria-hidden="true"
+              priority={index === 0}
+              quality={92}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="absolute inset-0 bg-black/35" />
+
       <a href="#mission" className="ph-scroll-indicator">
         <span className="ph-scroll-copy">
           <span>SCROLL</span>

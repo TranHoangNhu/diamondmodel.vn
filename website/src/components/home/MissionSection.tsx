@@ -17,7 +17,7 @@ export default function MissionSection() {
           />
           <p className="ph-script mt-6">Với Sứ Mệnh</p>
           <h2 className="font-display mt-3 text-[44px] font-semibold uppercase leading-[1.05] text-[#45413d]">
-            “KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG”
+            “KIẾN TẠO GIÁ TRỊ SA BÀN”
           </h2>
         </div>
 
@@ -26,7 +26,7 @@ export default function MissionSection() {
             <div className="relative aspect-[4/5] w-full md:aspect-[5/4] lg:aspect-[4/5]">
               <Image
                 src={PHO_GIA_COMPANY.missionImage}
-                alt="Không gian nội thất Diamond Model"
+                alt="Mô hình sa bàn Diamond Model"
                 fill
                 sizes="(max-width: 1024px) 100vw, 520px"
                 className="object-cover"
@@ -37,18 +37,16 @@ export default function MissionSection() {
           <div className="max-w-[520px] text-[15px] leading-8 text-[#5d5751]">
             <p className="mb-5 text-[13px] font-semibold uppercase text-[#7f7a74]">Với Diamond Model</p>
             <p className="mb-5">
-              Để biến tấu một không gian hiện hữu trở nên hài hòa, thẩm mỹ, thoả GU của Gia Chủ thì yếu tố quan trọng
-              nhất là giai đoạn Thiết Kế. Việc Kiến Trúc Sư khai phá được nội tâm, phong cách và sở thích thực sự của
-              Gia Chủ sẽ là tiền đề để tạo nên một không gian nội thất với xúc cảm trọn vẹn.
+              Diamond Model tập trung vào sa bàn dự án, mô hình kiến trúc và phối cảnh trưng bày cho các công trình
+              nhà ở, chung cư, khu đô thị và quy hoạch.
             </p>
             <p className="mb-5">
-              Thiết Kế & Thi Công trong lĩnh vực nội thất là cả một quá trình cần sự sáng tạo, cảm hứng, đam mê và tận
-              tâm thật sự. Khi không còn tồn tại sự vội vàng, áp đặt, sự gói ghém tận tiện thì nguồn cảm hứng cho kiến
-              trúc sư sẽ thăng hoa.
+              Mỗi mô hình được triển khai theo hướng rõ tỷ lệ, sạch bề mặt và dễ đọc bố cục, để chủ đầu tư và khách
+              hàng có thể hình dung nhanh tinh thần công trình trước khi bước vào giai đoạn thi công thực tế.
             </p>
             <p>
-              Hãy cộng hưởng cùng Chúng Tôi để bạn thấy được giá trị trọn vẹn của một không gian sống ĐỘC BẢN đúng
-              nghĩa, tạo nên sự gắn kết Chúng Tôi và Bạn vững bền.
+              Mục tiêu là tạo ra một sản phẩm trưng bày chỉn chu, chính xác và đủ nổi bật để phục vụ trình bày, bán
+              hàng và phê duyệt phương án.
             </p>
             <Link href="/gioi-thieu" className="ph-about-button mt-9 inline-flex">
               <Image
