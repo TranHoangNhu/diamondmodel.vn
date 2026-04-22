@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PHO_GIA_PROJECTS } from "@/lib/phogia";
 import { ProjectCard, SectionHeading } from "./SharedComponents";
 
@@ -14,9 +15,9 @@ export default function ProjectsSection() {
               ))}
             </div>
             <div className="mt-12 text-center">
-              <a href="#footer" className="ph-button inline-flex">
+              <Link href="/du-an" className="ph-button inline-flex">
                 {group.cta}
-              </a>
+              </Link>
             </div>
           </div>
         </section>
