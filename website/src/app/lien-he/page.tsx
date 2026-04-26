@@ -1,10 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactCommitmentsSection from "@/components/contact/ContactCommitmentsSection";
-import { PHO_GIA_COMPANY, PHO_GIA_CONTACT } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY, DIAMOND_VN_CONTACT } from "@/lib/diamond-vn";
 
 export const metadata: Metadata = {
   title: "Liên hệ | Diamond Model Decor",
@@ -40,8 +40,8 @@ export default function ContactPage() {
       <section className="ph-section-tight pb-10 pt-14">
         <div className="ph-container">
           <AnimatedSection>
-            <p className="ph-eyebrow text-center">{PHO_GIA_CONTACT.introLabel}</p>
-            <h1 className="ph-title mt-3 text-center">{PHO_GIA_CONTACT.introTitle}</h1>
+            <p className="ph-eyebrow text-center">{DIAMOND_VN_CONTACT.introLabel}</p>
+            <h1 className="ph-title mt-3 text-center">{DIAMOND_VN_CONTACT.introTitle}</h1>
           </AnimatedSection>
         </div>
       </section>
@@ -53,8 +53,8 @@ export default function ContactPage() {
               <div>
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
                   <Image
-                    src={PHO_GIA_COMPANY.logo}
-                    alt={PHO_GIA_CONTACT.companyTitle}
+                    src={DIAMOND_VN_COMPANY.logo}
+                    alt={DIAMOND_VN_CONTACT.companyTitle}
                     width={240}
                     height={60}
                     className="h-auto w-[180px] shrink-0 object-contain sm:w-[220px] lg:w-[240px]"
@@ -63,14 +63,14 @@ export default function ContactPage() {
 
                   <div className="max-w-[560px]">
                     <h2 className="font-display text-[44px] font-semibold uppercase leading-[1.05] text-[#45413d]">
-                      {PHO_GIA_CONTACT.companyTitle}
+                      {DIAMOND_VN_CONTACT.companyTitle}
                     </h2>
                     <p className="mt-2 text-[12px] uppercase tracking-[0.18em] text-[#7f7a74]">
-                      {PHO_GIA_CONTACT.socialTitle}
+                      {DIAMOND_VN_CONTACT.socialTitle}
                     </p>
 
                     <a
-                      href={PHO_GIA_CONTACT.downloadUrl}
+                      href={DIAMOND_VN_CONTACT.downloadUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="mt-6 inline-flex items-center gap-2 rounded-[8px] border border-[#e5d8c7] px-4 py-3 text-[13px] uppercase tracking-[0.08em] text-[#5a8492] transition hover:border-[#5a8492] hover:text-[#3f6773]"
@@ -90,12 +90,12 @@ export default function ContactPage() {
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <span className="text-[12px] uppercase tracking-[0.16em] text-[#7f7a74]">Social:</span>
-                  <SocialLink href={PHO_GIA_COMPANY.facebook} label="Facebook">
+                  <SocialLink href={DIAMOND_VN_COMPANY.facebook} label="Facebook">
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M24 12.07c0-6.63-5.37-12-12-12S0 5.44 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.39H7.08v-3.46h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.96h-1.5c-1.49 0-1.96.92-1.96 1.87v2.25h3.33l-.53 3.46h-2.8v8.39C19.61 23.02 24 18.06 24 12.07z" />
                     </svg>
                   </SocialLink>
-                  <SocialLink href={PHO_GIA_COMPANY.youtube} label="YouTube">
+                  <SocialLink href={DIAMOND_VN_COMPANY.youtube} label="YouTube">
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14c.5-1.88.5-5.81.5-5.81s0-3.93-.5-5.81z" />
                       <path d="M9.55 15.57V8.43L15.82 12l-6.27 3.57z" fill="#fff" />
@@ -108,26 +108,26 @@ export default function ContactPage() {
             <AnimatedSection animation="fade-left" delay={150}>
               <div className="space-y-5">
                 <a
-                  href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
+                  href={`tel:${DIAMOND_VN_COMPANY.phoneHref}`}
                   className="block border-b border-[#d8cfc4] pb-5 text-[#4f4b46] transition hover:text-[#5a8492]"
                 >
                   <p className="text-[12px] uppercase tracking-[0.16em] text-[#7f7a74]">
-                    {PHO_GIA_CONTACT.hotlineLabel}
+                    {DIAMOND_VN_CONTACT.hotlineLabel}
                   </p>
                   <strong className="mt-2 block font-heading text-[26px] font-semibold text-[#45413d] md:text-[30px]">
-                    {PHO_GIA_COMPANY.phone}
+                    {DIAMOND_VN_COMPANY.phone}
                   </strong>
                 </a>
 
                 <a
-                  href={`tel:${PHO_GIA_CONTACT.serviceHotline.replace(/\s/g, "")}`}
+                  href={`tel:${DIAMOND_VN_CONTACT.serviceHotline.replace(/\s/g, "")}`}
                   className="block border-b border-[#d8cfc4] pb-5 text-[#4f4b46] transition hover:text-[#5a8492]"
                 >
                   <p className="text-[12px] uppercase tracking-[0.16em] text-[#7f7a74]">
-                    {PHO_GIA_CONTACT.serviceLabel}
+                    {DIAMOND_VN_CONTACT.serviceLabel}
                   </p>
                   <strong className="mt-2 block font-heading text-[26px] font-semibold text-[#45413d] md:text-[30px]">
-                    {PHO_GIA_CONTACT.serviceHotline}
+                    {DIAMOND_VN_CONTACT.serviceHotline}
                   </strong>
                 </a>
 
@@ -136,10 +136,10 @@ export default function ContactPage() {
                   className="block border-b border-[#d8cfc4] pb-5 text-[#4f4b46] transition hover:text-[#5a8492]"
                 >
                   <p className="text-[12px] uppercase tracking-[0.16em] text-[#7f7a74]">
-                    {PHO_GIA_CONTACT.registerLabel}
+                    {DIAMOND_VN_CONTACT.registerLabel}
                   </p>
                   <strong className="mt-2 block font-heading text-[26px] font-semibold text-[#45413d] md:text-[30px]">
-                    {PHO_GIA_CONTACT.registerTitle}
+                    {DIAMOND_VN_CONTACT.registerTitle}
                   </strong>
                 </a>
               </div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {PHO_GIA_COMPANY.addresses.map((address, index) => (
+            {DIAMOND_VN_COMPANY.addresses.map((address, index) => (
               <article key={address.title} className="border border-[#e5d8c7] px-6 py-6">
                 <h3 className="font-heading text-[18px] font-semibold uppercase text-[#45413d]">
                   {index === 0 ? (
@@ -183,10 +183,10 @@ export default function ContactPage() {
         <div className="ph-container">
           <AnimatedSection>
             <div className="text-center">
-              <p className="ph-eyebrow">{PHO_GIA_CONTACT.formLabel}</p>
+              <p className="ph-eyebrow">{DIAMOND_VN_CONTACT.formLabel}</p>
               <h2 className="ph-title mt-3">Liên hệ với Diamond Model</h2>
               <p className="mx-auto mt-5 max-w-[760px] whitespace-pre-line text-[15px] leading-7 text-[#5d5751]">
-                {PHO_GIA_CONTACT.formLead}
+                {DIAMOND_VN_CONTACT.formLead}
               </p>
             </div>
           </AnimatedSection>

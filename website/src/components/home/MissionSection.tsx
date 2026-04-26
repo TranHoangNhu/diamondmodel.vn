@@ -1,6 +1,6 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 
 export default function MissionSection() {
   return (
@@ -8,7 +8,7 @@ export default function MissionSection() {
       <div className="ph-container-wide">
         <div className="ph-section-header">
             <Image
-              src={PHO_GIA_COMPANY.yearsBadge}
+              src={DIAMOND_VN_COMPANY.yearsBadge}
               alt="9 năm"
               width={142}
               height={52}
@@ -26,7 +26,7 @@ export default function MissionSection() {
           <div className="overflow-hidden rounded-[8px] bg-[#f0ebe2]">
             <div className="relative aspect-[4/5] w-full md:aspect-[5/4] lg:aspect-[4/5]">
               <Image
-                src={PHO_GIA_COMPANY.missionImage}
+                src={DIAMOND_VN_COMPANY.missionImage}
                 alt="Mô hình sa bàn Diamond Model"
                 fill
                 sizes="(max-width: 1024px) 100vw, 520px"

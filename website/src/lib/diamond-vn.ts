@@ -1,4 +1,4 @@
-﻿export const PHO_GIA_COMPANY = {
+export const DIAMOND_VN_COMPANY = {
   name: "Diamond Model",
   fullName: "CÔNG TY TNHH MÔ HÌNH KIM CƯƠNG",
   phone: "0901 62 62 82",
@@ -6,8 +6,8 @@
   email: "info@diamondmodel.vn",
   zalo: "https://zalo.me/0901626282",
   logo: "/diamondmodel/brand/logo-diamondmodel.png",
-  zaloIcon: "/phogia/brand/icon-zalo.svg",
-  heroVideo: "/phogia/home/PHO-GIA-DECOR-2023.mp4",
+  zaloIcon: "/diamond-vn/brand/icon-zalo.svg",
+  heroVideo: "/diamond-vn/home/diamond-vn-home-video.mp4",
   heroPoster: "/diamondmodel/home/hero-slide-1.png",
   heroSlides: [
     "/diamondmodel/home/hero-slide-1.png",
@@ -15,14 +15,14 @@
     "/diamondmodel/home/hero-slide-3.png",
     "/diamondmodel/home/hero-slide-4.png",
   ],
-  yearsBadge: "/phogia/home/9_Years.svg",
+  yearsBadge: "/diamond-vn/home/9_Years.svg",
   missionImage: "/diamondmodel/home/hero-slide-2.png",
   trustImage: "/diamondmodel/home/hero-slide-3.png",
-  processDesktop: "/phogia/home/process_phogia_home_pc.svg",
-  processMobile: "/phogia/home/process_phogia_home_mob.svg",
+  processDesktop: "/diamond-vn/home/diamond-vn-process-home-pc.svg",
+  processMobile: "/diamond-vn/home/diamond-vn-process-home-mob.svg",
   processThumb: "/diamondmodel/home/hero-slide-4.png",
   statsBackground: "/diamondmodel/home/hero-slide-1.png",
-  footerBadge: "/phogia/brand/tinnhiemmang-cert.png",
+  footerBadge: "/diamond-vn/brand/tinnhiemmang-cert.png",
   facebook: "https://facebook.com/diamondmodel",
   youtube: "https://www.youtube.com/embed/P4WI7VRvwdU",
   addresses: [
@@ -48,8 +48,8 @@
     },
   ],
   policies: [
-    { label: "Chính sách bảo hành, bảo trì", href: "https://phogiadecor.vn/chinh-sach-bao-hanh-bao-tri" },
-    { label: "Chính sách bảo mật", href: "https://phogiadecor.vn/chinh-sach-bao-mat" },
+    { label: "Chính sách bảo hành, bảo trì", href: "https://diamondmodel.vn/chinh-sach-bao-hanh-bao-tri" },
+    { label: "Chính sách bảo mật", href: "https://diamondmodel.vn/chinh-sach-bao-mat" },
     {
       label: "Diamond Model trên Google News",
       href: "https://news.google.com/publications/CAAqBwgKMPfWtwswhPLOAw?hl=vi&gl=VN&ceid=VN:vi",
@@ -57,10 +57,10 @@
   ],
 } as const;
 
-export const PHO_GIA_CONTACT = {
+export const DIAMOND_VN_CONTACT = {
   introLabel: "liên hệ",
   introTitle: "DIAMOND MODEL – KHỞI TẠO GIÁ TRỊ SỐNG LÝ TƯỞNG",
-  companyTitle: PHO_GIA_COMPANY.fullName,
+  companyTitle: DIAMOND_VN_COMPANY.fullName,
   downloadUrl: "https://drive.google.com/file/d/1rTxiVb_7WqyLkfr1vvDWasnrhOVPmixb/view",
   socialTitle: "KÊNH MẠNG XÃ HỘI",
   hotlineLabel: "HOTLINE",
@@ -73,7 +73,7 @@ export const PHO_GIA_CONTACT = {
   formNote: "Chúng tôi cam kết bảo mật tuyệt đối thông tin của Bạn.",
   commitmentsLabel: "6 điều",
   commitmentsTitle: "DIAMOND MODEL CAM KẾT",
-  commitmentImage: "/phogia/contact/cam-ket-01.svg",
+  commitmentImage: "/diamond-vn/contact/cam-ket-01.svg",
   commitments: [
     "thiết kế độc bản",
     "Thi công tỉ mỉ",
@@ -85,7 +85,7 @@ export const PHO_GIA_CONTACT = {
   serviceHotline: "093 8425800",
 } as const;
 
-export const PHO_GIA_NAV = [
+export const DIAMOND_VN_NAV = [
   { label: "Giới thiệu", href: "#mission" },
   { label: "Thiết kế", href: "#design-apartment" },
   { label: "Thi công", href: "#construction" },
@@ -95,7 +95,7 @@ export const PHO_GIA_NAV = [
   { label: "Liên hệ", href: "/lien-he" },
 ] as const;
 
-export const PHO_GIA_BENEFITS = [
+export const DIAMOND_VN_BENEFITS = [
   {
     title: "Thiết kế cá nhân hóa",
     description:
@@ -135,7 +135,7 @@ type ProjectGroup = {
   items: readonly ProjectItem[];
 };
 
-export const PHO_GIA_PROJECTS = [
+export const DIAMOND_VN_PROJECTS = [
   {
     id: "design-apartment",
     eyebrow: "Dự án thực hiện",
@@ -212,60 +212,60 @@ export const PHO_GIA_PROJECTS = [
   },
 ] as const satisfies readonly ProjectGroup[];
 
-export const PHO_GIA_VALUES = [
-  { label: "Khách hàng", value: "350+", image: "/phogia/home/value-customer-01.webp" },
-  { label: "Dự án thiết kế", value: "400+", image: "/phogia/home/value-design-02.webp" },
-  { label: "Dự án thi công", value: "380+", image: "/phogia/home/value-build-03.webp" },
-  { label: "Công trình tiêu biểu", value: "18", image: "/phogia/home/value-special-04.webp" },
+export const DIAMOND_VN_VALUES = [
+  { label: "Khách hàng", value: "350+", image: "/diamond-vn/home/value-customer-01.webp" },
+  { label: "Dự án thiết kế", value: "400+", image: "/diamond-vn/home/value-design-02.webp" },
+  { label: "Dự án thi công", value: "380+", image: "/diamond-vn/home/value-build-03.webp" },
+  { label: "Công trình tiêu biểu", value: "18", image: "/diamond-vn/home/value-special-04.webp" },
 ] as const;
 
-export const PHO_GIA_VIDEOS = [
+export const DIAMOND_VN_VIDEOS = [
   {
     title: "Quy trình sản xuất tại xưởng Diamond Model Decor",
-    image: "/phogia/videos/BANNER-CHINH.jpg",
+    image: "/diamond-vn/videos/BANNER-CHINH.jpg",
     href: "https://youtu.be/87aKui2Cl-g",
   },
   {
     title: "Quá trình thi công tại công trình",
-    image: "/phogia/videos/izPEwzhK04g-hqdefault.jpg",
+    image: "/diamond-vn/videos/izPEwzhK04g-hqdefault.jpg",
     href: "https://youtu.be/izPEwzhK04g",
   },
   {
     title: "Trải nghiệm khách hàng Diamond Model",
-    image: "/phogia/videos/trai-nghiem-kh-video-thumb.jpg",
+    image: "/diamond-vn/videos/trai-nghiem-kh-video-thumb.jpg",
     href: "https://vimeo.com/803366386",
   },
 ] as const;
 
-export const PHO_GIA_PRESS_LOGOS = [
-  "/phogia/press/logo-bao-tien-phong.jpg",
-  "/phogia/press/bao-24h-com-vn.jpg",
-  "/phogia/press/nguoi-dua-tin.jpg",
-  "/phogia/press/bao-xay-dung-1.jpg",
-  "/phogia/press/ha-noi-moi.png",
-  "/phogia/press/logo-tri-thuc-moi_2021_05_12.png",
+export const DIAMOND_VN_PRESS_LOGOS = [
+  "/diamond-vn/press/logo-bao-tien-phong.jpg",
+  "/diamond-vn/press/bao-24h-com-vn.jpg",
+  "/diamond-vn/press/nguoi-dua-tin.jpg",
+  "/diamond-vn/press/bao-xay-dung-1.jpg",
+  "/diamond-vn/press/ha-noi-moi.png",
+  "/diamond-vn/press/logo-tri-thuc-moi_2021_05_12.png",
 ] as const;
 
-export const PHO_GIA_COMPLETED_LOGOS = [
-  "/phogia/completed/logo-20.png",
-  "/phogia/completed/logo-1.png",
-  "/phogia/completed/logo-2.png",
-  "/phogia/completed/logo-3.png",
-  "/phogia/completed/logo-4.png",
-  "/phogia/completed/logo-5.png",
-  "/phogia/completed/logo-6.png",
-  "/phogia/completed/logo-7.png",
-  "/phogia/completed/logo-8.png",
-  "/phogia/completed/logo-9.png",
-  "/phogia/completed/logo-10.png",
-  "/phogia/completed/logo-11.png",
-  "/phogia/completed/logo-12.png",
-  "/phogia/completed/logo-13.png",
-  "/phogia/completed/logo-14.png",
-  "/phogia/completed/logo-15.png",
-  "/phogia/completed/logo-16.png",
-  "/phogia/completed/logo-17.png",
-  "/phogia/completed/logo-18.png",
-  "/phogia/completed/logo-19.png",
+export const DIAMOND_VN_COMPLETED_LOGOS = [
+  "/diamond-vn/completed/logo-20.png",
+  "/diamond-vn/completed/logo-1.png",
+  "/diamond-vn/completed/logo-2.png",
+  "/diamond-vn/completed/logo-3.png",
+  "/diamond-vn/completed/logo-4.png",
+  "/diamond-vn/completed/logo-5.png",
+  "/diamond-vn/completed/logo-6.png",
+  "/diamond-vn/completed/logo-7.png",
+  "/diamond-vn/completed/logo-8.png",
+  "/diamond-vn/completed/logo-9.png",
+  "/diamond-vn/completed/logo-10.png",
+  "/diamond-vn/completed/logo-11.png",
+  "/diamond-vn/completed/logo-12.png",
+  "/diamond-vn/completed/logo-13.png",
+  "/diamond-vn/completed/logo-14.png",
+  "/diamond-vn/completed/logo-15.png",
+  "/diamond-vn/completed/logo-16.png",
+  "/diamond-vn/completed/logo-17.png",
+  "/diamond-vn/completed/logo-18.png",
+  "/diamond-vn/completed/logo-19.png",
 ] as const;
 

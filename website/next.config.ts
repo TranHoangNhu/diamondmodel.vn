@@ -22,12 +22,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "phogiadecor.vn",
+        hostname: "diamondmodel.vn",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "www.phogiadecor.vn",
+        hostname: "www.diamondmodel.vn",
         pathname: "/**",
       },
       {

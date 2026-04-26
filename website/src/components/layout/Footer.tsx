@@ -1,5 +1,5 @@
-﻿import Image from "next/image";
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import Image from "next/image";
+import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 
 export default function Footer() {
   return (
@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="ph-container pb-8 pt-9">
         <div className="text-center">
           <Image
-            src={PHO_GIA_COMPANY.logo}
+            src={DIAMOND_VN_COMPANY.logo}
             alt="Diamond Model"
             width={180}
             height={44}
@@ -33,25 +33,25 @@ export default function Footer() {
           <div>
             <p className="text-[12px] uppercase text-white/70">Hotline</p>
             <a
-              href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
+              href={`tel:${DIAMOND_VN_COMPANY.phoneHref}`}
               className="mt-2 block font-heading text-[34px] leading-none text-[#f1cd8a]"
             >
-              {PHO_GIA_COMPANY.phone}
+              {DIAMOND_VN_COMPANY.phone}
             </a>
           </div>
           <div className="flex items-center justify-center">
-            <p className="text-[14px] font-semibold uppercase">{PHO_GIA_COMPANY.fullName}</p>
+            <p className="text-[14px] font-semibold uppercase">{DIAMOND_VN_COMPANY.fullName}</p>
           </div>
           <div>
             <p className="text-[12px] uppercase text-white/70">Email</p>
-            <a href={`mailto:${PHO_GIA_COMPANY.email}`} className="mt-2 block text-[15px] text-white">
-              {PHO_GIA_COMPANY.email}
+            <a href={`mailto:${DIAMOND_VN_COMPANY.email}`} className="mt-2 block text-[15px] text-white">
+              {DIAMOND_VN_COMPANY.email}
             </a>
           </div>
         </div>
 
         <div className="mt-11 grid gap-8 md:grid-cols-3">
-          {PHO_GIA_COMPANY.addresses.map((address, index) => (
+          {DIAMOND_VN_COMPANY.addresses.map((address, index) => (
             <div key={address.title} className="text-center md:text-left">
               <h3 className="font-semibold uppercase text-white">{address.title}</h3>
               <div className="mt-3 space-y-2 text-[14px] leading-7 text-white/90">
@@ -67,7 +67,7 @@ export default function Footer() {
               </div>
               {index === 2 ? (
                 <Image
-                  src={PHO_GIA_COMPANY.footerBadge}
+                  src={DIAMOND_VN_COMPANY.footerBadge}
                   alt="Chứng nhận tín nhiệm mạng"
                   width={100}
                   height={100}
@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-white/15 pt-5">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[12px] uppercase text-white/85">
-            {PHO_GIA_COMPANY.policies.map((policy) => (
+            {DIAMOND_VN_COMPANY.policies.map((policy) => (
               <a key={policy.label} href={policy.href} target="_blank" rel="noreferrer">
                 {policy.label}
               </a>
@@ -94,10 +94,10 @@ export default function Footer() {
               Copyright © 2026 Diamond Model Architecture & Interior. Web Design & Digital Marketing: Lead Digital
             </p>
             <div className="flex items-center gap-5 text-[12px] uppercase text-white">
-              <a href={PHO_GIA_COMPANY.facebook} target="_blank" rel="noreferrer">
+              <a href={DIAMOND_VN_COMPANY.facebook} target="_blank" rel="noreferrer">
                 Facebook
               </a>
-              <a href={PHO_GIA_COMPANY.youtube} target="_blank" rel="noreferrer">
+              <a href={DIAMOND_VN_COMPANY.youtube} target="_blank" rel="noreferrer">
                 YouTube
               </a>
               <a href="#hero" aria-label="Lên đầu trang">

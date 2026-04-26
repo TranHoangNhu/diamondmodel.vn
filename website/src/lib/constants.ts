@@ -1,4 +1,4 @@
-﻿// Company info constants
+// Company info constants
 export const COMPANY = {
   name: "Diamond Model",
   fullName: "CÔNG TY TNHH MÔ HÌNH KIM CƯƠNG",

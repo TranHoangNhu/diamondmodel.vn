@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 import { openAdviseModal } from "@/lib/advise-modal";
 
 const PROCESS_STEPS = [
@@ -40,7 +40,7 @@ export default function ProcessSection() {
           <div className="overflow-hidden rounded-[28px] border border-[#e7ddd0] bg-white shadow-[0_18px_40px_rgba(25,35,38,0.08)]">
             <div className="relative aspect-[4/5] w-full">
               <Image
-                src={PHO_GIA_COMPANY.processThumb}
+                src={DIAMOND_VN_COMPANY.processThumb}
                 alt="Quy trình thiết kế và thi công sa bàn Diamond Model"
                 fill
                 sizes="(max-width: 1024px) 100vw, 520px"

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLongRightIcon, CalendarDaysIcon, ClockIcon } from "@heroicons/react/24/outline";
 import type { ArticleItem, ArticleMeta, ArticleSection, ArchiveCollection } from "@/lib/site-content";
 import { SITE_URL } from "@/lib/site-content";
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 import ShareToolbar from "@/components/content/ShareToolbar";
 import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
@@ -284,10 +284,10 @@ export function ArticleLayout({
                     {ctaLabel}
                   </Link>
                   <a
-                    href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
+                    href={`tel:${DIAMOND_VN_COMPANY.phoneHref}`}
                     className="inline-flex items-center justify-center rounded-full border border-[#d6cbb9] bg-white px-5 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-[#4f4b46] transition hover:border-[#6b95a2] hover:text-[#6b95a2]"
                   >
-                    Gọi {PHO_GIA_COMPANY.phone}
+                    Gọi {DIAMOND_VN_COMPANY.phone}
                   </a>
                 </div>
               </div>
@@ -385,14 +385,14 @@ export function ArticleJsonLd({ article, url }: { article: ArticleItem; url: str
     dateModified: article.publishedAt,
     author: {
       "@type": "Organization",
-      name: PHO_GIA_COMPANY.fullName,
+      name: DIAMOND_VN_COMPANY.fullName,
     },
     publisher: {
       "@type": "Organization",
-      name: PHO_GIA_COMPANY.fullName,
+      name: DIAMOND_VN_COMPANY.fullName,
       logo: {
         "@type": "ImageObject",
-        url: new URL(PHO_GIA_COMPANY.logo, SITE_URL).toString(),
+        url: new URL(DIAMOND_VN_COMPANY.logo, SITE_URL).toString(),
       },
     },
     mainEntityOfPage: new URL(url, SITE_URL).toString(),

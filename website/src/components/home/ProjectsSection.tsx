@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { PHO_GIA_PROJECTS } from "@/lib/phogia";
+import { DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
 import { ProjectCard, SectionHeading } from "./SharedComponents";
 
 export default function ProjectsSection() {
   return (
     <div className="flex flex-col gap-[50px]">
-      {PHO_GIA_PROJECTS.map((group) => (
+      {DIAMOND_VN_PROJECTS.map((group) => (
         <section key={group.id} id={group.id} className="ph-section-surface scroll-mt-24">
           <div className="ph-container-wide">
             <SectionHeading eyebrow={group.eyebrow} title={group.title} />

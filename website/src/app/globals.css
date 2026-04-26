@@ -150,8 +150,8 @@ body::before {
   pointer-events: none;
   background-color: #f7f1e8;
   background-image: image-set(
-    url("/phogia/backgrounds/white-wall-background-texture-with-plaster-white-concrete-wall-banner-interior-design-background.avif") type("image/avif"),
-    url("/phogia/backgrounds/white-wall-background-texture-with-plaster-white-concrete-wall-banner-interior-design-background.jpg") type("image/jpeg")
+    url("/diamond-vn/backgrounds/white-wall-background-texture-with-plaster-white-concrete-wall-banner-interior-design-background.avif") type("image/avif"),
+    url("/diamond-vn/backgrounds/white-wall-background-texture-with-plaster-white-concrete-wall-banner-interior-design-background.jpg") type("image/jpeg")
   );
   background-position: center top;
   background-repeat: no-repeat;
@@ -567,7 +567,7 @@ body::before {
 }
 
 .ph-trust-title::after {
-  background: url("/phogia/icons/arrow_right_trust.svg") no-repeat center center;
+  background: url("/diamond-vn/icons/arrow_right_trust.svg") no-repeat center center;
   background-size: contain;
   bottom: -38px;
   content: "";

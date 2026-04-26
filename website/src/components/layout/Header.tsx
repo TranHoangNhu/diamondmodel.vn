@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 import { SITE_NAV_ITEMS } from "@/lib/site-nav";
 
 const COMPACT_SCROLL_Y = 120;
@@ -152,7 +152,7 @@ export default function Header() {
             <div className="ph-container flex h-full items-center justify-between">
               <Link href="/" className="shrink-0" aria-label="Trang chủ Diamond Model" tabIndex={compact ? -1 : 0}>
                 <Image
-                  src={PHO_GIA_COMPANY.logo}
+                  src={DIAMOND_VN_COMPANY.logo}
                   alt="Diamond Model"
                   width={160}
                   height={40}
@@ -175,7 +175,7 @@ export default function Header() {
 
               <div className="hidden items-center gap-3 lg:flex">
                 <a
-                  href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
+                  href={`tel:${DIAMOND_VN_COMPANY.phoneHref}`}
                   tabIndex={compact ? -1 : 0}
                   className="flex h-14 w-14 items-center justify-center rounded-full bg-[#efbf73] text-[#5b746f] transition hover:scale-105"
                   aria-label="Gọi Diamond Model"
@@ -219,7 +219,7 @@ export default function Header() {
             aria-hidden={!compact}
           >
             <a
-              href={`tel:${PHO_GIA_COMPANY.phoneHref}`}
+              href={`tel:${DIAMOND_VN_COMPANY.phoneHref}`}
               className="mr-7 flex h-12 w-12 items-center justify-center rounded-full bg-[#efbf73] text-[#5b746f] transition hover:scale-105 lg:h-14 lg:w-14"
               aria-label="Gọi Diamond Model"
               tabIndex={compact ? 0 : -1}
@@ -291,8 +291,8 @@ export default function Header() {
               tabIndex={0}
             />
           ))}
-          <a href={`tel:${PHO_GIA_COMPANY.phoneHref}`} className="mt-4 text-lg font-semibold text-[#f1cd8a]">
-            {PHO_GIA_COMPANY.phone}
+          <a href={`tel:${DIAMOND_VN_COMPANY.phoneHref}`} className="mt-4 text-lg font-semibold text-[#f1cd8a]">
+            {DIAMOND_VN_COMPANY.phone}
           </a>
         </div>
       </div>

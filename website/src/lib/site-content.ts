@@ -1,4 +1,4 @@
-﻿import { PHO_GIA_COMPANY, PHO_GIA_PROJECTS } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY, DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
 
 export const SITE_URL = "https://diamondmodel.vn";
 export const SITE_BUILD_DATE_ISO = "2026-04-18";
@@ -52,7 +52,7 @@ export type ArchiveCollection = {
   items: ArticleItem[];
 };
 
-type ProjectGroup = (typeof PHO_GIA_PROJECTS)[number];
+type ProjectGroup = (typeof DIAMOND_VN_PROJECTS)[number];
 type ProjectItem = ProjectGroup["items"][number];
 
 const PROJECT_GROUP_INFO: Record<
@@ -110,7 +110,7 @@ export const SERVICE_BLUEPRINTS = [
     title: "Tư vấn thiết kế sa bàn",
     summary:
       "Buổi tư vấn giúp chốt tỷ lệ, quy mô và ngôn ngữ trình bày trước khi đi vào bản vẽ mô hình.",
-    heroImage: PHO_GIA_COMPANY.missionImage,
+    heroImage: DIAMOND_VN_COMPANY.missionImage,
     heroAlt: "Tư vấn thiết kế sa bàn Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
@@ -156,7 +156,7 @@ export const SERVICE_BLUEPRINTS = [
     title: "Thiết kế nội thất trọn gói",
     summary:
       "Dịch vụ trọn gói kết nối bản vẽ, vật liệu và hồ sơ thi công trong một quy trình thống nhất.",
-    heroImage: PHO_GIA_COMPANY.trustImage,
+    heroImage: DIAMOND_VN_COMPANY.trustImage,
     heroAlt: "Thiết kế nội thất trọn gói Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
@@ -202,7 +202,7 @@ export const SERVICE_BLUEPRINTS = [
     title: "Thi công nội thất",
     summary:
       "Thi công nội thất tập trung vào độ chuẩn xác, tiến độ và chất lượng hoàn thiện tại công trình.",
-    heroImage: PHO_GIA_COMPANY.processThumb,
+    heroImage: DIAMOND_VN_COMPANY.processThumb,
     heroAlt: "Thi công nội thất Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
@@ -248,7 +248,7 @@ export const SERVICE_BLUEPRINTS = [
     title: "Bảo hành & bảo trì",
     summary:
       "Dịch vụ hậu mãi giúp công trình giữ được độ ổn định và thẩm mỹ trong suốt quá trình sử dụng.",
-    heroImage: PHO_GIA_COMPANY.heroPoster,
+    heroImage: DIAMOND_VN_COMPANY.heroPoster,
     heroAlt: "Bảo hành và bảo trì nội thất Diamond Model",
     categoryLabel: "Dịch vụ",
     meta: [
@@ -297,7 +297,7 @@ const NEWS_ITEMS = [
     title: "5 nguyên tắc phối vật liệu để không gian trông sang hơn",
     summary:
       "Một bảng vật liệu tốt không cần quá nhiều chất liệu, nhưng cần đủ nhịp điệu, độ tương phản và điểm nhấn.",
-    heroImage: PHO_GIA_COMPANY.missionImage,
+    heroImage: DIAMOND_VN_COMPANY.missionImage,
     heroAlt: "Phối vật liệu nội thất",
     publishedAt: "2025-12-04",
     readTime: "5 phút",
@@ -344,7 +344,7 @@ const NEWS_ITEMS = [
     title: "Bí quyết kiểm soát ngân sách khi làm nội thất trọn gói",
     summary:
       "Ngân sách hiệu quả không đến từ việc cắt giảm mọi thứ, mà đến từ việc ưu tiên đúng chỗ và chốt sớm phạm vi đầu tư.",
-    heroImage: PHO_GIA_COMPANY.processDesktop,
+    heroImage: DIAMOND_VN_COMPANY.processDesktop,
     heroAlt: "Kiểm soát ngân sách thi công nội thất",
     publishedAt: "2025-11-20",
     readTime: "4 phút",
@@ -391,7 +391,7 @@ const NEWS_ITEMS = [
     title: "Bí quyết tối ưu ánh sáng tự nhiên trong nhà",
     summary:
       "Ánh sáng tự nhiên không chỉ làm không gian sáng hơn mà còn giúp đồ nội thất có chiều sâu và cảm giác dễ chịu hơn.",
-    heroImage: PHO_GIA_COMPANY.trustImage,
+    heroImage: DIAMOND_VN_COMPANY.trustImage,
     heroAlt: "Tối ưu ánh sáng tự nhiên",
     publishedAt: "2025-08-06",
     readTime: "6 phút",
@@ -442,7 +442,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
   title: "Những điều cần lưu ý trước khi thiết kế và thi công nội thất",
   summary:
     "Bài viết này giúp bạn xác định đúng nhu cầu, đúng thời điểm và đúng thứ tự ưu tiên trước khi bắt đầu một dự án nội thất.",
-  heroImage: PHO_GIA_COMPANY.heroPoster,
+  heroImage: DIAMOND_VN_COMPANY.heroPoster,
   heroAlt: "Giới thiệu Diamond Model Decor",
   publishedAt: SITE_BUILD_DATE_ISO,
   dateLabel: "18/04/2026",
@@ -475,7 +475,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
         "Vì vậy, khi chọn phong cách, hãy xem đó là khung tham chiếu để triển khai chứ không phải đích đến duy nhất.",
       ],
       image: {
-        src: PHO_GIA_COMPANY.missionImage,
+        src: DIAMOND_VN_COMPANY.missionImage,
         alt: "Quy trình thiết kế nội thất Diamond Model",
         caption: "Không gian tốt phải cân bằng giữa gu thẩm mỹ và cách sử dụng thật của gia chủ.",
       },
@@ -649,7 +649,7 @@ function createNewsArticle(input: Omit<ArticleItem, "relatedSlugs">): ArticleIte
   };
 }
 
-const PROJECT_ITEMS = PHO_GIA_PROJECTS.flatMap((group) =>
+const PROJECT_ITEMS = DIAMOND_VN_PROJECTS.flatMap((group) =>
   group.items.map((item, index) => createProjectArticle(group, item, index)),
 );
 
@@ -1043,7 +1043,7 @@ export const PROJECT_COLLECTION: ArchiveCollection = {
   description:
     "Khám phá các công trình sa bàn, mô hình kiến trúc và thi công thực tế mà Diamond Model đã triển khai.",
   eyebrow: "Công trình thực hiện",
-  heroImage: PROJECT_ITEMS[0]?.heroImage ?? PHO_GIA_COMPANY.processDesktop,
+  heroImage: PROJECT_ITEMS[0]?.heroImage ?? DIAMOND_VN_COMPANY.processDesktop,
   heroAlt: PROJECT_ITEMS[0]?.heroAlt ?? "Dự án Diamond Model",
   filters: ["Sa bàn", "Kiến trúc", "Thi công mô hình"],
   ctaLabel: "Đặt lịch tư vấn dự án",
@@ -1059,7 +1059,7 @@ export const SERVICE_COLLECTION: ArchiveCollection = {
   description:
     "Tư vấn, thiết kế 3D, thi công và bảo trì mô hình kiến trúc được tổ chức theo một quy trình thống nhất và rõ ràng.",
   eyebrow: "Hệ dịch vụ",
-  heroImage: SERVICE_ITEMS[0]?.heroImage ?? PHO_GIA_COMPANY.processThumb,
+  heroImage: SERVICE_ITEMS[0]?.heroImage ?? DIAMOND_VN_COMPANY.processThumb,
   heroAlt: "Dịch vụ sa bàn và mô hình Diamond Model",
   filters: ["Tư vấn", "Thi công", "3D", "Bảo trì"],
   ctaLabel: "Tìm hiểu dịch vụ",
@@ -1075,7 +1075,7 @@ export const NEWS_COLLECTION: ArchiveCollection = {
   description:
     "Những bài viết ngắn gọn nhưng có chiều sâu về sa bàn, mô hình kiến trúc, vật liệu và cách trình bày dự án.",
   eyebrow: "Bài viết mới",
-  heroImage: NEWS_ITEMS_WITH_RELATION[0]?.heroImage ?? PHO_GIA_COMPANY.trustImage,
+  heroImage: NEWS_ITEMS_WITH_RELATION[0]?.heroImage ?? DIAMOND_VN_COMPANY.trustImage,
   heroAlt: NEWS_ITEMS_WITH_RELATION[0]?.heroAlt ?? "Tin tức Diamond Model",
   filters: ["Mô hình", "Sa bàn", "Kiến trúc", "Trình bày"],
   ctaLabel: "Khám phá bài viết",

@@ -1,16 +1,16 @@
-﻿import Image from "next/image";
-import { PHO_GIA_BENEFITS, PHO_GIA_COMPANY } from "@/lib/phogia";
+import Image from "next/image";
+import { DIAMOND_VN_BENEFITS, DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
-type Benefit = (typeof PHO_GIA_BENEFITS)[number];
+type Benefit = (typeof DIAMOND_VN_BENEFITS)[number];
 
-const LEFT_COLUMN: Benefit[] = [PHO_GIA_BENEFITS[0], PHO_GIA_BENEFITS[2]];
-const RIGHT_COLUMN: Benefit[] = [PHO_GIA_BENEFITS[1], PHO_GIA_BENEFITS[3]];
+const LEFT_COLUMN: Benefit[] = [DIAMOND_VN_BENEFITS[0], DIAMOND_VN_BENEFITS[2]];
+const RIGHT_COLUMN: Benefit[] = [DIAMOND_VN_BENEFITS[1], DIAMOND_VN_BENEFITS[3]];
 
 function TrustArrow({ reverse = false }: { reverse?: boolean }) {
   return (
     <Image
-      src="/phogia/icons/arrow_right_trust.svg"
+      src="/diamond-vn/icons/arrow_right_trust.svg"
       alt=""
       width={44}
       height={58}
@@ -43,7 +43,7 @@ export default function TrustSection() {
   return (
     <section id="trust" className="ph-trust-section relative overflow-hidden text-white">
       <Image
-        src={PHO_GIA_COMPANY.trustImage}
+        src={DIAMOND_VN_COMPANY.trustImage}
         alt=""
         fill
         sizes="100vw"

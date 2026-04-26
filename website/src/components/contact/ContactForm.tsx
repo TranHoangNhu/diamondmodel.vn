@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { PHO_GIA_CONTACT } from "@/lib/phogia";
+import { DIAMOND_VN_CONTACT } from "@/lib/diamond-vn";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -111,7 +111,7 @@ export default function ContactForm() {
       <input type="hidden" name="url" value="" />
 
       <p className="max-w-[760px] text-[13px] leading-6 text-[#4f4b46]/80">
-        <span className="font-medium">Ghi chú:</span> {PHO_GIA_CONTACT.formNote}
+        <span className="font-medium">Ghi chú:</span> {DIAMOND_VN_CONTACT.formNote}
       </p>
 
       <div className="pt-4">

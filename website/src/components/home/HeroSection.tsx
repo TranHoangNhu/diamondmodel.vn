@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { PHO_GIA_COMPANY } from "@/lib/phogia";
+import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 
 const HERO_AUTO_MS = 3000;
 
 export default function HeroSection() {
-  const slides = PHO_GIA_COMPANY.heroSlides ?? [PHO_GIA_COMPANY.heroPoster];
+  const slides = DIAMOND_VN_COMPANY.heroSlides ?? [DIAMOND_VN_COMPANY.heroPoster];
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {

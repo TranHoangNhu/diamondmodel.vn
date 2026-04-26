@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import { useEffect, useMemo, useState } from "react";
-import { PHO_GIA_COMPLETED_LOGOS } from "@/lib/phogia";
+import { DIAMOND_VN_COMPLETED_LOGOS } from "@/lib/diamond-vn";
 import { SectionHeading } from "./SharedComponents";
 import { useCarouselInteraction } from "./useCarouselInteraction";
 
@@ -49,7 +49,7 @@ export default function CompletedSection() {
     return () => window.removeEventListener("resize", updatePageSize);
   }, []);
 
-  const pages = useMemo(() => chunk(PHO_GIA_COMPLETED_LOGOS, pageSize), [pageSize]);
+  const pages = useMemo(() => chunk(DIAMOND_VN_COMPLETED_LOGOS, pageSize), [pageSize]);
   const pageCount = pages.length;
   const activePage = pageCount > 0 ? ((currentPage % pageCount) + pageCount) % pageCount : 0;
 

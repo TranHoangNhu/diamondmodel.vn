@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Mulish } from "next/font/google";
 import "./globals.css";
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Diamond Model",
     images: [
       {
-        url: "/phogia/home/banner-lf.jpg",
+        url: "/diamond-vn/home/banner-lf.jpg",
         width: 1920,
         height: 1358,
         alt: "Diamond Model Decor",

@@ -1,10 +1,10 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
-import { PHO_GIA_CONTACT } from "@/lib/phogia";
+import { DIAMOND_VN_CONTACT } from "@/lib/diamond-vn";
 
-const LEFT_ITEMS = PHO_GIA_CONTACT.commitments.slice(0, 3);
-const RIGHT_ITEMS = PHO_GIA_CONTACT.commitments.slice(3);
+const LEFT_ITEMS = DIAMOND_VN_CONTACT.commitments.slice(0, 3);
+const RIGHT_ITEMS = DIAMOND_VN_CONTACT.commitments.slice(3);
 
 function CommitmentItem({ title }: { title: string }) {
   return (
@@ -23,8 +23,8 @@ export default function ContactCommitmentsSection() {
       <div className="ph-container">
         <AnimatedSection>
           <div className="text-center">
-            <p className="ph-eyebrow">{PHO_GIA_CONTACT.commitmentsLabel}</p>
-            <h2 className="ph-title mt-3">{PHO_GIA_CONTACT.commitmentsTitle}</h2>
+            <p className="ph-eyebrow">{DIAMOND_VN_CONTACT.commitmentsLabel}</p>
+            <h2 className="ph-title mt-3">{DIAMOND_VN_CONTACT.commitmentsTitle}</h2>
           </div>
         </AnimatedSection>
 
@@ -37,7 +37,7 @@ export default function ContactCommitmentsSection() {
 
           <div className="relative mx-auto aspect-square w-full max-w-[360px]">
             <Image
-              src={PHO_GIA_CONTACT.commitmentImage}
+              src={DIAMOND_VN_CONTACT.commitmentImage}
               alt="Diamond Model cam kết"
               fill
               sizes="(max-width: 1024px) 100vw, 360px"

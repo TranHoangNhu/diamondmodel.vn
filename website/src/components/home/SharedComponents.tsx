@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PHO_GIA_PROJECTS } from "@/lib/phogia";
+import { DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
 import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 
 export function SectionHeading({
@@ -22,10 +22,10 @@ export function SectionHeading({
 export function MetaIcon({ type }: { type: "area" | "bedroom" | "scale" }) {
   const src =
     type === "area"
-      ? "/phogia/icons/area.svg"
+      ? "/diamond-vn/icons/area.svg"
       : type === "bedroom"
-        ? "/phogia/icons/pn-ico.svg"
-        : "/phogia/icons/scale.svg";
+        ? "/diamond-vn/icons/pn-ico.svg"
+        : "/diamond-vn/icons/scale.svg";
 
   return <Image src={src} alt="" width={16} height={16} className="h-4 w-4 shrink-0 opacity-[0.65]" loading="lazy" />;
 }
@@ -34,7 +34,7 @@ export function ProjectCard({
   item,
   badge,
 }: {
-  item: (typeof PHO_GIA_PROJECTS)[number]["items"][number];
+  item: (typeof DIAMOND_VN_PROJECTS)[number]["items"][number];
   badge: string;
 }) {
   const summary = `${item.meta1} · ${item.meta2}`;

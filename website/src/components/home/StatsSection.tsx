@@ -1,11 +1,11 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
-import { PHO_GIA_VALUES } from "@/lib/phogia";
+import { DIAMOND_VN_VALUES } from "@/lib/diamond-vn";
 import { SectionHeading } from "./SharedComponents";
 
-type ValueItem = (typeof PHO_GIA_VALUES)[number];
+type ValueItem = (typeof DIAMOND_VN_VALUES)[number];
 
 const VALUE_LAYOUT: Array<
   Omit<ValueItem, "label"> & {
@@ -15,24 +15,24 @@ const VALUE_LAYOUT: Array<
   }
 > = [
   {
-    ...PHO_GIA_VALUES[1],
+    ...DIAMOND_VN_VALUES[1],
     className:
       "left-0 top-[28%] sm:left-[3%] sm:top-[27%] lg:left-[4%] lg:top-[27%]",
     sizeClass: "h-[140px] w-[140px] sm:h-[176px] sm:w-[176px] lg:h-[192px] lg:w-[192px]",
   },
   {
-    ...PHO_GIA_VALUES[0],
+    ...DIAMOND_VN_VALUES[0],
     className: "left-1/2 top-0 -translate-x-1/2",
     sizeClass: "h-[164px] w-[164px] sm:h-[198px] sm:w-[198px] lg:h-[200px] lg:w-[200px]",
   },
   {
-    ...PHO_GIA_VALUES[2],
+    ...DIAMOND_VN_VALUES[2],
     className:
       "right-0 top-[34%] sm:right-[3%] sm:top-[34%] lg:right-[4%] lg:top-[34%]",
     sizeClass: "h-[140px] w-[140px] sm:h-[176px] sm:w-[176px] lg:h-[192px] lg:w-[192px]",
   },
   {
-    ...PHO_GIA_VALUES[3],
+    ...DIAMOND_VN_VALUES[3],
     label: "CÔNG TRÌNH\nTIÊU BIỂU",
     className:
       "bottom-[1%] left-[25%] sm:left-[29%] lg:left-[30%]",
