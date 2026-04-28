@@ -7,15 +7,18 @@ import ProcessSection from "@/components/home/ProcessSection";
 import StatsSection from "@/components/home/StatsSection";
 import VideosSection from "@/components/home/VideosSection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import { getCmsHeroSlides } from "@/lib/cms-settings";
 
 function HomeReveal({ children }: { children: ReactNode }) {
   return <AnimatedSection animation="fade-top">{children}</AnimatedSection>;
 }
 
-export default function Home() {
+export default async function Home() {
+  const heroSlides = await getCmsHeroSlides();
+
   return (
     <>
-      <HeroSection />
+      <HeroSection slides={heroSlides} />
       <HomeReveal>
         <MissionSection />
       </HomeReveal>
