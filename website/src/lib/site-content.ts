@@ -33,6 +33,7 @@ export type ArticleItem = {
   readTime: string;
   meta: ArticleMeta[];
   tags: string[];
+  contentHtml?: string;
   sections: ArticleSection[];
   relatedSlugs: string[];
 };

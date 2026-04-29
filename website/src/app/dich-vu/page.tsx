@@ -4,7 +4,9 @@ import {
   BreadcrumbJsonLd,
   CollectionJsonLd,
 } from "@/components/content/PageLayouts";
-import { SERVICE_COLLECTION } from "@/lib/site-content";
+import { getCmsCollection } from "@/lib/cms-content";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Dịch vụ | Diamond Model",
@@ -19,7 +21,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DichVuPage() {
+export default async function DichVuPage() {
+  const collection = await getCmsCollection("dich-vu");
   const breadcrumbs = [
     { label: "Trang chủ", href: "/" },
     { label: "Dịch vụ", href: "/dich-vu" },
@@ -28,8 +31,8 @@ export default function DichVuPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbs} />
-      <CollectionJsonLd collection={SERVICE_COLLECTION} url="/dich-vu" />
-      <ArchiveLayout collection={SERVICE_COLLECTION} items={SERVICE_COLLECTION.items} breadcrumbs={breadcrumbs} />
+      <CollectionJsonLd collection={collection} url="/dich-vu" />
+      <ArchiveLayout collection={collection} items={collection.items} breadcrumbs={breadcrumbs} />
     </>
   );
 }

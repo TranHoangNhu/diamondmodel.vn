@@ -8,11 +8,11 @@ import {
 import {
   SERVICE_ARTICLES,
   SITE_URL,
-  getArticleBySlug,
-  getRelatedArticles,
 } from "@/lib/site-content";
+import { getCmsArticleBySlug, getCmsRelatedArticles } from "@/lib/cms-content";
 
-export const dynamicParams = false;
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return SERVICE_ARTICLES.map((article) => ({
@@ -26,7 +26,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug("dich-vu", slug);
+  const article = await getCmsArticleBySlug("dich-vu", slug);
 
   if (!article) {
     return {};
@@ -50,7 +50,7 @@ export default async function DichVuDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = getArticleBySlug("dich-vu", slug);
+  const article = await getCmsArticleBySlug("dich-vu", slug);
 
   if (!article) {
     notFound();
@@ -69,7 +69,7 @@ export default async function DichVuDetailPage({
       <ArticleLayout
         article={article}
         breadcrumbs={breadcrumbs}
-        relatedItems={getRelatedArticles(article)}
+        relatedItems={await getCmsRelatedArticles(article, "dich-vu")}
         shareUrl={`${SITE_URL}/dich-vu/${article.slug}`}
         ctaHref="/lien-he"
         ctaLabel="Đặt lịch tư vấn"

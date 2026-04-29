@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import {
-  ABOUT_ARTICLE,
-  getRelatedArticles,
   SITE_URL,
 } from "@/lib/site-content";
+import { getCmsAboutArticle, getCmsRelatedArticles } from "@/lib/cms-content";
 import {
   ArticleJsonLd,
   ArticleLayout,
   BreadcrumbJsonLd,
 } from "@/components/content/PageLayouts";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Giới thiệu | Diamond Model",
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GioiThieuPage() {
+export default async function GioiThieuPage() {
+  const article = await getCmsAboutArticle();
   const breadcrumbs = [
     { label: "Trang chủ", href: "/" },
     { label: "Giới thiệu", href: "/gioi-thieu" },
@@ -32,11 +34,11 @@ export default function GioiThieuPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbs} />
-      <ArticleJsonLd article={ABOUT_ARTICLE} url="/gioi-thieu" />
+      <ArticleJsonLd article={article} url="/gioi-thieu" />
       <ArticleLayout
-        article={ABOUT_ARTICLE}
+        article={article}
         breadcrumbs={breadcrumbs}
-        relatedItems={getRelatedArticles(ABOUT_ARTICLE)}
+        relatedItems={await getCmsRelatedArticles(article)}
         shareUrl={`${SITE_URL}/gioi-thieu`}
         ctaHref="/lien-he"
         ctaLabel="Đặt lịch tư vấn"

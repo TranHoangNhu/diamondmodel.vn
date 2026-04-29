@@ -8,11 +8,11 @@ import {
 import {
   PROJECT_ARTICLES,
   SITE_URL,
-  getArticleBySlug,
-  getRelatedArticles,
 } from "@/lib/site-content";
+import { getCmsArticleBySlug, getCmsRelatedArticles } from "@/lib/cms-content";
 
-export const dynamicParams = false;
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return PROJECT_ARTICLES.map((article) => ({
@@ -26,7 +26,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug("du-an", slug);
+  const article = await getCmsArticleBySlug("du-an", slug);
 
   if (!article) {
     return {};
@@ -50,7 +50,7 @@ export default async function DuAnDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = getArticleBySlug("du-an", slug);
+  const article = await getCmsArticleBySlug("du-an", slug);
 
   if (!article) {
     notFound();
@@ -69,7 +69,7 @@ export default async function DuAnDetailPage({
       <ArticleLayout
         article={article}
         breadcrumbs={breadcrumbs}
-        relatedItems={getRelatedArticles(article)}
+        relatedItems={await getCmsRelatedArticles(article, "du-an")}
         shareUrl={`${SITE_URL}/du-an/${article.slug}`}
         ctaHref="/lien-he"
         ctaLabel="Đặt lịch tư vấn"

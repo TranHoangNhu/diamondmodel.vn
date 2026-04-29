@@ -82,7 +82,24 @@ function SectionImage({
   );
 }
 
-function ArticleBody({ sections }: { sections: ArticleSection[] }) {
+function ArticleBody({
+  sections,
+  contentHtml,
+}: {
+  sections: ArticleSection[];
+  contentHtml?: string;
+}) {
+  if (contentHtml) {
+    return (
+      <section id={sections[0]?.id || "noi-dung"} className="scroll-mt-28">
+        <div
+          className="cms-richtext"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+      </section>
+    );
+  }
+
   return (
     <div className="space-y-10">
       {sections.map((section) => (
@@ -272,7 +289,7 @@ export function ArticleLayout({
                 </div>
               </figure>
 
-              <ArticleBody sections={article.sections} />
+              <ArticleBody sections={article.sections} contentHtml={article.contentHtml} />
 
               <div className="rounded-[18px] border border-[#e7ddd0] bg-[#f8f2e8] p-6">
                 <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Hành động tiếp theo</p>
@@ -294,7 +311,7 @@ export function ArticleLayout({
             </article>
 
             <aside className="space-y-6 lg:sticky lg:top-24">
-              <Toc sections={article.sections} />
+              {article.sections.length > 0 ? <Toc sections={article.sections} /> : null}
               <ShareToolbar url={shareUrl} title={article.title} />
               <div className="rounded-[18px] border border-[#e7ddd0] bg-white p-5 shadow-[0_12px_28px_rgba(25,35,38,0.06)]">
                 <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Từ khóa</p>

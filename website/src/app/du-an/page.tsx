@@ -4,7 +4,9 @@ import {
   ArchiveLayout,
   BreadcrumbJsonLd,
 } from "@/components/content/PageLayouts";
-import { PROJECT_COLLECTION } from "@/lib/site-content";
+import { getCmsCollection } from "@/lib/cms-content";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Dự án | Diamond Model",
@@ -19,7 +21,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DuAnPage() {
+export default async function DuAnPage() {
+  const collection = await getCmsCollection("du-an");
   const breadcrumbs = [
     { label: "Trang chủ", href: "/" },
     { label: "Dự án", href: "/du-an" },
@@ -28,8 +31,8 @@ export default function DuAnPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbs} />
-      <CollectionJsonLd collection={PROJECT_COLLECTION} url="/du-an" />
-      <ArchiveLayout collection={PROJECT_COLLECTION} items={PROJECT_COLLECTION.items} breadcrumbs={breadcrumbs} />
+      <CollectionJsonLd collection={collection} url="/du-an" />
+      <ArchiveLayout collection={collection} items={collection.items} breadcrumbs={breadcrumbs} />
     </>
   );
 }

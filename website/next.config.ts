@@ -32,6 +32,21 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "admin.minnam.asia",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cms.looms.vn",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.looms.vn",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "tinnhiemmang.vn",
         pathname: "/**",
       },

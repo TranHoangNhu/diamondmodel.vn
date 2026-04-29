@@ -4,7 +4,9 @@ import {
   BreadcrumbJsonLd,
   CollectionJsonLd,
 } from "@/components/content/PageLayouts";
-import { NEWS_COLLECTION } from "@/lib/site-content";
+import { getCmsCollection } from "@/lib/cms-content";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Tin tức | Diamond Model",
@@ -19,7 +21,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TinTucPage() {
+export default async function TinTucPage() {
+  const collection = await getCmsCollection("tin-tuc");
   const breadcrumbs = [
     { label: "Trang chủ", href: "/" },
     { label: "Tin tức", href: "/tin-tuc" },
@@ -28,8 +31,8 @@ export default function TinTucPage() {
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbs} />
-      <CollectionJsonLd collection={NEWS_COLLECTION} url="/tin-tuc" />
-      <ArchiveLayout collection={NEWS_COLLECTION} items={NEWS_COLLECTION.items} breadcrumbs={breadcrumbs} />
+      <CollectionJsonLd collection={collection} url="/tin-tuc" />
+      <ArchiveLayout collection={collection} items={collection.items} breadcrumbs={breadcrumbs} />
     </>
   );
 }
