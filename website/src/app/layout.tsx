@@ -5,6 +5,7 @@ import "./globals.css";
 import AppShell from "@/components/layout/AppShell";
 import { getCmsGeneralSettings } from "@/lib/cms-settings";
 import { fetchCmsSeoSettings } from "@/lib/cms-seo";
+import { SITE_URL } from "@/lib/site-content";
 
 const DEFAULT_TITLE = "Diamond Model | Thiết kế và thi công nội thất";
 const DEFAULT_DESCRIPTION =
@@ -41,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
     getCmsGeneralSettings(),
   ]);
 
-  const siteUrl = seoSettings?.siteUrl || "https://diamondmodel.vn";
+  const siteUrl = seoSettings?.siteUrl || SITE_URL;
   const title = seoSettings?.siteTitle || DEFAULT_TITLE;
   const description = seoSettings?.siteDescription || DEFAULT_DESCRIPTION;
   const keywords = seoSettings?.siteKeywords?.length

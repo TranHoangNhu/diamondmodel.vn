@@ -1,6 +1,10 @@
 import { DIAMOND_VN_COMPANY, DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
 
-export const SITE_URL = "https://diamondmodel.vn";
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  "https://diamondmodel.minnam.asia"
+).replace(/\/+$/, "");
 export const SITE_BUILD_DATE_ISO = "2026-04-18";
 
 export type ArticleMeta = {
@@ -1137,4 +1141,3 @@ export function getAllStaticPaths() {
     ...NEWS_ARTICLES.map((item) => `/tin-tuc/${item.slug}`),
   ];
 }
-

@@ -24,6 +24,7 @@ const CMS_API_KEY =
 
 const CMS_TIMEOUT_MS = 3500;
 const SEO_REVALIDATE_SECONDS = 60 * 60;
+const SITE_HOST = new URL(SITE_URL).hostname;
 
 type CmsSitemapEntry = {
   url?: string | null;
@@ -237,7 +238,7 @@ export function buildFallbackRobotsTxt() {
 
 export function buildFallbackLlmsTxt() {
   return [
-    `# ${DIAMOND_VN_COMPANY.name} (diamondmodel.vn)`,
+    `# ${DIAMOND_VN_COMPANY.name} (${SITE_HOST})`,
     "",
     "> Diamond Model thiết kế, thi công nội thất, sa bàn dự án và mô hình kiến trúc cho nhà ở, thương mại, quy hoạch và trưng bày.",
     "",
