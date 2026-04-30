@@ -5,15 +5,35 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactCommitmentsSection from "@/components/contact/ContactCommitmentsSection";
 import { DIAMOND_VN_COMPANY, DIAMOND_VN_CONTACT } from "@/lib/diamond-vn";
-import { getCmsContactSettings } from "@/lib/cms-settings";
+import { getCmsContactSettings, getCmsGeneralSettings } from "@/lib/cms-settings";
+import { fetchCmsSeoSettings } from "@/lib/cms-seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Liên hệ | Diamond Model Decor",
-  description:
-    "Liên hệ Diamond Model Decor để được tư vấn thiết kế và thi công nội thất. Hotline: 0901 62 62 82",
-};
+const FALLBACK_DESCRIPTION =
+  "Liên hệ Diamond Model Decor để được tư vấn thiết kế và thi công nội thất. Hotline: 0901 62 62 82";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [seoSettings, generalSettings] = await Promise.all([
+    fetchCmsSeoSettings(),
+    getCmsGeneralSettings(),
+  ]);
+
+  const siteName = generalSettings?.siteName || "Diamond Model";
+  const description = seoSettings?.siteDescription || FALLBACK_DESCRIPTION;
+
+  return {
+    title: `Liên hệ | ${siteName}`,
+    description,
+    alternates: { canonical: "/lien-he" },
+    openGraph: {
+      title: `Liên hệ | ${siteName}`,
+      description,
+      url: "/lien-he",
+      type: "website",
+    },
+  };
+}
 
 function SocialLink({
   href,

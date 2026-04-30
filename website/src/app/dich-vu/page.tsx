@@ -4,22 +4,36 @@ import {
   BreadcrumbJsonLd,
   CollectionJsonLd,
 } from "@/components/content/PageLayouts";
+import { getCmsGeneralSettings } from "@/lib/cms-settings";
+import { fetchCmsSeoSettings } from "@/lib/cms-seo";
 import { getCmsCollection } from "@/lib/cms-content";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Dịch vụ | Diamond Model",
-  description:
-    "Danh mục dịch vụ Diamond Model gồm tư vấn sa bàn, thi công, thiết kế 3D phối cảnh và bảo trì mô hình, được trình bày theo dạng blog/portfolio rõ ràng.",
-  openGraph: {
-    title: "Dịch vụ | Diamond Model",
-    description:
-      "Danh mục dịch vụ Diamond Model gồm tư vấn sa bàn, thi công, thiết kế 3D phối cảnh và bảo trì mô hình, được trình bày theo dạng blog/portfolio rõ ràng.",
-    url: "/dich-vu",
-    type: "website",
-  },
-};
+const FALLBACK_DESCRIPTION =
+  "Danh mục dịch vụ Diamond Model gồm tư vấn sa bàn, thi công, thiết kế 3D phối cảnh và bảo trì mô hình, được trình bày theo dạng blog/portfolio rõ ràng.";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [seoSettings, generalSettings] = await Promise.all([
+    fetchCmsSeoSettings(),
+    getCmsGeneralSettings(),
+  ]);
+
+  const siteName = generalSettings?.siteName || "Diamond Model";
+  const description = seoSettings?.siteDescription || FALLBACK_DESCRIPTION;
+
+  return {
+    title: `Dịch vụ | ${siteName}`,
+    description,
+    alternates: { canonical: "/dich-vu" },
+    openGraph: {
+      title: `Dịch vụ | ${siteName}`,
+      description,
+      url: "/dich-vu",
+      type: "website",
+    },
+  };
+}
 
 export default async function DichVuPage() {
   const collection = await getCmsCollection("dich-vu");
@@ -36,4 +50,3 @@ export default async function DichVuPage() {
     </>
   );
 }
-

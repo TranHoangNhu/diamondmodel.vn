@@ -3,6 +3,7 @@ import {
   SITE_URL,
 } from "@/lib/site-content";
 import { getCmsAboutArticle, getCmsRelatedArticles } from "@/lib/cms-content";
+import { fetchCmsSeoMetadata, mapCmsSeoMetadataToNext } from "@/lib/cms-seo";
 import {
   ArticleJsonLd,
   ArticleLayout,
@@ -11,10 +12,11 @@ import {
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
+const FALLBACK_METADATA: Metadata = {
   title: "Giới thiệu | Diamond Model",
   description:
     "Bài viết giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
+  alternates: { canonical: "/gioi-thieu" },
   openGraph: {
     title: "Giới thiệu | Diamond Model",
     description:
@@ -23,6 +25,11 @@ export const metadata: Metadata = {
     type: "article",
   },
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchCmsSeoMetadata("page", "gioi-thieu");
+  return seo ? mapCmsSeoMetadataToNext(seo) : FALLBACK_METADATA;
+}
 
 export default async function GioiThieuPage() {
   const article = await getCmsAboutArticle();
@@ -46,4 +53,3 @@ export default async function GioiThieuPage() {
     </>
   );
 }
-

@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next";
+import type { Metadata, MetadataRoute } from "next";
 import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 import {
   ALL_ARTICLES,
@@ -43,6 +43,36 @@ type CmsSitemapResponse =
       entries?: CmsSitemapEntry[];
     };
 
+type CmsPublicSettingsResponse = {
+  values?: Record<string, string>;
+};
+
+export interface CmsSeoSettings {
+  siteTitle: string;
+  siteDescription: string;
+  siteKeywords: string[];
+  siteUrl: string;
+}
+
+export interface CmsSeoMetadata {
+  title: string;
+  description: string;
+  keywords?: string[];
+  canonical: string;
+  robots: {
+    index: boolean;
+    follow: boolean;
+  };
+  openGraph: {
+    title: string;
+    description: string;
+    url: string;
+    image?: string;
+    type: "article" | "website";
+  };
+  schema: Record<string, unknown>;
+}
+
 function cmsUrl(path: string) {
   const url = new URL(path, CMS_BASE_URL.replace(/\/$/, ""));
   url.searchParams.set("siteUrl", SITE_URL);
@@ -73,6 +103,64 @@ async function cmsFetch(path: string): Promise<Response | null> {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+async function cmsFetchJson<T>(path: string): Promise<T | null> {
+  const response = await cmsFetch(path);
+  if (!response) return null;
+
+  try {
+    return (await response.json()) as T;
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchCmsSeoSettings(): Promise<CmsSeoSettings | null> {
+  const response = await cmsFetchJson<CmsPublicSettingsResponse>("/api/public/settings/seo");
+  const values = response?.values;
+  if (!values) return null;
+
+  const siteTitle = values.seo_title?.trim();
+  const siteDescription = values.seo_description?.trim();
+  const siteKeywords = parseKeywords(values.seo_keywords || "");
+  const siteUrl = values.seo_site_url?.trim() || SITE_URL;
+
+  if (!siteTitle && !siteDescription && !siteKeywords.length && !siteUrl) return null;
+
+  return {
+    siteTitle: siteTitle || "Diamond Model | Thiết kế và thi công nội thất",
+    siteDescription: siteDescription || "",
+    siteKeywords,
+    siteUrl,
+  };
+}
+
+export async function fetchCmsSeoMetadata(
+  type: "page" | "article" | "product" | "service" | "project",
+  slug: string,
+): Promise<CmsSeoMetadata | null> {
+  return cmsFetchJson<CmsSeoMetadata>(`/api/seo/metadata/${encodeURIComponent(type)}/${encodeURIComponent(slug)}`);
+}
+
+export function mapCmsSeoMetadataToNext(metadata: CmsSeoMetadata): Metadata {
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    keywords: metadata.keywords,
+    alternates: metadata.canonical ? { canonical: metadata.canonical } : undefined,
+    robots: {
+      index: metadata.robots.index,
+      follow: metadata.robots.follow,
+    },
+    openGraph: {
+      title: metadata.openGraph.title,
+      description: metadata.openGraph.description,
+      url: metadata.openGraph.url,
+      images: metadata.openGraph.image ? [metadata.openGraph.image] : undefined,
+      type: metadata.openGraph.type,
+    },
+  };
 }
 
 export async function fetchCmsSeoText(path: "/api/seo/robots.txt" | "/api/seo/llms.txt" | "/api/seo/llms-full.txt") {
@@ -253,6 +341,13 @@ function articlePath(article: ArticleItem) {
 
 function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();
+}
+
+export function parseKeywords(value: string) {
+  return value
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 function plainText(value: string) {

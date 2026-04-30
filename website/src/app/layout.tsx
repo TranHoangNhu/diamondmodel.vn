@@ -3,6 +3,19 @@ import localFont from "next/font/local";
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/layout/AppShell";
+import { getCmsGeneralSettings } from "@/lib/cms-settings";
+import { fetchCmsSeoSettings } from "@/lib/cms-seo";
+
+const DEFAULT_TITLE = "Diamond Model | Thiết kế và thi công nội thất";
+const DEFAULT_DESCRIPTION =
+  "Thiết kế và thi công nội thất Diamond Model mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.";
+const DEFAULT_KEYWORDS = [
+  "diamond model",
+  "thiết kế nội thất",
+  "thi công nội thất",
+  "diamondmodel.vn",
+  "nội thất cao cấp",
+];
 
 const headingFont = localFont({
   src: [
@@ -22,36 +35,43 @@ const bodyFont = Mulish({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://diamondmodel.vn"),
-  title: "Diamond Model | Thiết kế và thi công nội thất",
-  description:
-    "Thiết kế và thi công nội thất Diamond Model mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
-  keywords: [
-    "diamond model",
-    "thiết kế nội thất",
-    "thi công nội thất",
-    "diamondmodel.vn",
-    "nội thất cao cấp",
-  ],
-  openGraph: {
-    title: "Diamond Model | Thiết kế và thi công nội thất",
-    description:
-      "Thiết kế và thi công nội thất Diamond Model mang những nét đẹp tinh tế và hoàn toàn mới lạ đến với không gian sống cho gia đình bạn.",
-    url: "https://diamondmodel.vn",
-    siteName: "Diamond Model",
-    images: [
-      {
-        url: "/diamond-vn/home/banner-lf.jpg",
-        width: 1920,
-        height: 1358,
-        alt: "Diamond Model Decor",
-      },
-    ],
-    locale: "vi_VN",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const [seoSettings, generalSettings] = await Promise.all([
+    fetchCmsSeoSettings(),
+    getCmsGeneralSettings(),
+  ]);
+
+  const siteUrl = seoSettings?.siteUrl || "https://diamondmodel.vn";
+  const title = seoSettings?.siteTitle || DEFAULT_TITLE;
+  const description = seoSettings?.siteDescription || DEFAULT_DESCRIPTION;
+  const keywords = seoSettings?.siteKeywords?.length
+    ? seoSettings.siteKeywords
+    : DEFAULT_KEYWORDS;
+  const siteName = generalSettings?.siteName || "Diamond Model";
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title,
+    description,
+    keywords,
+    openGraph: {
+      title,
+      description,
+      url: siteUrl,
+      siteName,
+      images: [
+        {
+          url: "/diamond-vn/home/banner-lf.jpg",
+          width: 1920,
+          height: 1358,
+          alt: "Diamond Model Decor",
+        },
+      ],
+      locale: "vi_VN",
+      type: "website",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
