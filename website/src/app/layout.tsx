@@ -48,12 +48,16 @@ export async function generateMetadata(): Promise<Metadata> {
     ? seoSettings.siteKeywords
     : DEFAULT_KEYWORDS;
   const siteName = generalSettings?.siteName || "Diamond Model";
+  const siteFavicon = generalSettings?.siteFavicon || "/diamondmodel/brand/icon-diamondmodel-drop.png";
 
   return {
     metadataBase: new URL(siteUrl),
     title,
     description,
     keywords,
+    icons: {
+      icon: siteFavicon,
+    },
     openGraph: {
       title,
       description,

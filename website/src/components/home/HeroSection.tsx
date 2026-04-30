@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import type { HeroSlide } from "@/lib/cms-settings";
 import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 
@@ -31,33 +32,38 @@ export default function HeroSection({ slides: cmsSlides = [] }: { slides?: HeroS
           <div
             key={`${slide.url}-${index}`}
             className={[
-              "absolute inset-0 transition-opacity duration-1000 ease-out",
+              "absolute inset-0 pointer-events-none transition-opacity duration-1000 ease-out",
               index === activeIndex ? "opacity-100" : "opacity-0",
             ].join(" ")}
+            aria-hidden={index !== activeIndex}
           >
-            {slide.type === "video" ? (
-              <video
-                className="h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload={index === 0 ? "auto" : "metadata"}
-                poster={slide.poster || undefined}
-                aria-label={slide.alt || undefined}
-              >
-                <source src={slide.url} />
-              </video>
-            ) : (
-              <img
-                src={slide.url}
-                alt={slide.alt || ""}
-                className="h-full w-full object-cover"
-                loading={index === 0 ? "eager" : "lazy"}
-                fetchPriority={index === 0 ? "high" : "auto"}
-                aria-hidden={slide.alt ? undefined : "true"}
-              />
-            )}
+            <div className="relative h-full w-full">
+              {slide.type === "video" ? (
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload={index === 0 ? "auto" : "metadata"}
+                  poster={slide.poster || undefined}
+                  aria-label={slide.alt || undefined}
+                >
+                  <source src={slide.url} />
+                </video>
+              ) : (
+                <Image
+                  src={slide.url}
+                  alt={slide.alt || ""}
+                  fill
+                  sizes="100vw"
+                  priority={index === 0}
+                  quality={85}
+                  unoptimized={/\.svg(\?.*)?$/i.test(slide.url)}
+                  className="object-cover"
+                />
+              )}
+            </div>
           </div>
         ))}
       </div>
