@@ -1,7 +1,16 @@
 import Image from "next/image";
 import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
 
-export default function Footer() {
+export default function Footer({
+  logoSrc,
+  footerBadgeSrc,
+}: {
+  logoSrc?: string;
+  footerBadgeSrc?: string;
+}) {
+  const logo = logoSrc || DIAMOND_VN_COMPANY.logo;
+  const footerBadge = footerBadgeSrc || DIAMOND_VN_COMPANY.footerBadge;
+
   return (
     <footer id="footer" className="bg-[#7398a4] pt-10 text-white">
       <div className="overflow-hidden border-b border-white/15 pb-8">
@@ -21,7 +30,7 @@ export default function Footer() {
       <div className="ph-container pb-8 pt-9">
         <div className="text-center">
           <Image
-            src={DIAMOND_VN_COMPANY.logo}
+            src={logo}
             alt="Diamond Model"
             width={180}
             height={44}
@@ -67,7 +76,7 @@ export default function Footer() {
               </div>
               {index === 2 ? (
                 <Image
-                  src={DIAMOND_VN_COMPANY.footerBadge}
+                  src={footerBadge}
                   alt="Chứng nhận tín nhiệm mạng"
                   width={100}
                   height={100}

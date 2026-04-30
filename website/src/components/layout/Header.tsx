@@ -79,11 +79,12 @@ function NavItem({
   );
 }
 
-export default function Header() {
+export default function Header({ logoSrc }: { logoSrc?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const pathname = usePathname();
+  const logo = logoSrc || DIAMOND_VN_COMPANY.logo;
 
   useEffect(() => {
     document.body.style.overflow = menuOpen || searchOpen ? "hidden" : "";
@@ -152,7 +153,7 @@ export default function Header() {
             <div className="ph-container flex h-full items-center justify-between">
               <Link href="/" className="shrink-0" aria-label="Trang chủ Diamond Model" tabIndex={compact ? -1 : 0}>
                 <Image
-                  src={DIAMOND_VN_COMPANY.logo}
+                  src={logo}
                   alt="Diamond Model"
                   width={160}
                   height={40}

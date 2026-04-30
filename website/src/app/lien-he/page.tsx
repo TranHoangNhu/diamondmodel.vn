@@ -5,6 +5,9 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactCommitmentsSection from "@/components/contact/ContactCommitmentsSection";
 import { DIAMOND_VN_COMPANY, DIAMOND_VN_CONTACT } from "@/lib/diamond-vn";
+import { getCmsContactSettings } from "@/lib/cms-settings";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Liên hệ | Diamond Model Decor",
@@ -34,7 +37,12 @@ function SocialLink({
   );
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const cmsContact = await getCmsContactSettings();
+  const companyProfileUrl = cmsContact?.companyProfileUrl || DIAMOND_VN_CONTACT.downloadUrl;
+  const companyProfileLabel = cmsContact?.companyProfileLabel || "Tải hồ sơ năng lực";
+  const companyProfileNote = cmsContact?.companyProfileNote || "";
+
   return (
     <>
       <section className="ph-section-tight pb-10 pt-14">
@@ -70,7 +78,7 @@ export default function ContactPage() {
                     </p>
 
                     <a
-                      href={DIAMOND_VN_CONTACT.downloadUrl}
+                      href={companyProfileUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="mt-6 inline-flex items-center gap-2 rounded-[8px] border border-[#e5d8c7] px-4 py-3 text-[13px] uppercase tracking-[0.08em] text-[#5a8492] transition hover:border-[#5a8492] hover:text-[#3f6773]"
@@ -83,8 +91,13 @@ export default function ContactPage() {
                         className="h-4 w-4"
                         aria-hidden="true"
                       />
-                      Tải hồ sơ năng lực
+                      {companyProfileLabel}
                     </a>
+                    {companyProfileNote && (
+                      <p className="mt-3 max-w-[420px] text-[13px] leading-6 text-[#7f7a74]">
+                        {companyProfileNote}
+                      </p>
+                    )}
                   </div>
                 </div>
 
