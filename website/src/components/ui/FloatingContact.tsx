@@ -3,6 +3,7 @@
 import { CalendarDaysIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useId, useRef, useState } from "react";
 import { ADVISE_MODAL_OPEN_EVENT, openAdviseModal } from "@/lib/advise-modal";
+import { submitContactToCms } from "@/lib/cms-contact";
 
 const RING_TEXT = "ĐẶT LỊCH KTS TƯ VẤN • ĐẶT LỊCH KTS TƯ VẤN • ";
 
@@ -56,6 +57,8 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
   const dateInputRef = useRef<HTMLInputElement>(null);
   const titleId = useId();
   const descId = useId();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notice, setNotice] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -80,9 +83,44 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
 
   if (!open) return null;
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onClose();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get("fullname") || "").trim();
+    const phone = String(form.get("mobile") || "").trim();
+    const email = String(form.get("email") || "").trim();
+    const dateAdvise = String(form.get("date_advise") || "").trim();
+    const rawMessage = String(form.get("message") || "").trim();
+    const message = [
+      dateAdvise ? `Ngày tư vấn mong muốn: ${dateAdvise}` : "",
+      rawMessage ? `Nội dung: ${rawMessage}` : "Khách hàng cần đặt lịch kiến trúc sư tư vấn.",
+    ].filter(Boolean).join("\n");
+
+    setIsSubmitting(true);
+    setNotice(null);
+
+    try {
+      await submitContactToCms({
+        name,
+        phone,
+        email,
+        subject: "Đặt lịch kiến trúc sư tư vấn",
+        message,
+        source: "consultation-popup",
+      });
+      setNotice({
+        type: "success",
+        text: "Đã nhận lịch tư vấn. Diamond Model sẽ liên hệ lại sớm nhất.",
+      });
+      event.currentTarget.reset();
+    } catch (error) {
+      setNotice({
+        type: "error",
+        text: error instanceof Error ? error.message : "Không gửi được thông tin. Vui lòng thử lại.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -201,12 +239,24 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
               Hãy chọn một thời điểm mà bạn thoải mái và hứng khởi nhất nhé.
             </p>
 
+            {notice && (
+              <p
+                className={`text-[14px] leading-6 ${
+                  notice.type === "success" ? "text-[#3f7a5f]" : "text-[#b84a4a]"
+                }`}
+                role="status"
+              >
+                {notice.text}
+              </p>
+            )}
+
             <div className="pt-6">
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-[#efbe73] px-6 py-4 text-[15px] font-medium uppercase tracking-[0.02em] text-[#2f2f2f] transition hover:bg-[#eab661] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d97a5]/40"
               >
-                ĐẶT LỊCH KIẾN TRÚC SƯ TƯ VẤN NGAY
+                {isSubmitting ? "ĐANG GỬI..." : "ĐẶT LỊCH KIẾN TRÚC SƯ TƯ VẤN NGAY"}
               </button>
             </div>
           </form>

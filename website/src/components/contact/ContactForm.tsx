@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { submitContactToCms } from "@/lib/cms-contact";
 import { DIAMOND_VN_CONTACT } from "@/lib/diamond-vn";
 
 export default function ContactForm() {
@@ -11,11 +12,32 @@ export default function ContactForm() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notice, setNotice] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert("Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ phản hồi sớm nhất.");
-    setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setNotice(null);
+
+    try {
+      await submitContactToCms({
+        ...formData,
+        source: "contact-page",
+      });
+      setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+      setNotice({
+        type: "success",
+        text: "Cảm ơn bạn đã gửi thông tin. Chúng tôi sẽ phản hồi sớm nhất.",
+      });
+    } catch (error) {
+      setNotice({
+        type: "error",
+        text: error instanceof Error ? error.message : "Không gửi được thông tin. Vui lòng thử lại.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass =
@@ -110,6 +132,17 @@ export default function ContactForm() {
 
       <input type="hidden" name="url" value="" />
 
+      {notice && (
+        <p
+          className={`text-[14px] leading-6 ${
+            notice.type === "success" ? "text-[#3f7a5f]" : "text-[#b84a4a]"
+          }`}
+          role="status"
+        >
+          {notice.text}
+        </p>
+      )}
+
       <p className="max-w-[760px] text-[13px] leading-6 text-[#4f4b46]/80">
         <span className="font-medium">Ghi chú:</span> {DIAMOND_VN_CONTACT.formNote}
       </p>
@@ -117,9 +150,10 @@ export default function ContactForm() {
       <div className="pt-4">
         <button
           type="submit"
+          disabled={isSubmitting}
           className="w-full bg-[#efbe73] px-6 py-4 text-[15px] font-medium uppercase tracking-[0.02em] text-[#2f2f2f] transition hover:bg-[#eab661] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6d97a5]/40"
         >
-          GỬI NGAY
+          {isSubmitting ? "ĐANG GỬI..." : "GỬI NGAY"}
         </button>
       </div>
     </form>
