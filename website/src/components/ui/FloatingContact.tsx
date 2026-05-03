@@ -85,12 +85,13 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const name = String(form.get("fullname") || "").trim();
-    const phone = String(form.get("mobile") || "").trim();
-    const email = String(form.get("email") || "").trim();
-    const dateAdvise = String(form.get("date_advise") || "").trim();
-    const rawMessage = String(form.get("message") || "").trim();
+    const formEl = event.currentTarget;
+    const formData = new FormData(formEl);
+    const name = String(formData.get("fullname") || "").trim();
+    const phone = String(formData.get("mobile") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const dateAdvise = String(formData.get("date_advise") || "").trim();
+    const rawMessage = String(formData.get("message") || "").trim();
     const message = [
       dateAdvise ? `Ngày tư vấn mong muốn: ${dateAdvise}` : "",
       rawMessage ? `Nội dung: ${rawMessage}` : "Khách hàng cần đặt lịch kiến trúc sư tư vấn.",
@@ -112,7 +113,7 @@ function FloatingAdviseModal({ open, onClose }: { open: boolean; onClose: () => 
         type: "success",
         text: "Đã nhận lịch tư vấn. Diamond Model sẽ liên hệ lại sớm nhất.",
       });
-      event.currentTarget.reset();
+      formEl.reset();
     } catch (error) {
       setNotice({
         type: "error",
