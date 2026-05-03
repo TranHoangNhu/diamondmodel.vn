@@ -9,6 +9,8 @@ import VideosSection from "@/components/home/VideosSection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { getCmsHeroSlides } from "@/lib/cms-settings";
 
+export const dynamic = "force-dynamic";
+
 function HomeReveal({ children }: { children: ReactNode }) {
   return <AnimatedSection animation="fade-top">{children}</AnimatedSection>;
 }

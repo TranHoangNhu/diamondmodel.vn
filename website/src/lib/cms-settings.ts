@@ -32,6 +32,8 @@ const CMS_API_KEY =
   process.env.NEXT_PUBLIC_CMS_API_KEY ||
   "";
 
+const CMS_TIMEOUT_MS = 3500;
+
 const isVideoUrl = (url: string) => /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
 
 const cmsBaseUrl = () => CMS_BASE_URL.replace(/\/$/, "");
@@ -42,6 +44,28 @@ function normalizeCmsAssetUrl(value: string) {
   if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(trimmed)) return trimmed;
   if (trimmed.startsWith("/media/")) return `${cmsBaseUrl()}${trimmed}`;
   return trimmed;
+}
+
+async function cmsFetchSettings(path: string, init: RequestInit = {}) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), CMS_TIMEOUT_MS);
+
+  try {
+    const headers = new Headers(init.headers);
+    if (CMS_API_KEY) headers.set("x-api-key", CMS_API_KEY);
+
+    const response = await fetch(`${cmsBaseUrl()}${path}`, {
+      ...init,
+      headers,
+      signal: controller.signal,
+    });
+
+    return response.ok ? response : null;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 const normalizeHeroSlide = (value: unknown): HeroSlide | null => {
@@ -61,15 +85,11 @@ const normalizeHeroSlide = (value: unknown): HeroSlide | null => {
 
 export async function getCmsHeroSlides(): Promise<HeroSlide[]> {
   try {
-    const headers: HeadersInit = {};
-    if (CMS_API_KEY) headers["x-api-key"] = CMS_API_KEY;
-
-    const response = await fetch(`${cmsBaseUrl()}/api/public/settings/home`, {
-      headers,
+    const response = await cmsFetchSettings("/api/public/settings/home", {
       next: { revalidate: 60 },
     });
 
-    if (!response.ok) return [];
+    if (!response) return [];
 
     const data = (await response.json()) as PublicSettingsResponse;
     const rawValue = data.values?.home_hero_slides;
@@ -88,15 +108,11 @@ export async function getCmsHeroSlides(): Promise<HeroSlide[]> {
 
 export async function getCmsContactSettings(): Promise<CmsContactSettings | null> {
   try {
-    const headers: HeadersInit = {};
-    if (CMS_API_KEY) headers["x-api-key"] = CMS_API_KEY;
-
-    const response = await fetch(`${cmsBaseUrl()}/api/public/settings/contact`, {
-      headers,
+    const response = await cmsFetchSettings("/api/public/settings/contact", {
       cache: "no-store",
     });
 
-    if (!response.ok) return null;
+    if (!response) return null;
 
     const data = (await response.json()) as PublicSettingsResponse;
     const values = data.values || {};
@@ -113,15 +129,11 @@ export async function getCmsContactSettings(): Promise<CmsContactSettings | null
 
 export async function getCmsGeneralSettings(): Promise<CmsGeneralSettings | null> {
   try {
-    const headers: HeadersInit = {};
-    if (CMS_API_KEY) headers["x-api-key"] = CMS_API_KEY;
-
-    const response = await fetch(`${cmsBaseUrl()}/api/public/settings/general`, {
-      headers,
+    const response = await cmsFetchSettings("/api/public/settings/general", {
       cache: "no-store",
     });
 
-    if (!response.ok) return null;
+    if (!response) return null;
 
     const data = (await response.json()) as PublicSettingsResponse;
     const values = data.values || {};
