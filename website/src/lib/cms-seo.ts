@@ -25,6 +25,7 @@ const CMS_API_KEY =
 const CMS_TIMEOUT_MS = 3500;
 const SEO_REVALIDATE_SECONDS = 60 * 60;
 const SITE_HOST = new URL(SITE_URL).hostname;
+type CmsFetchCacheMode = "revalidate" | "no-store";
 
 type CmsSitemapEntry = {
   url?: string | null;
@@ -86,14 +87,16 @@ function cmsHeaders() {
   return headers;
 }
 
-async function cmsFetch(path: string): Promise<Response | null> {
+async function cmsFetch(path: string, cacheMode: CmsFetchCacheMode = "revalidate"): Promise<Response | null> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), CMS_TIMEOUT_MS);
 
   try {
     const response = await fetch(cmsUrl(path), {
       headers: cmsHeaders(),
-      next: { revalidate: SEO_REVALIDATE_SECONDS },
+      ...(cacheMode === "no-store"
+        ? { cache: "no-store" as const }
+        : { next: { revalidate: SEO_REVALIDATE_SECONDS } }),
       signal: controller.signal,
     });
 
@@ -106,8 +109,8 @@ async function cmsFetch(path: string): Promise<Response | null> {
   }
 }
 
-async function cmsFetchJson<T>(path: string): Promise<T | null> {
-  const response = await cmsFetch(path);
+async function cmsFetchJson<T>(path: string, cacheMode?: CmsFetchCacheMode): Promise<T | null> {
+  const response = await cmsFetch(path, cacheMode);
   if (!response) return null;
 
   try {
@@ -118,7 +121,7 @@ async function cmsFetchJson<T>(path: string): Promise<T | null> {
 }
 
 export async function fetchCmsSeoSettings(): Promise<CmsSeoSettings | null> {
-  const response = await cmsFetchJson<CmsPublicSettingsResponse>("/api/public/settings/seo");
+  const response = await cmsFetchJson<CmsPublicSettingsResponse>("/api/public/settings/seo", "no-store");
   const values = response?.values;
   if (!values) return null;
 
