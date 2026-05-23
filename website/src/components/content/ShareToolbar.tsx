@@ -42,7 +42,7 @@ export default function ShareToolbar({ url, title }: { url: string; title: strin
 
   return (
     <div className="rounded-[18px] border border-[#e7ddd0] bg-white p-5 shadow-[0_12px_28px_rgba(25,35,38,0.06)]">
-      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Chia sẻ bài viết</p>
+      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Chia sẻ</p>
       <div className="mt-4 grid gap-2">
         {shareLinks.map((item) => {
           const Icon = item.icon;
@@ -73,4 +73,3 @@ export default function ShareToolbar({ url, title }: { url: string; title: strin
     </div>
   );
 }
-

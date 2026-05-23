@@ -11,7 +11,7 @@ import { getCmsCollection } from "@/lib/cms-content";
 export const dynamic = "force-dynamic";
 
 const FALLBACK_DESCRIPTION =
-  "Tin tức và bài viết cảm hứng về mô hình kiến trúc, sa bàn, vật liệu và cách trình bày dự án, trình bày theo dạng bài blog chuẩn SEO.";
+  "Tin tức và cảm hứng về mô hình kiến trúc, sa bàn, vật liệu và cách trình bày dự án, trình bày theo dạng blog chuẩn SEO.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [seoSettings, generalSettings] = await Promise.all([

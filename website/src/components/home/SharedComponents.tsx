@@ -1,6 +1,13 @@
 import Image from "next/image";
-import { DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
 import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
+
+export type ProjectCardItem = {
+  title: string;
+  image: string;
+  meta1: string;
+  meta2: string;
+  meta2Type: "area" | "bedroom" | "scale";
+};
 
 export function SectionHeading({
   eyebrow,
@@ -34,7 +41,7 @@ export function ProjectCard({
   item,
   badge,
 }: {
-  item: (typeof DIAMOND_VN_PROJECTS)[number]["items"][number];
+  item: ProjectCardItem;
   badge: string;
 }) {
   const summary = `${item.meta1} · ${item.meta2}`;

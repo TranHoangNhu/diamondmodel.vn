@@ -32,6 +32,7 @@ type CmsContentBase = {
   seoDescription?: string | null;
   tags?: string[] | null;
   category?: CmsCategory | null;
+  isFeatured?: boolean | null;
   publishedAt?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -175,7 +176,8 @@ function toArticleItem(
     dateLabel: formatDisplayDate(publishedAt),
     readTime: estimateReadTime(content || summary),
     meta,
-    tags: item.tags?.length ? item.tags : fallback.tags,
+    tags: Array.isArray(item.tags) ? item.tags : fallback.tags,
+    isFeatured: Boolean(item.isFeatured),
     contentHtml: content || fallback.contentHtml,
     sections: [{ id: "noi-dung", title: "Nội dung", paragraphs: [summary] }],
     relatedSlugs: fallback.relatedSlugs,
@@ -228,15 +230,17 @@ export async function getCmsCollection(
 
   if (!response?.data?.length) return fallback;
 
-  const items = response.data.map((item, index) =>
+  const sortedData = [...response.data].sort((a, b) => Number(Boolean(b.isFeatured)) - Number(Boolean(a.isFeatured)));
+  const items = sortedData.map((item, index) =>
     toArticleItem(item, collection, fallback.items[index % fallback.items.length] || fallback.items[0]),
   );
+  const featuredItem = items.find((item) => item.isFeatured) || items[0];
 
   return {
     ...fallback,
     heroImage: items[0]?.heroImage || fallback.heroImage,
     heroAlt: items[0]?.heroAlt || fallback.heroAlt,
-    featuredSlug: items[0]?.slug || fallback.featuredSlug,
+    featuredSlug: featuredItem?.slug || fallback.featuredSlug,
     items,
   };
 }

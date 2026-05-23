@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import { useEffect, useMemo, useState } from "react";
-import { SERVICE_COLLECTION } from "@/lib/site-content";
+import { SERVICE_COLLECTION, type ArticleItem } from "@/lib/site-content";
 import { CARD_DESC_CLASS, CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
 import { SectionHeading } from "./SharedComponents";
 import { useCarouselInteraction } from "./useCarouselInteraction";
@@ -32,7 +32,7 @@ function buildLoopedSlides<T>(slides: readonly T[], cloneCount: number) {
   return [...slides.slice(-cloneCount), ...slides, ...slides.slice(0, cloneCount)];
 }
 
-type ServiceCard = (typeof SERVICE_COLLECTION.items)[number];
+type ServiceCard = ArticleItem;
 
 function ServiceSlide({ item }: { item: ServiceCard }) {
   const href = `${item.categoryHref}/${item.slug}`.replace(/\/+/g, "/");
@@ -80,8 +80,8 @@ function ServiceSlide({ item }: { item: ServiceCard }) {
   );
 }
 
-function ServicesCarousel({ slidesPerView }: { slidesPerView: number }) {
-  const services = SERVICE_COLLECTION.items;
+function ServicesCarousel({ slidesPerView, items }: { slidesPerView: number; items: readonly ServiceCard[] }) {
+  const services = items;
   const gapSize = getGapSize(slidesPerView);
   const cloneCount = Math.min(slidesPerView, services.length);
   const loopedSlides = useMemo(() => buildLoopedSlides(services, cloneCount), [cloneCount, services]);
@@ -208,8 +208,12 @@ function ServicesCarousel({ slidesPerView }: { slidesPerView: number }) {
   );
 }
 
-export default function VideosSection() {
+export default function VideosSection({ items = SERVICE_COLLECTION.items }: { items?: ArticleItem[] }) {
   const [slidesPerView, setSlidesPerView] = useState(3);
+  const displayItems = useMemo(() => {
+    const featured = items.filter((item) => item.isFeatured);
+    return featured.length ? featured : items;
+  }, [items]);
 
   useEffect(() => {
     const updateSlidesPerView = () => setSlidesPerView(getSlidesPerView());
@@ -224,7 +228,7 @@ export default function VideosSection() {
     <section id="services" className="ph-section-surface scroll-mt-24">
       <div className="ph-container-wide">
         <SectionHeading eyebrow="Dịch vụ của chúng tôi" title="DỊCH VỤ NỔI BẬT" />
-        <ServicesCarousel key={slidesPerView} slidesPerView={slidesPerView} />
+        <ServicesCarousel key={slidesPerView} slidesPerView={slidesPerView} items={displayItems} />
       </div>
     </section>
   );

@@ -37,6 +37,7 @@ export type ArticleItem = {
   readTime: string;
   meta: ArticleMeta[];
   tags: string[];
+  isFeatured?: boolean;
   contentHtml?: string;
   sections: ArticleSection[];
   relatedSlugs: string[];
@@ -446,7 +447,7 @@ const ABOUT_GUIDE_ARTICLE: ArticleItem = {
   categoryHref: "/gioi-thieu",
   title: "Những điều cần lưu ý trước khi thiết kế và thi công nội thất",
   summary:
-    "Bài viết này giúp bạn xác định đúng nhu cầu, đúng thời điểm và đúng thứ tự ưu tiên trước khi bắt đầu một dự án nội thất.",
+    "Nội dung này giúp bạn xác định đúng nhu cầu, đúng thời điểm và đúng thứ tự ưu tiên trước khi bắt đầu một dự án nội thất.",
   heroImage: DIAMOND_VN_COMPANY.heroPoster,
   heroAlt: "Giới thiệu Diamond Model Decor",
   publishedAt: SITE_BUILD_DATE_ISO,
@@ -570,7 +571,7 @@ function createProjectArticle(group: ProjectGroup, item: ProjectItem, index: num
   const detail = cleanMetric(item.meta2);
   const publishedAt = SITE_BUILD_DATE_ISO;
   const dateLabel = formatDisplayDate(publishedAt);
-  const summary = `${item.title} là một công trình thuộc nhóm ${info.categoryLabel.toLowerCase()}, được triển khai theo tinh thần gọn, rõ và đúng gu. Bài viết này đi từ bối cảnh, giải pháp thiết kế cho đến thi công và bàn giao.`;
+  const summary = `${item.title} là một công trình thuộc nhóm ${info.categoryLabel.toLowerCase()}, được triển khai theo tinh thần gọn, rõ và đúng gu. Nội dung này đi từ bối cảnh, giải pháp thiết kế cho đến thi công và bàn giao.`;
 
   return {
     slug,
@@ -1078,12 +1079,12 @@ export const NEWS_COLLECTION: ArchiveCollection = {
   label: "Tin tức",
   title: "Tin tức & cảm hứng kiến trúc",
   description:
-    "Những bài viết ngắn gọn nhưng có chiều sâu về sa bàn, mô hình kiến trúc, vật liệu và cách trình bày dự án.",
-  eyebrow: "Bài viết mới",
+    "Những tin tức ngắn gọn nhưng có chiều sâu về sa bàn, mô hình kiến trúc, vật liệu và cách trình bày dự án.",
+  eyebrow: "Tin mới",
   heroImage: NEWS_ITEMS_WITH_RELATION[0]?.heroImage ?? DIAMOND_VN_COMPANY.trustImage,
   heroAlt: NEWS_ITEMS_WITH_RELATION[0]?.heroAlt ?? "Tin tức Diamond Model",
   filters: ["Mô hình", "Sa bàn", "Kiến trúc", "Trình bày"],
-  ctaLabel: "Khám phá bài viết",
+  ctaLabel: "Khám phá tin tức",
   ctaHref: "/lien-he",
   featuredSlug: NEWS_ITEMS_WITH_RELATION[0]?.slug,
   items: NEWS_ITEMS_WITH_RELATION,

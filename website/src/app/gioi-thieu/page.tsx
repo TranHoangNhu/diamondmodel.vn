@@ -15,12 +15,12 @@ export const dynamic = "force-dynamic";
 const FALLBACK_METADATA: Metadata = {
   title: "Giới thiệu | Diamond Model",
   description:
-    "Bài viết giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
+    "Trang giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
   alternates: { canonical: "/gioi-thieu" },
   openGraph: {
     title: "Giới thiệu | Diamond Model",
     description:
-      "Bài viết giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
+      "Trang giới thiệu Diamond Model theo dạng blog chi tiết với breadcrumb, table of contents và share social chuẩn SEO.",
     url: "/gioi-thieu",
     type: "article",
   },

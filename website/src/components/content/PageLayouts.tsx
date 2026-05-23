@@ -45,9 +45,12 @@ function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: "light"
 }
 
 function MetaPills({ meta }: { meta: ArticleMeta[] }) {
+  const visibleMeta = meta.filter((item) => !["Chuyên mục", "Hạng mục"].includes(item.label));
+  if (visibleMeta.length === 0) return null;
+
   return (
     <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-      {meta.map((item) => (
+      {visibleMeta.map((item) => (
         <span
           key={`${item.label}-${item.value}`}
           className="inline-flex items-center gap-2 rounded-full border border-[#e4d9ca] bg-white px-3 py-1.5 text-[12px] text-[#5c564f]"
@@ -134,7 +137,7 @@ function ArticleBody({
 function Toc({ sections }: { sections: ArticleSection[] }) {
   return (
     <div className="rounded-[18px] border border-[#e7ddd0] bg-white p-5 shadow-[0_12px_28px_rgba(25,35,38,0.06)]">
-      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Nội dung bài viết</p>
+      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Nội dung</p>
       <ol className="mt-4 space-y-3 text-[14px] leading-6 text-[#4f4b46]">
         {sections.map((section, index) => (
           <li key={section.id} className="flex gap-3">
@@ -221,7 +224,7 @@ function RelatedArticles({ items }: { items: ArticleItem[] }) {
     <section className="ph-section-surface pb-24">
       <div className="ph-container-wide">
         <div className="mx-auto max-w-[980px]">
-          <p className="ph-eyebrow text-center">Bài viết liên quan</p>
+          <p className="ph-eyebrow text-center">Tin liên quan</p>
           <div className="mt-3 text-center">
             <h2 className="ph-title">Xem thêm</h2>
           </div>
@@ -313,19 +316,21 @@ export function ArticleLayout({
             <aside className="space-y-6 lg:sticky lg:top-24">
               {article.sections.length > 0 ? <Toc sections={article.sections} /> : null}
               <ShareToolbar url={shareUrl} title={article.title} />
-              <div className="rounded-[18px] border border-[#e7ddd0] bg-white p-5 shadow-[0_12px_28px_rgba(25,35,38,0.06)]">
-                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Từ khóa</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {article.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex rounded-full bg-[#f4eee4] px-3 py-1 text-[12px] font-medium text-[#4f4b46]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              {article.tags.length > 0 ? (
+                <div className="rounded-[18px] border border-[#e7ddd0] bg-white p-5 shadow-[0_12px_28px_rgba(25,35,38,0.06)]">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c7469]">Từ khóa</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {article.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex rounded-full bg-[#f4eee4] px-3 py-1 text-[12px] font-medium text-[#4f4b46]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </aside>
           </div>
         </div>
