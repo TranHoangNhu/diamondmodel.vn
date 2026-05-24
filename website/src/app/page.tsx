@@ -8,7 +8,7 @@ import StatsSection from "@/components/home/StatsSection";
 import VideosSection from "@/components/home/VideosSection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { getCmsCollection } from "@/lib/cms-content";
-import { getCmsHeroSlides } from "@/lib/cms-settings";
+import { getCmsHomeSettings } from "@/lib/cms-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -17,17 +17,17 @@ function HomeReveal({ children }: { children: ReactNode }) {
 }
 
 export default async function Home() {
-  const [heroSlides, projectCollection, serviceCollection] = await Promise.all([
-    getCmsHeroSlides(),
+  const [homeSettings, projectCollection, serviceCollection] = await Promise.all([
+    getCmsHomeSettings(),
     getCmsCollection("du-an"),
     getCmsCollection("dich-vu"),
   ]);
 
   return (
     <>
-      <HeroSection slides={heroSlides} />
+      <HeroSection slides={homeSettings.heroSlides} />
       <HomeReveal>
-        <MissionSection />
+        <MissionSection settings={homeSettings.mission} />
       </HomeReveal>
       <HomeReveal>
         <TrustSection />
@@ -39,7 +39,7 @@ export default async function Home() {
         <ProcessSection />
       </HomeReveal>
       <HomeReveal>
-        <StatsSection />
+        <StatsSection settings={homeSettings.stats} />
       </HomeReveal>
       <HomeReveal>
         <VideosSection items={serviceCollection.items} />

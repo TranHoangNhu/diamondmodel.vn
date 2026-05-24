@@ -3,42 +3,68 @@
 import Image from "next/image";
 import { useState } from "react";
 import { DIAMOND_VN_VALUES } from "@/lib/diamond-vn";
+import type { HomeStatsMetric, HomeStatsSettings } from "@/lib/cms-settings";
 import { SectionHeading } from "./SharedComponents";
 
-type ValueItem = (typeof DIAMOND_VN_VALUES)[number];
+type LayoutItem = HomeStatsMetric & {
+  className: string;
+  sizeClass: string;
+};
 
-const VALUE_LAYOUT: Array<
-  Omit<ValueItem, "label"> & {
-    label: string;
-    className: string;
-    sizeClass: string;
-  }
-> = [
+const DEFAULT_STATS_SETTINGS: HomeStatsSettings = {
+  eyebrow: "Diamond Model đã thực hiện",
+  title: "GIÁ TRỊ CHÚNG TÔI ĐÃ TRAO ĐI",
+  defaultImage: "/diamond-vn/home/value-customer-01.webp",
+  backgroundImage: "",
+  metrics: DIAMOND_VN_VALUES.map((item) => ({ ...item })),
+};
+
+const BUBBLE_LAYOUT: Array<{
+  metricIndex: number;
+  className: string;
+  sizeClass: string;
+}> = [
   {
-    ...DIAMOND_VN_VALUES[1],
+    metricIndex: 1,
     className:
       "left-0 top-[28%] sm:left-[3%] sm:top-[27%] lg:left-[4%] lg:top-[27%]",
     sizeClass: "h-[140px] w-[140px] sm:h-[176px] sm:w-[176px] lg:h-[192px] lg:w-[192px]",
   },
   {
-    ...DIAMOND_VN_VALUES[0],
+    metricIndex: 0,
     className: "left-1/2 top-0 -translate-x-1/2",
     sizeClass: "h-[164px] w-[164px] sm:h-[198px] sm:w-[198px] lg:h-[200px] lg:w-[200px]",
   },
   {
-    ...DIAMOND_VN_VALUES[2],
+    metricIndex: 2,
     className:
       "right-0 top-[34%] sm:right-[3%] sm:top-[34%] lg:right-[4%] lg:top-[34%]",
     sizeClass: "h-[140px] w-[140px] sm:h-[176px] sm:w-[176px] lg:h-[192px] lg:w-[192px]",
   },
   {
-    ...DIAMOND_VN_VALUES[3],
-    label: "CÔNG TRÌNH\nTIÊU BIỂU",
+    metricIndex: 3,
     className:
       "bottom-[1%] left-[25%] sm:left-[29%] lg:left-[30%]",
     sizeClass: "h-[128px] w-[128px] sm:h-[160px] sm:w-[160px] lg:h-[168px] lg:w-[168px]",
   },
 ];
+
+function buildValueLayout(metrics: HomeStatsMetric[]): LayoutItem[] {
+  const normalizedMetrics = metrics.length ? metrics : DEFAULT_STATS_SETTINGS.metrics;
+
+  return BUBBLE_LAYOUT.map((layout) => {
+    const fallback = DEFAULT_STATS_SETTINGS.metrics[layout.metricIndex] || DEFAULT_STATS_SETTINGS.metrics[0];
+    const metric = normalizedMetrics[layout.metricIndex] || fallback;
+
+    return {
+      value: metric.value || fallback.value,
+      label: metric.label || fallback.label,
+      image: metric.image || fallback.image,
+      className: layout.className,
+      sizeClass: layout.sizeClass,
+    };
+  });
+}
 
 function Metric({ value, label }: { value: string; label: string }) {
   return (
@@ -56,7 +82,7 @@ function ValueBubble({
   active,
   onActivate,
 }: {
-  item: (typeof VALUE_LAYOUT)[number];
+  item: LayoutItem;
   active: boolean;
   onActivate: () => void;
 }) {
@@ -82,23 +108,34 @@ function ValueBubble({
   );
 }
 
-export default function StatsSection() {
+export default function StatsSection({ settings }: { settings?: HomeStatsSettings }) {
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const stats = settings || DEFAULT_STATS_SETTINGS;
+  const valueLayout = buildValueLayout(stats.metrics);
+  const centerImage = activeImage || stats.defaultImage || DEFAULT_STATS_SETTINGS.defaultImage;
 
   return (
-    <section id="stats" className="ph-section-surface">
+    <section
+      id="stats"
+      className="ph-section-surface"
+      style={stats.backgroundImage ? {
+        backgroundImage: `url(${stats.backgroundImage})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      } : undefined}
+    >
       <div className="ph-container-wide">
-        <SectionHeading eyebrow="Diamond Model đã thực hiện" title="GIÁ TRỊ CHÚNG TÔI ĐÃ TRAO ĐI" />
+        <SectionHeading eyebrow={stats.eyebrow} title={stats.title} />
 
         <div
           className="relative mx-auto mt-6 min-h-[430px] max-w-[1240px] overflow-visible sm:min-h-[500px] lg:mt-8 lg:min-h-[580px]"
           onMouseLeave={() => setActiveImage(null)}
         >
           <div className="absolute left-1/2 top-1/2 h-[264px] w-[264px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full bg-[#f1ebe2] sm:h-[378px] sm:w-[378px] lg:h-[480px] lg:w-[480px]">
-            {activeImage ? (
+            {centerImage ? (
               <Image
-                key={activeImage}
-                src={activeImage}
+                key={centerImage}
+                src={centerImage}
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 264px, 480px"
@@ -111,7 +148,7 @@ export default function StatsSection() {
           </div>
 
           <div className="absolute inset-0">
-            {VALUE_LAYOUT.map((item) => (
+            {valueLayout.map((item) => (
               <ValueBubble
                 key={item.label}
                 item={item}
