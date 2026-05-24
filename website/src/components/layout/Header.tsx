@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DIAMOND_VN_COMPANY } from "@/lib/diamond-vn";
-import { SITE_NAV_ITEMS } from "@/lib/site-nav";
+import { SITE_NAV_ITEMS, type SiteNavItem } from "@/lib/site-nav";
 
 const COMPACT_SCROLL_Y = 120;
 const SCROLL_DIRECTION_DELTA = 4;
@@ -52,7 +52,7 @@ function NavItem({
   onClick,
   active = false,
 }: {
-  item: (typeof SITE_NAV_ITEMS)[number];
+  item: SiteNavItem;
   className: string;
   tabIndex: number;
   onClick?: () => void;
@@ -79,7 +79,13 @@ function NavItem({
   );
 }
 
-export default function Header({ logoSrc }: { logoSrc?: string }) {
+export default function Header({
+  logoSrc,
+  navItems = SITE_NAV_ITEMS,
+}: {
+  logoSrc?: string;
+  navItems?: SiteNavItem[];
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [compact, setCompact] = useState(false);
@@ -163,7 +169,7 @@ export default function Header({ logoSrc }: { logoSrc?: string }) {
               </Link>
 
               <nav className="hidden items-center gap-7 lg:flex" aria-label="Menu chính">
-                {SITE_NAV_ITEMS.map((item) => (
+                {navItems.map((item) => (
                   <NavItem
                     key={item.label}
                     item={item}
@@ -282,7 +288,7 @@ export default function Header({ logoSrc }: { logoSrc?: string }) {
           ×
         </button>
         <div className="mx-auto flex max-w-[1180px] flex-col gap-5">
-          {SITE_NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <NavItem
               key={item.label}
               item={item}

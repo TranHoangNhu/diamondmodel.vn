@@ -64,6 +64,8 @@ type CmsPage = {
   createdAt?: string | null;
 };
 
+const STATIC_PAGE_CATEGORY = "Trang tĩnh";
+
 const CMS_BASE_URL =
   process.env.CMS_API_URL ||
   process.env.NEXT_PUBLIC_CMS_API_URL ||
@@ -263,31 +265,54 @@ export async function getCmsAboutArticle(): Promise<ArticleItem> {
   const selectedSlug = await getCmsAboutPageSlug();
   if (!selectedSlug) return ABOUT_ARTICLE;
 
-  const response = await cmsFetch<CmsPage>(`/api/public/pages/${encodeURIComponent(selectedSlug)}`);
-  if (!response?.slug) return ABOUT_ARTICLE;
+  return (await getCmsStaticPageBySlug(selectedSlug, ABOUT_ARTICLE, "Giới thiệu")) || ABOUT_ARTICLE;
+}
 
+function toPageArticle(
+  response: CmsPage,
+  fallback: ArticleItem,
+  categoryLabel = STATIC_PAGE_CATEGORY,
+): ArticleItem {
+  const slug = response.slug || fallback.slug;
   const publishedAt = dateValue(response);
   const content = response.content || "";
-  const summary = response.seoDescription || stripHtml(content).slice(0, 180) || ABOUT_ARTICLE.summary;
+  const summary = response.seoDescription || stripHtml(content).slice(0, 180) || fallback.summary;
 
   return {
-    ...ABOUT_ARTICLE,
-    slug: response.slug,
-    title: response.title || ABOUT_ARTICLE.title,
+    ...fallback,
+    slug,
+    categoryLabel,
+    categoryHref: slug ? `/${slug}` : fallback.categoryHref,
+    title: response.title || fallback.title,
     summary,
-    heroImage: response.ogImage || ABOUT_ARTICLE.heroImage,
-    heroAlt: response.title || ABOUT_ARTICLE.heroAlt,
+    heroImage: response.ogImage || fallback.heroImage,
+    heroAlt: response.title || fallback.heroAlt,
     publishedAt,
     dateLabel: formatDisplayDate(publishedAt),
     readTime: estimateReadTime(content || summary),
     meta: [
-      { label: "Chuyên mục", value: "Giới thiệu" },
+      { label: "Chuyên mục", value: categoryLabel },
       { label: "Cập nhật", value: formatDisplayDate(publishedAt) },
       { label: "Đọc", value: estimateReadTime(content || summary) },
     ],
-    contentHtml: content || ABOUT_ARTICLE.contentHtml,
+    tags: [],
+    contentHtml: content || fallback.contentHtml,
     sections: [{ id: "noi-dung", title: "Nội dung", paragraphs: [summary] }],
   };
+}
+
+export async function getCmsStaticPageBySlug(
+  slug: string,
+  fallback: ArticleItem = ABOUT_ARTICLE,
+  categoryLabel = STATIC_PAGE_CATEGORY,
+): Promise<ArticleItem | null> {
+  const normalizedSlug = slug.replace(/^\/+|\/+$/g, "");
+  if (!normalizedSlug) return null;
+
+  const response = await cmsFetch<CmsPage>(`/api/public/pages/${encodeURIComponent(normalizedSlug)}`);
+  if (!response?.slug) return null;
+
+  return toPageArticle(response, fallback, categoryLabel);
 }
 
 export async function getCmsRelatedArticles(article: ArticleItem, collection?: Exclude<CollectionSlug, "gioi-thieu">) {
