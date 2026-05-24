@@ -9,6 +9,7 @@ import {
   getArticleBySlug,
   getRelatedArticles,
 } from "@/lib/site-content";
+import { getCmsAboutPageSlug } from "@/lib/cms-settings";
 
 type CollectionSlug = "gioi-thieu" | "du-an" | "dich-vu" | "tin-tuc";
 
@@ -259,7 +260,10 @@ export async function getCmsArticleBySlug(
 }
 
 export async function getCmsAboutArticle(): Promise<ArticleItem> {
-  const response = await cmsFetch<CmsPage>("/api/public/pages/gioi-thieu");
+  const selectedSlug = await getCmsAboutPageSlug();
+  if (!selectedSlug) return ABOUT_ARTICLE;
+
+  const response = await cmsFetch<CmsPage>(`/api/public/pages/${encodeURIComponent(selectedSlug)}`);
   if (!response?.slug) return ABOUT_ARTICLE;
 
   const publishedAt = dateValue(response);

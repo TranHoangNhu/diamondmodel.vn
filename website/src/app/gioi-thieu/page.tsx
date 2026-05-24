@@ -3,6 +3,7 @@ import {
   SITE_URL,
 } from "@/lib/site-content";
 import { getCmsAboutArticle, getCmsRelatedArticles } from "@/lib/cms-content";
+import { getCmsAboutPageSlug } from "@/lib/cms-settings";
 import { fetchCmsSeoMetadata, mapCmsSeoMetadataToNext } from "@/lib/cms-seo";
 import {
   ArticleJsonLd,
@@ -27,8 +28,18 @@ const FALLBACK_METADATA: Metadata = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const seo = await fetchCmsSeoMetadata("page", "gioi-thieu");
-  return seo ? mapCmsSeoMetadataToNext(seo) : FALLBACK_METADATA;
+  const selectedSlug = await getCmsAboutPageSlug();
+  const seo = await fetchCmsSeoMetadata("page", selectedSlug || "gioi-thieu");
+  if (!seo) return FALLBACK_METADATA;
+
+  const metadata = mapCmsSeoMetadataToNext(seo);
+  return {
+    ...metadata,
+    alternates: { canonical: "/gioi-thieu" },
+    openGraph: metadata.openGraph
+      ? { ...metadata.openGraph, url: "/gioi-thieu" }
+      : FALLBACK_METADATA.openGraph,
+  };
 }
 
 export default async function GioiThieuPage() {

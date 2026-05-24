@@ -20,6 +20,7 @@ export interface CmsGeneralSettings {
   siteFavicon: string;
   footerBadge: string;
   siteName: string;
+  aboutPageSlug: string;
 }
 
 const CMS_BASE_URL =
@@ -35,6 +36,7 @@ const CMS_API_KEY =
 const CMS_TIMEOUT_MS = 3500;
 
 const isVideoUrl = (url: string) => /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
+const ABOUT_DEMO_VALUE = "__demo";
 
 const cmsBaseUrl = () => CMS_BASE_URL.replace(/\/$/, "");
 
@@ -143,8 +145,17 @@ export async function getCmsGeneralSettings(): Promise<CmsGeneralSettings | null
       siteFavicon: normalizeCmsAssetUrl(values.site_favicon || ""),
       footerBadge: normalizeCmsAssetUrl(values.footer_badge || ""),
       siteName: values.site_name || "",
+      aboutPageSlug: values.frontend_about_page_slug || ABOUT_DEMO_VALUE,
     };
   } catch {
     return null;
   }
+}
+
+export async function getCmsAboutPageSlug(): Promise<string | null> {
+  const generalSettings = await getCmsGeneralSettings();
+  const slug = generalSettings?.aboutPageSlug?.trim();
+
+  if (!slug || slug === ABOUT_DEMO_VALUE) return null;
+  return slug.replace(/^\/+|\/+$/g, "");
 }
