@@ -266,6 +266,14 @@ body::before {
   text-underline-offset: 4px;
 }
 
+.cms-richtext-image {
+  overflow: hidden;
+  border: 1px solid #ede2d3;
+  border-radius: 18px;
+  background: #fffdfa;
+  margin-top: 1.25rem;
+}
+
 .cms-richtext img {
   width: 100%;
   height: auto;

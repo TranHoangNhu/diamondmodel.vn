@@ -12,6 +12,52 @@ type Crumb = {
   href: string;
 };
 
+type RichTextPart =
+  | { type: "html"; html: string }
+  | { type: "image"; src: string; alt: string };
+
+const RICHTEXT_IMAGE_PATTERN = /<p\b[^>]*>\s*(<img\b[^>]*>)\s*<\/p>|(<img\b[^>]*>)/gi;
+const ATTRIBUTE_PATTERN = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'>/]+))/g;
+
+function parseHtmlAttributes(html: string) {
+  const attributes: Record<string, string> = {};
+  let match: RegExpExecArray | null;
+
+  while ((match = ATTRIBUTE_PATTERN.exec(html)) !== null) {
+    attributes[match[1].toLowerCase()] = match[2] || match[3] || match[4] || "";
+  }
+
+  return attributes;
+}
+
+function parseRichTextParts(contentHtml: string): RichTextPart[] {
+  const parts: RichTextPart[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = RICHTEXT_IMAGE_PATTERN.exec(contentHtml)) !== null) {
+    const htmlBefore = contentHtml.slice(lastIndex, match.index).trim();
+    if (htmlBefore) parts.push({ type: "html", html: htmlBefore });
+
+    const imageHtml = match[1] || match[2] || "";
+    const attributes = parseHtmlAttributes(imageHtml);
+    if (attributes.src) {
+      parts.push({
+        type: "image",
+        src: attributes.src,
+        alt: attributes.alt || attributes.title || "",
+      });
+    }
+
+    lastIndex = RICHTEXT_IMAGE_PATTERN.lastIndex;
+  }
+
+  const htmlAfter = contentHtml.slice(lastIndex).trim();
+  if (htmlAfter) parts.push({ type: "html", html: htmlAfter });
+
+  return parts.length ? parts : [{ type: "html", html: contentHtml }];
+}
+
 function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: "light" | "dark" }) {
   const rootClass =
     tone === "dark"
@@ -93,12 +139,38 @@ function ArticleBody({
   contentHtml?: string;
 }) {
   if (contentHtml) {
+    const richTextParts = parseRichTextParts(contentHtml);
+
     return (
       <section id={sections[0]?.id || "noi-dung"} className="scroll-mt-28">
-        <div
-          className="cms-richtext"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
+        <div className="cms-richtext">
+          {richTextParts.map((part, index) => {
+            if (part.type === "image") {
+              return (
+                <figure key={`${part.src}-${index}`} className="cms-richtext-image">
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={part.src}
+                      alt={part.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 860px"
+                      className="object-contain"
+                      quality={90}
+                      unoptimized={/\.svg(\?.*)?$/i.test(part.src)}
+                    />
+                  </div>
+                </figure>
+              );
+            }
+
+            return (
+              <div
+                key={`html-${index}`}
+                dangerouslySetInnerHTML={{ __html: part.html }}
+              />
+            );
+          })}
+        </div>
       </section>
     );
   }
