@@ -267,19 +267,20 @@ body::before {
 }
 
 .cms-richtext-image {
-  overflow: hidden;
-  border: 1px solid #ede2d3;
-  border-radius: 18px;
-  background: #fffdfa;
   margin-top: 1.25rem;
 }
 
 .cms-richtext img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border: 1px solid #ede2d3;
   border-radius: 18px;
   margin-top: 1.25rem;
+}
+
+.cms-richtext-image img {
+  width: auto;
+  margin-top: 0;
+  border: 0;
 }
 
 .img-zoom img {

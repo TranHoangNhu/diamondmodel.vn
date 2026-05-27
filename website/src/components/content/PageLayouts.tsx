@@ -14,7 +14,7 @@ type Crumb = {
 
 type RichTextPart =
   | { type: "html"; html: string }
-  | { type: "image"; src: string; alt: string };
+  | { type: "image"; src: string; alt: string; width: number; height: number };
 
 const RICHTEXT_IMAGE_PATTERN = /<p\b[^>]*>\s*(<img\b[^>]*>)\s*<\/p>|(<img\b[^>]*>)/gi;
 const ATTRIBUTE_PATTERN = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'>/]+))/g;
@@ -28,6 +28,12 @@ function parseHtmlAttributes(html: string) {
   }
 
   return attributes;
+}
+
+function parseImageDimension(value: string | undefined, fallback: number) {
+  if (!value) return fallback;
+  const numericValue = Number.parseInt(value, 10);
+  return Number.isFinite(numericValue) && numericValue > 0 ? numericValue : fallback;
 }
 
 function parseRichTextParts(contentHtml: string): RichTextPart[] {
@@ -46,6 +52,8 @@ function parseRichTextParts(contentHtml: string): RichTextPart[] {
         type: "image",
         src: attributes.src,
         alt: attributes.alt || attributes.title || "",
+        width: parseImageDimension(attributes.width, 1200),
+        height: parseImageDimension(attributes.height, 750),
       });
     }
 
@@ -148,17 +156,16 @@ function ArticleBody({
             if (part.type === "image") {
               return (
                 <figure key={`${part.src}-${index}`} className="cms-richtext-image">
-                  <div className="relative aspect-[16/10]">
-                    <Image
-                      src={part.src}
-                      alt={part.alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 860px"
-                      className="object-contain"
-                      quality={90}
-                      unoptimized={/\.svg(\?.*)?$/i.test(part.src)}
-                    />
-                  </div>
+                  <Image
+                    src={part.src}
+                    alt={part.alt}
+                    width={part.width}
+                    height={part.height}
+                    sizes="(max-width: 1024px) 100vw, 860px"
+                    className="mx-auto h-auto max-h-[82vh] w-auto max-w-full rounded-[18px]"
+                    quality={90}
+                    unoptimized={/\.svg(\?.*)?$/i.test(part.src)}
+                  />
                 </figure>
               );
             }
