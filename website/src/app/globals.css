@@ -173,12 +173,12 @@ body::before {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7398a4;
+  background: #152238;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5f8794;
+  background: #152238;
 }
 
 .text-balance {
