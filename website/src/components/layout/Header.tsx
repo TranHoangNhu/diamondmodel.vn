@@ -143,7 +143,7 @@ export default function Header({
   return (
     <>
       <header
-        className={`fixed right-0 top-0 z-50 h-16 overflow-hidden border-b border-white/10 bg-[#7398a4]/95 shadow-[0_6px_24px_rgba(0,0,0,0.14)] backdrop-blur-sm transition-[width,box-shadow,background-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-16 lg:h-[76px] ${
+        className={`fixed right-0 top-0 z-50 h-16 overflow-hidden border-b border-white/10 bg-[#152238]/95 shadow-[0_6px_24px_rgba(0,0,0,0.14)] backdrop-blur-sm transition-[width,box-shadow,background-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-16 lg:h-[76px] ${
           compact ? "w-[224px] sm:w-[284px] lg:w-[306px]" : "w-full"
         }`}
       >

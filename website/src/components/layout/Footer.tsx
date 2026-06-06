@@ -12,7 +12,7 @@ export default function Footer({
   const footerBadge = footerBadgeSrc || DIAMOND_VN_COMPANY.footerBadge;
 
   return (
-    <footer id="footer" className="bg-[#7398a4] pt-10 text-white">
+    <footer id="footer" className="bg-[#152238] pt-10 text-white">
       <div className="overflow-hidden border-b border-white/15 pb-8">
         <p className="text-center text-[16px] font-semibold uppercase">BẠN CẦN 1 ĐƠN VỊ NỘI THẤT CHUYÊN NGHIỆP?</p>
         <div className="mt-4 overflow-hidden whitespace-nowrap">
