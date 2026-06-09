@@ -1,6 +1,15 @@
 import Image from "next/image";
-import { DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
+import Link from "next/link";
 import { CARD_TITLE_CLASS } from "@/components/ui/cardTypography";
+
+export type ProjectCardItem = {
+  title: string;
+  href: string;
+  image: string;
+  meta1: string;
+  meta2: string;
+  meta2Type: "area" | "bedroom" | "scale";
+};
 
 export function SectionHeading({
   eyebrow,
@@ -34,13 +43,17 @@ export function ProjectCard({
   item,
   badge,
 }: {
-  item: (typeof DIAMOND_VN_PROJECTS)[number]["items"][number];
+  item: ProjectCardItem;
   badge: string;
 }) {
   const summary = `${item.meta1} · ${item.meta2}`;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#e7ddd0] bg-white shadow-[0_12px_30px_rgba(25,35,38,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(25,35,38,0.1)]">
+    <Link
+      href={item.href}
+      aria-label={`Xem chi tiết ${item.title}`}
+      className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-[#e7ddd0] bg-white shadow-[0_12px_30px_rgba(25,35,38,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(25,35,38,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6b95a2]/40"
+    >
       <div className="relative aspect-[16/10] bg-[#f4eee4]">
         <Image
           src={item.image}
@@ -65,7 +78,7 @@ export function ProjectCard({
           {summary}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }
 
