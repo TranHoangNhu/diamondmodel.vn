@@ -1,6 +1,9 @@
-node_modules/
-.next/
-scratch/
-.agents/mcp_config.json
+node_modules/
+
+.next/
+
+scratch/
+
+.agents/mcp_config.json
+
 config.bat
-.env
