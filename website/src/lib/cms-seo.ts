@@ -15,7 +15,7 @@ import {
 const CMS_BASE_URL =
   process.env.CMS_API_URL ||
   process.env.NEXT_PUBLIC_CMS_API_URL ||
-  "https://admin.minnam.asia";
+  "https://admin.mohinhkimcuong.vn";
 
 const CMS_API_KEY =
   process.env.CMS_API_KEY ||
@@ -54,6 +54,7 @@ export interface CmsSeoSettings {
   siteDescription: string;
   siteKeywords: string[];
   siteUrl: string;
+  defaultOgImage: string;
 }
 
 export interface CmsSeoMetadata {
@@ -129,14 +130,24 @@ export async function fetchCmsSeoSettings(): Promise<CmsSeoSettings | null> {
   const siteDescription = values.seo_description?.trim();
   const siteKeywords = parseKeywords(values.seo_keywords || "");
   const siteUrl = values.seo_site_url?.trim() || SITE_URL;
+  const defaultOgImage = values.seo_default_og_image?.trim() || "";
 
-  if (!siteTitle && !siteDescription && !siteKeywords.length && !siteUrl) return null;
+  if (
+    !siteTitle &&
+    !siteDescription &&
+    !siteKeywords.length &&
+    !siteUrl &&
+    !defaultOgImage
+  ) {
+    return null;
+  }
 
   return {
     siteTitle: siteTitle || "Diamond Model | Thiết kế và thi công nội thất",
     siteDescription: siteDescription || "",
     siteKeywords,
     siteUrl,
+    defaultOgImage,
   };
 }
 

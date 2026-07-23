@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "admin.minnam.asia",
+        hostname: "admin.mohinhkimcuong.vn",
         pathname: "/**",
       },
       {
