@@ -48,7 +48,7 @@ For frontend tasks, treat the CMS as an external read-only API provider.
 | Service | URL | Tech |
 |---|---|---|
 | Website | `diamondmodel.vn` | Next.js 16.2.3 |
-| CMS API | `admin.minnam.asia` / `cms.looms.vn` | NestJS |
+| CMS API | `admin.mohinhkimcuong.vn` / `cms.looms.vn` | NestJS |
 | Media CDN | `media.looms.vn` | MinIO S3 |
 
 ---
@@ -372,7 +372,7 @@ npm run lint         # ESLint
 ### Environment Variables
 
 ```env
-CMS_API_URL=https://admin.minnam.asia
+CMS_API_URL=https://admin.mohinhkimcuong.vn
 CMS_API_KEY=
 ```
 

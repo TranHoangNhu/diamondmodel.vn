@@ -50,12 +50,25 @@ export async function generateMetadata(): Promise<Metadata> {
     : DEFAULT_KEYWORDS;
   const siteName = generalSettings?.siteName || "Diamond Model";
   const siteFavicon = generalSettings?.siteFavicon || "/diamondmodel/brand/icon-diamondmodel-drop.png";
+  const defaultOgImage =
+    seoSettings?.defaultOgImage || "/diamond-vn/home/banner-lf.jpg";
 
   return {
     metadataBase: new URL(siteUrl),
     title,
     description,
     keywords,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     icons: {
       icon: siteFavicon,
     },
@@ -66,14 +79,23 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName,
       images: [
         {
-          url: "/diamond-vn/home/banner-lf.jpg",
-          width: 1920,
-          height: 1358,
+          url: defaultOgImage,
           alt: "Diamond Model Decor",
         },
       ],
       locale: "vi_VN",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [
+        {
+          url: defaultOgImage,
+          alt: "Diamond Model Decor",
+        },
+      ],
     },
   };
 }
