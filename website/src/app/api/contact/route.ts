@@ -1,7 +1,7 @@
 const CMS_BASE_URL =
   process.env.CMS_API_URL ||
   process.env.NEXT_PUBLIC_CMS_API_URL ||
-  "https://admin.minnam.asia";
+  "https://admin.mohinhkimcuong.vn";
 
 const CMS_API_KEY =
   process.env.CMS_API_KEY ||

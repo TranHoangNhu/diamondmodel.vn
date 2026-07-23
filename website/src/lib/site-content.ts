@@ -3,7 +3,7 @@ import { DIAMOND_VN_COMPANY, DIAMOND_VN_PROJECTS } from "@/lib/diamond-vn";
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.SITE_URL ||
-  "https://diamondmodel.minnam.asia"
+  "https://mohinhkimcuong.vn"
 ).replace(/\/+$/, "");
 export const SITE_BUILD_DATE_ISO = "2026-04-18";
 
@@ -684,7 +684,7 @@ const SERVICE_ITEMS = [
     summary:
       "Khảo sát yêu cầu, tỷ lệ và góc nhìn trưng bày trước khi đi vào mô hình.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/604d1e5f4c01-sa-ban-du-an-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/604d1e5f4c01-sa-ban-du-an-1.jpg",
     heroAlt: "Tư vấn thiết kế sa bàn Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
@@ -736,7 +736,7 @@ const SERVICE_ITEMS = [
     summary:
       "Thi công, lắp ráp và hoàn thiện mô hình theo đúng tỷ lệ, vật liệu và tiến độ.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/00abdac87780-kinh-nghiem-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/00abdac87780-kinh-nghiem-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep-1.jpg",
     heroAlt: "Thi công sa bàn Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
@@ -788,7 +788,7 @@ const SERVICE_ITEMS = [
     summary:
       "Phối cảnh 3D giúp chủ đầu tư hình dung công trình trước khi bước vào thi công mô hình.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/8da2e5c355c9-phoi-canh-du-an-can-ho-la-premier.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/8da2e5c355c9-phoi-canh-du-an-can-ho-la-premier.jpg",
     heroAlt: "Thiết kế 3D phối cảnh Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
@@ -840,7 +840,7 @@ const SERVICE_ITEMS = [
     summary:
       "Bảo trì định kỳ giúp mô hình luôn ổn định, sạch và sẵn sàng trưng bày.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/f188ad4ba4bc-mo-hinh-bat-dong-san-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/f188ad4ba4bc-mo-hinh-bat-dong-san-1.jpg",
     heroAlt: "Bảo trì và sửa chữa mô hình Diamond Model",
     publishedAt: SITE_BUILD_DATE_ISO,
     dateLabel: formatDisplayDate(SITE_BUILD_DATE_ISO),
@@ -891,7 +891,7 @@ const DEMO_NEWS_OVERRIDES = [
     title: "Cách làm mô hình kiến trúc đẹp và chuyên nghiệp",
     summary: "Một mô hình đẹp phải rõ tỷ lệ, khối và độ sạch trong hoàn thiện.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/aa88d216d874-kinh-nghiem-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/aa88d216d874-kinh-nghiem-lam-mo-hinh-kien-truc-dep-va-chuyen-nghiep-1.jpg",
     heroAlt: "Mô hình kiến trúc đẹp và chuyên nghiệp",
     publishedAt: "2025-06-18",
     dateLabel: formatDisplayDate("2025-06-18"),
@@ -908,7 +908,7 @@ const DEMO_NEWS_OVERRIDES = [
     title: "6 phụ kiện trang trí mô hình không thể thiếu và cách chế tạo",
     summary: "Phụ kiện đúng chỗ giúp mô hình có chiều sâu mà không làm rối bố cục.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/ae29b80c8852-phu-kien-trang-tri-mo-hinh-7.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/ae29b80c8852-phu-kien-trang-tri-mo-hinh-7.jpg",
     heroAlt: "Phụ kiện trang trí mô hình",
     publishedAt: "2025-06-05",
     dateLabel: formatDisplayDate("2025-06-05"),
@@ -925,7 +925,7 @@ const DEMO_NEWS_OVERRIDES = [
     title: "Sa bàn dự án là gì? Thiết kế sa bàn dự án ở đâu?",
     summary: "Sa bàn dự án là công cụ trình bày quy hoạch, phân khu và điểm nhấn công trình.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/80cca7356354-sa-ban-du-an-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/80cca7356354-sa-ban-du-an-1.jpg",
     heroAlt: "Sa bàn dự án",
     publishedAt: "2025-05-22",
     dateLabel: formatDisplayDate("2025-05-22"),
@@ -942,7 +942,7 @@ const DEMO_NEWS_OVERRIDES = [
     title: "Thiết kế mô hình kiến trúc nhà sàn chuyên nghiệp và độc đáo",
     summary: "Mô hình nhà sàn đòi hỏi cách xử lý chân đế, mái và tỷ lệ chi tiết riêng.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/b6d760c7dca8-mo-hinh-nha-san-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/b6d760c7dca8-mo-hinh-nha-san-1.jpg",
     heroAlt: "Mô hình kiến trúc nhà sàn",
     publishedAt: "2025-05-08",
     dateLabel: formatDisplayDate("2025-05-08"),
@@ -959,7 +959,7 @@ const DEMO_NEWS_OVERRIDES = [
     title: "Làm mô hình kiến trúc chuyên nghiệp mất bao lâu?",
     summary: "Thời gian làm mô hình phụ thuộc quy mô, vật liệu và mức độ tinh xảo.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/ad10865b6ada-thoi-gian-lam-mo-hinh-kien-truc-2.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/ad10865b6ada-thoi-gian-lam-mo-hinh-kien-truc-2.jpg",
     heroAlt: "Thời gian làm mô hình kiến trúc",
     publishedAt: "2025-04-24",
     dateLabel: formatDisplayDate("2025-04-24"),
@@ -976,7 +976,7 @@ const DEMO_NEWS_OVERRIDES = [
     title: "Kinh nghiệm xem mô hình kiến trúc bất động sản cực chi tiết",
     summary: "Khi xem mô hình, hãy chú ý trục nhìn, ánh sáng và mức độ đồng bộ.",
     heroImage:
-      "https://admin.minnam.asia/media/media-diamond-model/imports/bizweb/ca40d486ad7e-mo-hinh-bat-dong-san-1.jpg",
+      "https://admin.mohinhkimcuong.vn/media/media-diamond-model/imports/bizweb/ca40d486ad7e-mo-hinh-bat-dong-san-1.jpg",
     heroAlt: "Kinh nghiệm xem mô hình kiến trúc bất động sản",
     publishedAt: "2025-04-10",
     dateLabel: formatDisplayDate("2025-04-10"),
